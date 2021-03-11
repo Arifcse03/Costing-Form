@@ -470,6 +470,7 @@ public class XX_OM_POC_H_TEOImpl extends EntityImpl {
      * @param value value to set the Style
      */
     public void setStyle(String value) {
+        value=  value.trim();   // added on 11 mar 2021 by arif  to eliminate space before or after value
         setAttributeInternal(STYLE, value);
     }
 

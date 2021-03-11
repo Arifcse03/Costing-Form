@@ -634,6 +634,7 @@ public class XX_OM_POC_H_TVORowImpl extends ViewRowImpl {
      * @param value value to set the STYLE
      */
     public void setStyle(String value) {
+        value=  value.trim();   // added on 11 mar 2021 by Arif to eliminate space before or after value
         setAttributeInternal(STYLE, value);
     }
 

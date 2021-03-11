@@ -580,6 +580,7 @@ public class XX_OM_POC_L_TEOImpl extends EntityImpl {
      * @param value value to set the WashName
      */
     public void setWashName(String value) {
+        value=  value.trim();   // added on 11mar 2021 by arif to eliminate space before or after value
         setAttributeInternal(WASHNAME, value);
     }
 
