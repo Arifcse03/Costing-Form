@@ -25,7 +25,7 @@
     Name="p_userId"
     Kind="where"
     Type="java.lang.String"
-    DefaultValue="3057"/>
+    DefaultValue="adf.context.sessionScope.userIdS"/>
   <ViewAccessor
     Name="Buyerlov1"
     ViewObjectName="model.lov.Buyerlov"

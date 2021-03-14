@@ -2,7 +2,8 @@ package view.backing.bean;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
+import org.apache.myfaces.trinidad.render.ExtendedRenderKitService;
+import org.apache.myfaces.trinidad.util.Service;
 import java.sql.SQLException;
 
 import javax.faces.component.UIViewRoot;
@@ -2341,4 +2342,25 @@ public void RefreshWashCost() {
         context.addMessage(null, fm);
         AdfFacesContext.getCurrentInstance().addPartialTarget(queryTable);
     }
+
+    public void GoBpoFormWithPocId(ActionEvent actionEvent) {
+        // Add event code here...
+        ViewObject vo = appM.getXX_OM_POC_H_TVO1();
+                int PocId=Integer.parseInt(vo.getCurrentRow().getAttribute("PocId").toString());
+                String newPage =
+                "http://192.168.200.110:7003/BPO-ViewController-context-root/faces/searchPG?PocId="+PocId;
+
+                urlink(newPage);
+        
+    }
+    
+    public void urlink(String link){
+            String newPage =link;
+
+            // String newPage = "http://localhost:7101/PurchaseMemo-ViewController-context-root/faces/SearchPG?headerId="+getBomId().getValue();
+            FacesContext ctx = FacesContext.getCurrentInstance();
+            ExtendedRenderKitService erks = Service.getService(ctx.getRenderKit(), ExtendedRenderKitService.class);
+            String url = "window.open('" + newPage + "','_blank','toolbar=no,location=no,menubar=no,alwaysRaised=yes,height=500,width=1100');";
+            erks.addScript(FacesContext.getCurrentInstance(), url);
+            }
 }
