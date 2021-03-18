@@ -98,7 +98,8 @@
                       rowSelection="single" id="t1"
                       partialTriggers="::cb1 cl1"
                       inlineStyle="font-size:medium;"
-                      binding="#{ManagedBean.queryTable}">
+                      binding="#{ManagedBean.queryTable}"
+                      styleClass="AFStretchWidth">
               <af:column id="c13" align="center"
                          sortable="true" filterable="true"
                          headerText="Doc Ref. No">
