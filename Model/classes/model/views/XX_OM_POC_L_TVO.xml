@@ -372,4 +372,9 @@
     ViewLink="model.views.linetowetVL"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="trimsVO"
+    ViewLink="model.views.POC_D1Via_fobId_trimsVo"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

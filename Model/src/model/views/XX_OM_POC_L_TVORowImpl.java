@@ -470,6 +470,16 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        trimsVO {
+            public Object get(XX_OM_POC_L_TVORowImpl obj) {
+                return obj.gettrimsVO();
+            }
+
+            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
         colorLov1 {
             public Object get(XX_OM_POC_L_TVORowImpl obj) {
                 return obj.getcolorLov1();
@@ -506,6 +516,7 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
     public static final int FOBID = AttributesEnum.FobId.index();
     public static final int POCID = AttributesEnum.PocId.index();
     public static final int SYSTEMID = AttributesEnum.SystemId.index();
@@ -551,6 +562,7 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
     public static final int XX_OM_POC_D1_TVO = AttributesEnum.XX_OM_POC_D1_TVO.index();
     public static final int XX_OM_POC_D2_TVO = AttributesEnum.XX_OM_POC_D2_TVO.index();
     public static final int XX_OM_POC_D2_TVO2 = AttributesEnum.XX_OM_POC_D2_TVO2.index();
+    public static final int TRIMSVO = AttributesEnum.trimsVO.index();
     public static final int COLORLOV1 = AttributesEnum.colorLov1.index();
 
     /**
@@ -1257,6 +1269,13 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
      */
     public RowIterator getXX_OM_POC_D2_TVO2() {
         return (RowIterator)getAttributeInternal(XX_OM_POC_D2_TVO2);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link trimsVO.
+     */
+    public RowIterator gettrimsVO() {
+        return (RowIterator)getAttributeInternal(TRIMSVO);
     }
 
     /**

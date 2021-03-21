@@ -34,6 +34,11 @@
     <searchRegion Binds="POCLinesCopyVO1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   id="POCLinesCopyVO1Query"/>
+    <iterator Binds="trimsVO1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="trimsVO1Iterator"/>
+    <searchRegion Binds="trimsVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="trimsVO1Query"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="XX_OM_POC_H_TVO1Iterator" id="Style">
@@ -411,5 +416,45 @@
     </attributeValues>
     <listOfValues StaticList="false" IterBinding="XX_OM_POC_H_TVO1Iterator"
                   Uses="LOV_Buyer" id="Buyer"/>
+    <tree IterBinding="trimsVO1Iterator" id="trimsVO1">
+      <nodeDefinition DefName="model.views.trimsVO" Name="trimsVO10">
+        <AttrNames>
+          <Item Value="ActualUnitPrice"/>
+          <Item Value="AddChargeLc"/>
+          <Item Value="AddCrgPrcnt"/>
+          <Item Value="AddDeductCost"/>
+          <Item Value="AddPriceFob"/>
+          <Item Value="AddPriceMoq"/>
+          <Item Value="Bufer"/>
+          <Item Value="ConsPerPcs"/>
+          <Item Value="ConsWithWastage"/>
+          <Item Value="CostPerPcs"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="CreationDate"/>
+          <Item Value="DeliveryTermId"/>
+          <Item Value="DetailId"/>
+          <Item Value="FabFinanceCost"/>
+          <Item Value="FinalCons"/>
+          <Item Value="FinalCostPerPcs"/>
+          <Item Value="FinalUnitPrice"/>
+          <Item Value="FobId"/>
+          <Item Value="ItemDesc"/>
+          <Item Value="ItemPrefix"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="LastUpdatedDate"/>
+          <Item Value="PaymentTermId"/>
+          <Item Value="PrefixDesc"/>
+          <Item Value="PriceUom"/>
+          <Item Value="RefCode"/>
+          <Item Value="Remarks"/>
+          <Item Value="Status"/>
+          <Item Value="Uom"/>
+          <Item Value="UomConv"/>
+          <Item Value="WastageInPer"/>
+          <Item Value="WastageInQty"/>
+          <Item Value="ItemPrefixDesc"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

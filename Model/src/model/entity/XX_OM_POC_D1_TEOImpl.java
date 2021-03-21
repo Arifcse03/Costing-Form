@@ -388,6 +388,7 @@ public class XX_OM_POC_D1_TEOImpl extends EntityImpl {
         }
     }
 
+
     public static final int DETAILID = AttributesEnum.DetailId.index();
     public static final int FOBID = AttributesEnum.FobId.index();
     public static final int ITEMPREFIX = AttributesEnum.ItemPrefix.index();
@@ -428,6 +429,7 @@ public class XX_OM_POC_D1_TEOImpl extends EntityImpl {
      */
     public XX_OM_POC_D1_TEOImpl() {
     }
+
 
     /**
      * @return the definition object for this instance class.

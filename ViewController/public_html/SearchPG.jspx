@@ -8,7 +8,7 @@
     <af:document id="d1">
       <af:messages id="m1"/>
       <af:form id="f1">
-        <af:panelHeader text="Pre Costing Form" id="ph1"
+        <af:panelHeader text="Costing Form" id="ph1"
                         styleClass="AFStretchWidth">
           <f:facet name="context"/>
           <f:facet name="menuBar"/>

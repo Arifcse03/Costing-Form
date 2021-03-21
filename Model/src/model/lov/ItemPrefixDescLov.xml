@@ -20,7 +20,7 @@
     </SchemaBasedProperties>
   </Properties>
   <SQLQuery>
-    <![CDATA[SELECT t.flex_value, t.value_description
+    <![CDATA[/*SELECT t.flex_value, t.value_description
   FROM MNJ_ITEM_PREFIX_V t
  WHERE t.FLEX_VALUE IN ('00',
                         '11',
@@ -42,10 +42,10 @@
                         '34',
                         '35',
                         '36',
-                        '55')
-/*SELECT t.flex_value, t.value_description
+                        '55')*/
+SELECT t.flex_value, t.value_description
   FROM MNJ_ITEM_PREFIX_V t
- WHERE t.FLEX_VALUE IN (11,12)*/]]>
+ WHERE t.FLEX_VALUE IN (11,12)]]>
   </SQLQuery>
   <ViewAttribute
     Name="FlexValue"
