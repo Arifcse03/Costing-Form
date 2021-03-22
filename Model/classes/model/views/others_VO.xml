@@ -295,7 +295,6 @@ ORDER BY XX_OM_POC_D1_TEO.ITEM_PREFIX]]>
     AliasName="WASTAGE_IN_QTY"/>
   <ViewAttribute
     Name="ItemPrefixDesc"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="240"

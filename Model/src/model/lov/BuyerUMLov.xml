@@ -20,7 +20,11 @@
     </SchemaBasedProperties>
   </Properties>
   <SQLQuery>
-    <![CDATA[SELECT CUSTOMER_ID,CUSTOMER_NUMBER,CUSTOMER_NAME from ar_customers where status='A' and CUSTOMER_NAME_PHONETIC='UM']]>
+    <![CDATA[SELECT DISTINCT ac.CUSTOMER_ID,ac.CUSTOMER_NUMBER,AC.CUSTOMER_NAME from ar_customers ac,
+     qa_results_v qr  
+WHERE qr.NAME = 'BUYER WISE DETAILS OM'
+AND ac.CUSTOMER_ID = qr.CHARACTER15 and ac.status = 'A'  and CUSTOMER_NAME_PHONETIC='M'
+/* SELECT CUSTOMER_ID,CUSTOMER_NUMBER,CUSTOMER_NAME from ar_customers where status='A' and CUSTOMER_NAME_PHONETIC='UM' -- OLD ONE */]]>
   </SQLQuery>
   <ViewAttribute
     Name="CustomerId"

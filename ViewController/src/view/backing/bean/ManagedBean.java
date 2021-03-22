@@ -2200,7 +2200,7 @@ public void RefreshWashCost() {
         unitId= hvo.getCurrentRow().getAttribute("OrgId").toString();
 //           unitId=getOrganizationId().getValue().toString();
         } catch (Exception e) {
-        ;
+       unitId = null ;
         }
         
         System.out.println("=========== LC UNIT ==========="+unitId);
@@ -2210,7 +2210,7 @@ public void RefreshWashCost() {
         buyer_name= hvo.getCurrentRow().getAttribute("BuyerId").toString();
 //          buyer_name= getBuyerId().getValue().toString(); 
         } catch (Exception e) {
-        ;
+         buyer_name=null;
         }
         System.out.println("=========== buyer_name ==========="+buyer_name);
         String Season=null;
@@ -2218,7 +2218,7 @@ public void RefreshWashCost() {
         Season= hvo.getCurrentRow().getAttribute("Season").toString();
 //           Season= getSeasonId().getValue().toString();
         } catch (Exception e) {
-        ;
+            Season=null;
         }
         System.out.println("=========== unitId ==========="+unitId);
         System.out.println("=========== buyer_name ==========="+buyer_name);

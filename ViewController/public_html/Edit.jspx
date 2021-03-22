@@ -810,7 +810,7 @@
                       <af:outputText value="#{vs.index+1}" id="ot1"/>
                       <af:spacer width="10" height="10" id="s11"/>
                     </af:column>
-                    <af:column id="c55" width="120" headerText="Item"
+                    <af:column id="c55" width="160" headerText="Item"
                                align="center" sortable="true"
                                inlineStyle="height:35px; text-align: center; font-size: 12px; font-family:'OpenSans-Bold'; font-weight: bold; background-image: none; vertical-align: middle; border-left: 1px solid ;"
                                sortProperty="ItemPrefixDesc"
@@ -1022,6 +1022,8 @@
                       </af:inputText>
                       <f:facet name="footer">
                         <af:panelGroupLayout id="pgl13">
+                          <af:outputText value="Total:" id="ot28"
+                                         inlineStyle="color:Black; font-weight:bold; background-color:InfoBackground;"/>
                           <af:outputText value="#{bindings.fab_total.inputValue}"
                                          id="ot25"
                                          inlineStyle="font-weight:bolder; background-color:InactiveBorder;"/>
@@ -1299,6 +1301,7 @@
                                             shortDesc="#{bindings.trimsVO1.hints.ItemPrefixDesc.tooltip}"
                                             showRequired="true">
                         <f:validator binding="#{row.bindings.ItemPrefixDesc.validator}"/>
+                        <af:autoSuggestBehavior suggestedItems="#{row.bindings.ItemPrefixDesc.suggestedItems}"/>
                       </af:inputListOfValues>
                     </af:column>
                     <af:column sortProperty="RefCode" filterable="true"
@@ -2216,6 +2219,7 @@
                                             columns="#{bindings.others_VO1.hints.ItemPrefixDesc.displayWidth}"
                                             shortDesc="#{bindings.others_VO1.hints.ItemPrefixDesc.tooltip}">
                         <f:validator binding="#{row.bindings.ItemPrefixDesc.validator}"/>
+                        <af:autoSuggestBehavior suggestedItems="#{row.bindings.ItemPrefixDesc.suggestedItems}"/>
                       </af:inputListOfValues>
                     </af:column>
                     <af:column sortProperty="Bufer" filterable="true"
@@ -2299,7 +2303,8 @@
                                     shortDesc="#{bindings.others_VO1.hints.CostPerPcs.tooltip}"
                                     id="it111" autoSubmit="true"
                                     valueChangeListener="#{ManagedBean.othersValueChngCal}"
-                                    binding="#{ManagedBean.othersCosPerPc}">
+                                    binding="#{ManagedBean.othersCosPerPc}"
+                                    readOnly="true">
                         <f:validator binding="#{row.bindings.CostPerPcs.validator}"/>
                         <af:convertNumber groupingUsed="false"
                                           pattern="#{bindings.others_VO1.hints.CostPerPcs.format}"/>

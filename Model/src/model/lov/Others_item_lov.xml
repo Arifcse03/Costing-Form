@@ -21,8 +21,8 @@
   </Properties>
   <SQLQuery>
     <![CDATA[SELECT t.flex_value, t.value_description
-  FROM MNJ_ITEM_PREFIX_V t
- WHERE t.FLEX_VALUE =55]]>
+          FROM MNJ_ITEM_PREFIX_V t
+         WHERE t.FLEX_VALUE IN ('55')]]>
   </SQLQuery>
   <ViewAttribute
     Name="FlexValue"
@@ -34,7 +34,8 @@
     ColumnType="VARCHAR2"
     AliasName="FLEX_VALUE"
     Expression="FLEX_VALUE"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    IsUpdateable="false">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="150"/>
     </DesignTime>
@@ -54,7 +55,8 @@
     ColumnType="VARCHAR2"
     AliasName="VALUE_DESCRIPTION"
     Expression="VALUE_DESCRIPTION"
-    SQLType="VARCHAR">
+    SQLType="VARCHAR"
+    IsUpdateable="false">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="240"/>
     </DesignTime>
