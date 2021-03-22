@@ -453,8 +453,14 @@
           <Item Value="WastageInPer"/>
           <Item Value="WastageInQty"/>
           <Item Value="ItemPrefixDesc"/>
+         
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="XX_OM_POC_L_TVO1Iterator" id="trims_total">
+      <AttrNames>
+        <Item Value="trims_total"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

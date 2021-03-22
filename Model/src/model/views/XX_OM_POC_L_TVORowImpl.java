@@ -430,6 +430,16 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        trims_total {
+            public Object get(XX_OM_POC_L_TVORowImpl obj) {
+                return obj.gettrims_total();
+            }
+
+            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
+                obj.settrims_total((String)value);
+            }
+        }
+        ,
         XX_OM_POC_H_TVO {
             public Object get(XX_OM_POC_L_TVORowImpl obj) {
                 return obj.getXX_OM_POC_H_TVO();
@@ -517,6 +527,7 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
         }
     }
 
+
     public static final int FOBID = AttributesEnum.FobId.index();
     public static final int POCID = AttributesEnum.PocId.index();
     public static final int SYSTEMID = AttributesEnum.SystemId.index();
@@ -558,6 +569,7 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
     public static final int DRYTOTAL = AttributesEnum.DryTotal.index();
     public static final int SHIPMENT = AttributesEnum.Shipment.index();
     public static final int SHIPMENTVALUE = AttributesEnum.ShipmentValue.index();
+    public static final int TRIMS_TOTAL = AttributesEnum.trims_total.index();
     public static final int XX_OM_POC_H_TVO = AttributesEnum.XX_OM_POC_H_TVO.index();
     public static final int XX_OM_POC_D1_TVO = AttributesEnum.XX_OM_POC_D1_TVO.index();
     public static final int XX_OM_POC_D2_TVO = AttributesEnum.XX_OM_POC_D2_TVO.index();
@@ -1234,6 +1246,22 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
      */
     public void setShipmentValue(Number value) {
         setAttributeInternal(SHIPMENTVALUE, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute trims_total.
+     * @return the trims_total
+     */
+    public String gettrims_total() {
+        return (String) getAttributeInternal(TRIMS_TOTAL);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute trims_total.
+     * @param value value to set the  trims_total
+     */
+    public void settrims_total(String value) {
+        setAttributeInternal(TRIMS_TOTAL, value);
     }
 
     /**

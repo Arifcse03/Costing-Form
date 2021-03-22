@@ -900,7 +900,7 @@
                                     id="it23" autoSubmit="true"
                                     binding="#{ManagedBean.actualUnitPrice}"
                                     valueChangeListener="#{ManagedBean.commonListener}"
-                                    required="true">
+                                    required="true" readOnly="false">
                         <f:validator binding="#{row.bindings.ActualUnitPrice.validator}"/>
                         <af:convertNumber groupingUsed="false"
                                           pattern="#{bindings.XX_OM_POC_D1_TVO1.hints.ActualUnitPrice.format}"/>
@@ -1006,7 +1006,7 @@
                     <af:column id="c17" headerText="Cost per Pcs"
                                filterable="true" sortable="true" align="center"
                                width="60" sortProperty="CostPerPcs"
-                               visible="false">
+                               visible="true">
                       <af:inputText value="#{row.bindings.CostPerPcs.inputValue}"
                                     label="#{bindings.XX_OM_POC_D1_TVO1.hints.CostPerPcs.label}"
                                     required="#{bindings.XX_OM_POC_D1_TVO1.hints.CostPerPcs.mandatory}"
@@ -1024,7 +1024,7 @@
                     <af:column id="c18" headerText="Cost per pcs"
                                align="center" sortable="true" filterable="true"
                                width="60" sortProperty="FinalCostPerPcs"
-                               visible="true">
+                               visible="false">
                       <af:inputText value="#{row.bindings.FinalCostPerPcs.inputValue}"
                                     label="#{bindings.XX_OM_POC_D1_TVO1.hints.FinalCostPerPcs.label}"
                                     required="#{bindings.XX_OM_POC_D1_TVO1.hints.FinalCostPerPcs.mandatory}"
@@ -1032,7 +1032,8 @@
                                     maximumLength="#{bindings.XX_OM_POC_D1_TVO1.hints.FinalCostPerPcs.precision}"
                                     shortDesc="#{bindings.XX_OM_POC_D1_TVO1.hints.FinalCostPerPcs.tooltip}"
                                     id="it18" readOnly="true"
-                                    binding="#{ManagedBean.finalCostPerPcs}">
+                                    binding="#{ManagedBean.finalCostPerPcs}"
+                                    autoSubmit="true">
                         <f:validator binding="#{row.bindings.FinalCostPerPcs.validator}"/>
                         <af:convertNumber groupingUsed="false"
                                           pattern="#{bindings.XX_OM_POC_D1_TVO1.hints.FinalCostPerPcs.format}"/>
@@ -1260,6 +1261,9 @@
                             selectedRowKeys="#{bindings.trimsVO1.collectionModel.selectedRow}"
                             selectionListener="#{bindings.trimsVO1.collectionModel.makeCurrent}"
                             rowSelection="single" id="t12">
+                    <af:column id="c89" headerText="Sr." align="center">
+                      <af:outputText value=" #{vs.index+1}" id="ot22"/>
+                    </af:column>
                     <af:column headerText="Item"
                                id="c77" width="150" align="center"
                                sortable="true" filterable="true"
@@ -1298,7 +1302,10 @@
                                     columns="#{bindings.trimsVO1.hints.ActualUnitPrice.displayWidth}"
                                     maximumLength="#{bindings.trimsVO1.hints.ActualUnitPrice.precision}"
                                     shortDesc="#{bindings.trimsVO1.hints.ActualUnitPrice.tooltip}"
-                                    id="it92">
+                                    id="it92"
+                                    valueChangeListener="#{ManagedBean.trims_value_Change_cal}"
+                                    autoSubmit="true"
+                                    binding="#{ManagedBean.actualUnitPrice_trim}">
                         <f:validator binding="#{row.bindings.ActualUnitPrice.validator}"/>
                         <af:convertNumber groupingUsed="false"
                                           pattern="#{bindings.trimsVO1.hints.ActualUnitPrice.format}"/>
@@ -1400,22 +1407,6 @@
                                           pattern="#{bindings.trimsVO1.hints.Bufer.format}"/>
                       </af:inputText>
                     </af:column>
-                    <af:column sortProperty="ConsPerPcs" filterable="true"
-                               sortable="true"
-                               headerText="#{bindings.trimsVO1.hints.ConsPerPcs.label}"
-                               id="c84" visible="false">
-                      <af:inputText value="#{row.bindings.ConsPerPcs.inputValue}"
-                                    label="#{bindings.trimsVO1.hints.ConsPerPcs.label}"
-                                    required="#{bindings.trimsVO1.hints.ConsPerPcs.mandatory}"
-                                    columns="#{bindings.trimsVO1.hints.ConsPerPcs.displayWidth}"
-                                    maximumLength="#{bindings.trimsVO1.hints.ConsPerPcs.precision}"
-                                    shortDesc="#{bindings.trimsVO1.hints.ConsPerPcs.tooltip}"
-                                    id="it54">
-                        <f:validator binding="#{row.bindings.ConsPerPcs.validator}"/>
-                        <af:convertNumber groupingUsed="false"
-                                          pattern="#{bindings.trimsVO1.hints.ConsPerPcs.format}"/>
-                      </af:inputText>
-                    </af:column>
                     <af:column sortProperty="ConsWithWastage" filterable="true"
                                sortable="true"
                                headerText="#{bindings.trimsVO1.hints.ConsWithWastage.label}"
@@ -1432,21 +1423,54 @@
                                           pattern="#{bindings.trimsVO1.hints.ConsWithWastage.format}"/>
                       </af:inputText>
                     </af:column>
-                    <af:column sortProperty="CostPerPcs" filterable="true"
+                    <af:column sortProperty="ConsPerPcs" filterable="true"
                                sortable="true"
-                               headerText="Cost Per Pcs"
-                               id="c56" align="center">
+                               headerText="Consumption Per Pcs"
+                               id="c84" visible="true" align="center">
+                      <af:inputText value="#{row.bindings.ConsPerPcs.inputValue}"
+                                    label="#{bindings.trimsVO1.hints.ConsPerPcs.label}"
+                                    required="#{bindings.trimsVO1.hints.ConsPerPcs.mandatory}"
+                                    columns="#{bindings.trimsVO1.hints.ConsPerPcs.displayWidth}"
+                                    maximumLength="#{bindings.trimsVO1.hints.ConsPerPcs.precision}"
+                                    shortDesc="#{bindings.trimsVO1.hints.ConsPerPcs.tooltip}"
+                                    id="it54"
+                                    valueChangeListener="#{ManagedBean.trims_value_Change_cal}"
+                                    binding="#{ManagedBean.consPerPcs_trim}"
+                                    autoSubmit="true">
+                        <f:validator binding="#{row.bindings.ConsPerPcs.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.trimsVO1.hints.ConsPerPcs.format}"/>
+                      </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="CostPerPcs" filterable="true"
+                               sortable="true" headerText="Cost Per Pcs"
+                               id="c56" align="center" visible="true">
                       <af:inputText value="#{row.bindings.CostPerPcs.inputValue}"
                                     label="#{bindings.trimsVO1.hints.CostPerPcs.label}"
                                     required="#{bindings.trimsVO1.hints.CostPerPcs.mandatory}"
                                     columns="#{bindings.trimsVO1.hints.CostPerPcs.displayWidth}"
                                     maximumLength="#{bindings.trimsVO1.hints.CostPerPcs.precision}"
                                     shortDesc="#{bindings.trimsVO1.hints.CostPerPcs.tooltip}"
-                                    id="it94">
+                                    id="it94" visible="true"
+                                    binding="#{ManagedBean.cost_per_pcs_trims}"
+                                    readOnly="true"
+                                    valueChangeListener="#{ManagedBean.trims_value_Change_cal}"
+                                    autoSubmit="true">
                         <f:validator binding="#{row.bindings.CostPerPcs.validator}"/>
                         <af:convertNumber groupingUsed="false"
                                           pattern="#{bindings.trimsVO1.hints.CostPerPcs.format}"/>
                       </af:inputText>
+                      <f:facet name="footer">
+                        <af:panelGroupLayout id="pgl12" layout="horizontal">
+                          <af:panelLabelAndMessage label="Trims Total:"
+                                                   id="plam6"
+                                                   inlineStyle="font-weight:bolder; color:Black;">
+                            <af:outputText value="#{bindings.trims_total.inputValue}"
+                                           id="ot23"
+                                           inlineStyle="color:Black; background-color:InfoBackground;"/>
+                          </af:panelLabelAndMessage>
+                        </af:panelGroupLayout>
+                      </f:facet>
                     </af:column>
                     <af:column sortProperty="CreatedBy" filterable="true"
                                sortable="true"
@@ -1546,14 +1570,16 @@
                     <af:column sortProperty="FinalCostPerPcs" filterable="true"
                                sortable="true"
                                headerText="Final Cost Per Pcs"
-                               id="c22">
+                               id="c22" visible="false">
                       <af:inputText value="#{row.bindings.FinalCostPerPcs.inputValue}"
                                     label="#{bindings.trimsVO1.hints.FinalCostPerPcs.label}"
                                     required="#{bindings.trimsVO1.hints.FinalCostPerPcs.mandatory}"
                                     columns="#{bindings.trimsVO1.hints.FinalCostPerPcs.displayWidth}"
                                     maximumLength="#{bindings.trimsVO1.hints.FinalCostPerPcs.precision}"
                                     shortDesc="#{bindings.trimsVO1.hints.FinalCostPerPcs.tooltip}"
-                                    id="it91">
+                                    id="it91" readOnly="true"
+                                    binding="#{ManagedBean.finalCostPerPcs}"
+                                    autoSubmit="true">
                         <f:validator binding="#{row.bindings.FinalCostPerPcs.validator}"/>
                         <af:convertNumber groupingUsed="false"
                                           pattern="#{bindings.trimsVO1.hints.FinalCostPerPcs.format}"/>
@@ -1795,7 +1821,10 @@
                                       columns="#{bindings.trimsVO1.hints.Bufer.displayWidth}"
                                       maximumLength="#{bindings.trimsVO1.hints.Bufer.precision}"
                                       shortDesc="#{bindings.trimsVO1.hints.Bufer.tooltip}"
-                                      id="it98" binding="#{ManagedBean.buffer}">
+                                      id="it98"
+                                      binding="#{ManagedBean.buffer_trims}"
+                                      valueChangeListener="#{ManagedBean.trims_value_Change_cal}"
+                                      autoSubmit="true">
                           <f:validator binding="#{row.bindings.Bufer.validator}"/>
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.trimsVO1.hints.Bufer.format}"/>

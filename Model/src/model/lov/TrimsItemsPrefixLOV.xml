@@ -22,7 +22,7 @@
   <SQLQuery>
     <![CDATA[SELECT t.flex_value, t.value_description
   FROM MNJ_ITEM_PREFIX_V t
- WHERE t.FLEX_VALUE between 13 and 55]]>
+ WHERE t.FLEX_VALUE between 13 and 37]]>
   </SQLQuery>
   <ViewAttribute
     Name="FlexValue"

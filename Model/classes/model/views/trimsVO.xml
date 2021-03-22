@@ -95,7 +95,7 @@ FROM XX_OM_POC_D1_T XX_OM_POC_D1_TEO,QA_PLANS QP, QA_RESULTS QR
          AND qr.plan_id = qp.plan_id
          AND UPPER (QP.NAME) = 'SEQUENCE NO POC'
         --AND XX_OM_POC_D1_TEO.ITEM_PREFIX  in (11,12)
-   and  XX_OM_POC_D1_TEO.ITEM_PREFIX between 12 and 37
+   and  XX_OM_POC_D1_TEO.ITEM_PREFIX between 13 and 37
 ORDER BY XX_OM_POC_D1_TEO.ITEM_PREFIX]]>
   </SQLQuery>
   <EntityUsage

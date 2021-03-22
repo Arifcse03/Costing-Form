@@ -117,6 +117,10 @@ public class ManagedBean {
     private RichInputText totalCostCal;
     private RichInputText costSan;
     private RichSelectOneRadio selectedShipItem;
+    private RichInputText cost_per_pcs_trims;
+    private RichInputText consPerPcs_trim;
+    private RichInputText actualUnitPrice_trim;
+    private RichInputText buffer_trims;
 
     public ManagedBean() {
     }
@@ -2363,4 +2367,89 @@ public void RefreshWashCost() {
             String url = "window.open('" + newPage + "','_blank','toolbar=no,location=no,menubar=no,alwaysRaised=yes,height=500,width=1100');";
             erks.addScript(FacesContext.getCurrentInstance(), url);
             }
+
+    public void setCost_per_pcs_trims(RichInputText cost_per_pcs_trims) {
+        this.cost_per_pcs_trims = cost_per_pcs_trims;
+    }
+
+    public RichInputText getCost_per_pcs_trims() {
+        return cost_per_pcs_trims;
+    }
+
+    public void setConsPerPcs_trim(RichInputText consPerPcs_trim) {
+        this.consPerPcs_trim = consPerPcs_trim;
+    }
+
+    public RichInputText getConsPerPcs_trim() {
+        return consPerPcs_trim;
+    }
+
+    public void setActualUnitPrice_trim(RichInputText actualUnitPrice_trim) {
+        this.actualUnitPrice_trim = actualUnitPrice_trim;
+    }
+
+    public RichInputText getActualUnitPrice_trim() {
+        return actualUnitPrice_trim;
+    }
+
+    public void trims_value_Change_cal(ValueChangeEvent valueChangeEvent) {
+        // Add event code here...
+        
+        ViewObject trimsView=appM.gettrimsVO1();
+        
+        double total = 0.00;
+        double actUnitpc = 0.00;
+        double val = 0.00;
+        double buffer = 0.00;
+
+
+        try {
+            actUnitpc =
+                    Double.parseDouble((getActualUnitPrice_trim().getValue().toString()));
+            System.out.println("........................actUnitpc for trim= " +
+                               actUnitpc);
+            //            double tes=Double.parseDouble((trimsView.getCurrentRow().getAttribute("ActualUnitPrice").toString()));
+            //            double te=Double.parseDouble((trimsView.getCurrentRow().getAttribute("PrefixDesc").toString()));
+            //            System.out.println("......................current..actUnitpc for trim= "+tes);
+            //            System.out.println("........................prefix for trim= "+te);
+        } catch (Exception e) {
+            actUnitpc = 0.00;
+        }
+
+        try {
+            val =
+Double.parseDouble((getConsPerPcs_trim().getValue().toString()));
+            // double test=Double.parseDouble((trimsView.getCurrentRow().getAttribute("ConsPerPcs").toString()));
+            System.out.println("........................actCons for trim= " +
+                               val);
+        } catch (Exception e) {
+            val = 0.00;
+        }
+
+
+        try {
+            buffer =
+                    Double.parseDouble((getBuffer_trims().getValue().toString()));
+        } catch (Exception e) {
+            buffer = 0.00;
+        }
+        // AdfFacesContext.getCurrentInstance().addPartialTarget(bpoQt_value);
+        //System.out.println(" Total BPO Qty------------>"+getBPOTotalQty());
+
+
+        total = (val * actUnitpc) + buffer;
+        trimsView.getCurrentRow().setAttribute("CostPerPcs", total);
+        trimsView.getCurrentRow().setAttribute("FinalCostPerPcs", total);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(cost_per_pcs_trims);
+
+
+    }
+
+    public void setBuffer_trims(RichInputText buffer_trims) {
+        this.buffer_trims = buffer_trims;
+    }
+
+    public RichInputText getBuffer_trims() {
+        return buffer_trims;
+    }
 }

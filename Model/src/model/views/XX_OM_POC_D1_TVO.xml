@@ -51,6 +51,10 @@
     Name="ItemPrefixDescLov1"
     ViewObjectName="model.lov.ItemPrefixDescLov"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="trimsVO1"
+    ViewObjectName="model.views.trimsVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_Uom"
     ListVOName="InvUomLov1"

@@ -351,6 +351,18 @@
     EntityAttrName="ShipmentValue"
     EntityUsage="XX_OM_POC_L_TEO"
     AliasName="SHIPMENT_VALUE"/>
+  <ViewAttribute
+    Name="trims_total"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[trimsVO.sum("CostPerPcs")]]></TransientExpression>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="XX_OM_POC_H_TVO"
     ViewLink="model.views.XxOmPocLFkLink"
