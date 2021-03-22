@@ -121,6 +121,10 @@ public class ManagedBean {
     private RichInputText consPerPcs_trim;
     private RichInputText actualUnitPrice_trim;
     private RichInputText buffer_trims;
+    private RichInputText other_bufer;
+    private RichInputText otherActualPrc;
+    private RichInputText oteherConPcs;
+    private RichInputText othersCosPerPc;
 
     public ManagedBean() {
     }
@@ -2451,5 +2455,94 @@ Double.parseDouble((getConsPerPcs_trim().getValue().toString()));
 
     public RichInputText getBuffer_trims() {
         return buffer_trims;
+    }
+
+    public void othersValueChngCal(ValueChangeEvent valueChangeEvent) {
+        // Add event code here...
+        
+        
+        // Add event code here...
+               ViewObject othersView=appM.getothers_VO1();
+               double total=0.00;
+               double actUnitpc=0.00;
+               double val = 0.00;
+               double bufer=0.00;
+               
+               try{
+                 actUnitpc=  Double.parseDouble((getOtherActualPrc().getValue().toString()));
+               }
+               catch(Exception e) {
+                   actUnitpc=0.00;
+               }
+               
+               try{
+                   val= Double.parseDouble((getOteherConPcs().getValue().toString()));
+               }
+               catch(Exception e) {
+                   val=0.00;
+               }
+               
+               
+               try{
+                  bufer= Double.parseDouble((getOther_bufer().getValue().toString()));
+               }
+               catch(Exception e) {
+                   bufer=0.00;
+               }
+               
+               // AdfFacesContext.getCurrentInstance().addPartialTarget(bpoQt_value);
+               //System.out.println(" Total BPO Qty------------>"+getBPOTotalQty());
+               
+               
+               total=val*actUnitpc+bufer;
+            othersView.getCurrentRow().setAttribute("CostPerPcs", total);
+               othersView.getCurrentRow().setAttribute("FinalCostPerPcs", total);
+             AdfFacesContext.getCurrentInstance().addPartialTarget(othersCosPerPc);
+               
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+
+    public void setOther_bufer(RichInputText other_bufer) {
+        this.other_bufer = other_bufer;
+    }
+
+    public RichInputText getOther_bufer() {
+        return other_bufer;
+    }
+
+    public void setOtherActualPrc(RichInputText otherActualPrc) {
+        this.otherActualPrc = otherActualPrc;
+    }
+
+    public RichInputText getOtherActualPrc() {
+        return otherActualPrc;
+    }
+
+    public void setOteherConPcs(RichInputText oteherConPcs) {
+        this.oteherConPcs = oteherConPcs;
+    }
+
+    public RichInputText getOteherConPcs() {
+        return oteherConPcs;
+    }
+
+    public void setOthersCosPerPc(RichInputText othersCosPerPc) {
+        this.othersCosPerPc = othersCosPerPc;
+    }
+
+    public RichInputText getOthersCosPerPc() {
+        return othersCosPerPc;
     }
 }

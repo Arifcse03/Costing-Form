@@ -440,6 +440,26 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        others_total {
+            public Object get(XX_OM_POC_L_TVORowImpl obj) {
+                return obj.getothers_total();
+            }
+
+            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
+                obj.setothers_total((String)value);
+            }
+        }
+        ,
+        fab_total {
+            public Object get(XX_OM_POC_L_TVORowImpl obj) {
+                return obj.getfab_total();
+            }
+
+            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
+                obj.setfab_total((String)value);
+            }
+        }
+        ,
         XX_OM_POC_H_TVO {
             public Object get(XX_OM_POC_L_TVORowImpl obj) {
                 return obj.getXX_OM_POC_H_TVO();
@@ -483,6 +503,16 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
         trimsVO {
             public Object get(XX_OM_POC_L_TVORowImpl obj) {
                 return obj.gettrimsVO();
+            }
+
+            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
+        others_VO {
+            public Object get(XX_OM_POC_L_TVORowImpl obj) {
+                return obj.getothers_VO();
             }
 
             public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
@@ -570,11 +600,14 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
     public static final int SHIPMENT = AttributesEnum.Shipment.index();
     public static final int SHIPMENTVALUE = AttributesEnum.ShipmentValue.index();
     public static final int TRIMS_TOTAL = AttributesEnum.trims_total.index();
+    public static final int OTHERS_TOTAL = AttributesEnum.others_total.index();
+    public static final int FAB_TOTAL = AttributesEnum.fab_total.index();
     public static final int XX_OM_POC_H_TVO = AttributesEnum.XX_OM_POC_H_TVO.index();
     public static final int XX_OM_POC_D1_TVO = AttributesEnum.XX_OM_POC_D1_TVO.index();
     public static final int XX_OM_POC_D2_TVO = AttributesEnum.XX_OM_POC_D2_TVO.index();
     public static final int XX_OM_POC_D2_TVO2 = AttributesEnum.XX_OM_POC_D2_TVO2.index();
     public static final int TRIMSVO = AttributesEnum.trimsVO.index();
+    public static final int OTHERS_VO = AttributesEnum.others_VO.index();
     public static final int COLORLOV1 = AttributesEnum.colorLov1.index();
 
     /**
@@ -1265,6 +1298,38 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
     }
 
     /**
+     * Gets the attribute value for the calculated attribute others_total.
+     * @return the others_total
+     */
+    public String getothers_total() {
+        return (String) getAttributeInternal(OTHERS_TOTAL);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute others_total.
+     * @param value value to set the  others_total
+     */
+    public void setothers_total(String value) {
+        setAttributeInternal(OTHERS_TOTAL, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute fab_total.
+     * @return the fab_total
+     */
+    public String getfab_total() {
+        return (String) getAttributeInternal(FAB_TOTAL);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute fab_total.
+     * @param value value to set the  fab_total
+     */
+    public void setfab_total(String value) {
+        setAttributeInternal(FAB_TOTAL, value);
+    }
+
+    /**
      * Gets the associated <code>Row</code> using master-detail link XX_OM_POC_H_TVO.
      */
     public Row getXX_OM_POC_H_TVO() {
@@ -1304,6 +1369,13 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
      */
     public RowIterator gettrimsVO() {
         return (RowIterator)getAttributeInternal(TRIMSVO);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link others_VO.
+     */
+    public RowIterator getothers_VO() {
+        return (RowIterator)getAttributeInternal(OTHERS_VO);
     }
 
     /**

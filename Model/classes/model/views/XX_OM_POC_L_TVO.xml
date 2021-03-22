@@ -363,6 +363,28 @@
     SQLType="VARCHAR">
     <TransientExpression><![CDATA[trimsVO.sum("CostPerPcs")]]></TransientExpression>
   </ViewAttribute>
+  <ViewAttribute
+    Name="others_total"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[others_VO.sum("CostPerPcs")]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="fab_total"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[XX_OM_POC_D1_TVO.sum("CostPerPcs")]]></TransientExpression>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="XX_OM_POC_H_TVO"
     ViewLink="model.views.XxOmPocLFkLink"
@@ -387,6 +409,11 @@
   <ViewLinkAccessor
     Name="trimsVO"
     ViewLink="model.views.POC_D1Via_fobId_trimsVo"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="others_VO"
+    ViewLink="model.views.poc_L_t_to_ohters_vo_via_fob_id"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>

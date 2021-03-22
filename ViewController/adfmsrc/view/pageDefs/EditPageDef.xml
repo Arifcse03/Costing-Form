@@ -39,6 +39,11 @@
     <searchRegion Binds="trimsVO1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   id="trimsVO1Query"/>
+    <iterator Binds="others_VO1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="others_VO1Iterator"/>
+    <searchRegion Binds="others_VO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="others_VO1Query"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="XX_OM_POC_H_TVO1Iterator" id="Style">
@@ -462,5 +467,44 @@
         <Item Value="trims_total"/>
       </AttrNames>
     </attributeValues>
+    <action IterBinding="trimsVO1Iterator" id="CreateInsert4"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="trimsVO1Iterator" id="Delete4"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="others_VO1Iterator" id="others_VO1">
+      <nodeDefinition DefName="model.views.others_VO" Name="others_VO10">
+        <AttrNames>
+          <Item Value="ActualUnitPrice"/>
+          <Item Value="Bufer"/>
+          <Item Value="ConsPerPcs"/>
+          <Item Value="ConsWithWastage"/>
+          <Item Value="CostPerPcs"/>
+          <Item Value="FabFinanceCost"/>
+          <Item Value="FinalCons"/>
+          <Item Value="FinalCostPerPcs"/>
+          <Item Value="FinalUnitPrice"/>
+          <Item Value="FobId"/>
+          <Item Value="ItemDesc"/>
+          <Item Value="ItemPrefix"/>
+          <Item Value="PrefixDesc"/>
+          <Item Value="RefCode"/>
+          <Item Value="ItemPrefixDesc"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="XX_OM_POC_L_TVO1Iterator" id="fab_total">
+      <AttrNames>
+        <Item Value="fab_total"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XX_OM_POC_L_TVO1Iterator" id="others_total">
+      <AttrNames>
+        <Item Value="others_total"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="others_VO1Iterator" id="CreateInsert5"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="others_VO1Iterator" id="Delete5"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

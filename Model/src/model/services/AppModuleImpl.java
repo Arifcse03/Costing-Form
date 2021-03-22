@@ -493,6 +493,22 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public ViewLinkImpl getPOC_D1Via_fobId_trimsVo1() {
         return (ViewLinkImpl)findViewLink("POC_D1Via_fobId_trimsVo1");
     }
+
+    /**
+     * Container's getter for others_VO1.
+     * @return others_VO1
+     */
+    public ViewObjectImpl getothers_VO1() {
+        return (ViewObjectImpl)findViewObject("others_VO1");
+    }
+
+    /**
+     * Container's getter for poc_L_t_to_ohters_vo_via_fob_id1.
+     * @return poc_L_t_to_ohters_vo_via_fob_id1
+     */
+    public ViewLinkImpl getpoc_L_t_to_ohters_vo_via_fob_id1() {
+        return (ViewLinkImpl)findViewLink("poc_L_t_to_ohters_vo_via_fob_id1");
+    }
 }
 
 
