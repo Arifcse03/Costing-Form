@@ -2201,7 +2201,8 @@
                             selectedRowKeys="#{bindings.others_VO1.collectionModel.selectedRow}"
                             selectionListener="#{bindings.others_VO1.collectionModel.makeCurrent}"
                             rowSelection="single" id="t14"
-                            partialTriggers="::cb18 ::cb21">
+                            partialTriggers="::cb18 ::cb21"
+                            binding="#{ManagedBean.other_table}">
                     <af:column id="c105" headerText="Sr." align="center">
                       <af:spacer width="10" height="10" id="s15"/>
                       <af:outputText id="ot24" value="#{vs.index+1}"/>
@@ -2217,9 +2218,9 @@
                                             model="#{row.bindings.ItemPrefixDesc.listOfValuesModel}"
                                             required="#{bindings.others_VO1.hints.ItemPrefixDesc.mandatory}"
                                             columns="#{bindings.others_VO1.hints.ItemPrefixDesc.displayWidth}"
-                                            shortDesc="#{bindings.others_VO1.hints.ItemPrefixDesc.tooltip}">
+                                            shortDesc="#{bindings.others_VO1.hints.ItemPrefixDesc.tooltip}"
+                                            valueChangeListener="#{ManagedBean.autoPopup}">
                         <f:validator binding="#{row.bindings.ItemPrefixDesc.validator}"/>
-                        <af:autoSuggestBehavior suggestedItems="#{row.bindings.ItemPrefixDesc.suggestedItems}"/>
                       </af:inputListOfValues>
                     </af:column>
                     <af:column sortProperty="Bufer" filterable="true"

@@ -125,6 +125,7 @@ public class ManagedBean {
     private RichInputText otherActualPrc;
     private RichInputText oteherConPcs;
     private RichInputText othersCosPerPc;
+    private RichTable other_table;
 
     public ManagedBean() {
     }
@@ -203,6 +204,20 @@ public class ManagedBean {
         TotalCostCal();
         OperationBinding ob1 = executeOperation("Commit");
         ob1.execute();
+        
+        ViewObject vo = appM.getXX_OM_POC_D1_TVO1();
+        ViewObject vo1 = appM.gettrimsVO1();
+        ViewObject vo3 = appM.getothers_VO1();
+        vo.clearCache();
+        vo1.clearCache();
+        vo3.clearCache();
+        
+        
+        
+        
+        
+        
+        
         return null;
     }
 
@@ -444,12 +459,12 @@ public void RefreshWashCost() {
 
     public void serviceItemDilogListener(DialogEvent dialogEvent) {
         // Add event code here...
-        ViewObject itemView=appM.getXX_OM_POC_D1_TVO1();
+        ViewObject othersView=appM.getothers_VO1();
         if (dialogEvent.getOutcome().name().equals("ok")) {
         String test =getSelectedServiceItem().getValue().toString();
         // callCopy(getSelectRadio().getValue().toString());
-        itemView.getCurrentRow().setAttribute("RefCode",test);
-        AdfFacesContext.getCurrentInstance().addPartialTarget(itemTable);
+        othersView.getCurrentRow().setAttribute("RefCode",test);
+        AdfFacesContext.getCurrentInstance().addPartialTarget(other_table);
         System.out.println("............test................selected item "+test);
         } else if (dialogEvent.getOutcome().name().equals("cancel")) {
         BindingContainer bindings = getBindings();
@@ -2099,6 +2114,7 @@ public void RefreshWashCost() {
         fm.setSeverity(FacesMessage.SEVERITY_INFO);
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, fm);
+       
         return null;
     }
 
@@ -2544,5 +2560,13 @@ Double.parseDouble((getConsPerPcs_trim().getValue().toString()));
 
     public RichInputText getOthersCosPerPc() {
         return othersCosPerPc;
+    }
+
+    public void setOther_table(RichTable other_table) {
+        this.other_table = other_table;
+    }
+
+    public RichTable getOther_table() {
+        return other_table;
     }
 }

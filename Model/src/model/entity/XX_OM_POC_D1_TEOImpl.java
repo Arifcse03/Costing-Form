@@ -1031,7 +1031,7 @@ public class XX_OM_POC_D1_TEOImpl extends EntityImpl {
      * @param attributeList list of attribute names/values to initialize the row
      */
     protected void create(AttributeList attributeList) {
-        super.create(attributeList);
+        //super.create(attributeList);
         super.create(attributeList);
         oracle.jbo.server.SequenceImpl s =new oracle.jbo.server.SequenceImpl("XX_OM_POC_D1_T_SEQ",getDBTransaction());
         oracle.jbo.domain.Number sVal = s.getSequenceNumber();
