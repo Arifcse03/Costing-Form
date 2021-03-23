@@ -385,6 +385,28 @@
     SQLType="VARCHAR">
     <TransientExpression><![CDATA[XX_OM_POC_D1_TVO.sum("CostPerPcs")]]></TransientExpression>
   </ViewAttribute>
+  <ViewAttribute
+    Name="D2_TVO1_Total"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[XX_OM_POC_D2_TVO2.sum("ManualPrice")]]></TransientExpression>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="D2_TVO_total"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[XX_OM_POC_D2_TVO.sum("ManualPrice")]]></TransientExpression>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="XX_OM_POC_H_TVO"
     ViewLink="model.views.XxOmPocLFkLink"

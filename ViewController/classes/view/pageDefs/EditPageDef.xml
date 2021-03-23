@@ -506,5 +506,15 @@
             RequiresUpdateModel="true" Action="createInsertRow"/>
     <action IterBinding="others_VO1Iterator" id="Delete5"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="XX_OM_POC_L_TVO1Iterator" id="D2_TVO_total">
+      <AttrNames>
+        <Item Value="D2_TVO_total"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="XX_OM_POC_L_TVO1Iterator" id="D2_TVO1_Total">
+      <AttrNames>
+        <Item Value="D2_TVO1_Total"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

@@ -460,6 +460,26 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        D2_TVO1_Total {
+            public Object get(XX_OM_POC_L_TVORowImpl obj) {
+                return obj.getD2_TVO1_Total();
+            }
+
+            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
+                obj.setD2_TVO1_Total((String)value);
+            }
+        }
+        ,
+        D2_TVO_total {
+            public Object get(XX_OM_POC_L_TVORowImpl obj) {
+                return obj.getD2_TVO_total();
+            }
+
+            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
+                obj.setD2_TVO_total((String)value);
+            }
+        }
+        ,
         XX_OM_POC_H_TVO {
             public Object get(XX_OM_POC_L_TVORowImpl obj) {
                 return obj.getXX_OM_POC_H_TVO();
@@ -602,6 +622,8 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
     public static final int TRIMS_TOTAL = AttributesEnum.trims_total.index();
     public static final int OTHERS_TOTAL = AttributesEnum.others_total.index();
     public static final int FAB_TOTAL = AttributesEnum.fab_total.index();
+    public static final int D2_TVO1_TOTAL = AttributesEnum.D2_TVO1_Total.index();
+    public static final int D2_TVO_TOTAL = AttributesEnum.D2_TVO_total.index();
     public static final int XX_OM_POC_H_TVO = AttributesEnum.XX_OM_POC_H_TVO.index();
     public static final int XX_OM_POC_D1_TVO = AttributesEnum.XX_OM_POC_D1_TVO.index();
     public static final int XX_OM_POC_D2_TVO = AttributesEnum.XX_OM_POC_D2_TVO.index();
@@ -1327,6 +1349,38 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
      */
     public void setfab_total(String value) {
         setAttributeInternal(FAB_TOTAL, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute D2_TVO1_Total.
+     * @return the D2_TVO1_Total
+     */
+    public String getD2_TVO1_Total() {
+        return (String) getAttributeInternal(D2_TVO1_TOTAL);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute D2_TVO1_Total.
+     * @param value value to set the  D2_TVO1_Total
+     */
+    public void setD2_TVO1_Total(String value) {
+        setAttributeInternal(D2_TVO1_TOTAL, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute D2_TVO_total.
+     * @return the D2_TVO_total
+     */
+    public String getD2_TVO_total() {
+        return (String) getAttributeInternal(D2_TVO_TOTAL);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute D2_TVO_total.
+     * @param value value to set the  D2_TVO_total
+     */
+    public void setD2_TVO_total(String value) {
+        setAttributeInternal(D2_TVO_TOTAL, value);
     }
 
     /**

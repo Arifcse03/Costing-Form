@@ -351,7 +351,7 @@
                   </af:column>
                   <af:column sortProperty="FabricCost" filterable="true"
                              sortable="true"
-                             headerText="Fabric Cost"
+                             headerText="Fabric Cost With Finance"
                              id="c25" align="center" width="60">
                     <af:inputText value="#{row.bindings.FabricCost.inputValue}"
                                   label="#{bindings.XX_OM_POC_L_TVO1.hints.FabricCost.label}"
@@ -367,7 +367,7 @@
                   </af:column>
                   <af:column sortProperty="TrimCost" filterable="true"
                              sortable="true"
-                             headerText="Trim Cost"
+                             headerText="Trim Cost With Finance"
                              id="c4" align="center" width="60">
                     <af:inputText value="#{row.bindings.TrimCost.inputValue}"
                                   label="#{bindings.XX_OM_POC_L_TVO1.hints.TrimCost.label}"
@@ -383,7 +383,7 @@
                   </af:column>
                   <af:column sortProperty="WashCost" filterable="true"
                              sortable="true"
-                             headerText="Wash Cost"
+                             headerText="Wash Cost With Finance"
                              id="c11" align="center" width="60">
                     <af:inputText value="#{row.bindings.WashCost.inputValue}"
                                   label="#{bindings.XX_OM_POC_L_TVO1.hints.WashCost.label}"
@@ -2022,7 +2022,11 @@
                         <f:facet name="footer">
                           <af:panelGroupLayout id="pgl8" halign="center"
                                                layout="horizontal"
-                                               inlineStyle="height:34px;"/>
+                                               inlineStyle="height:34px; background-color:InfoBackground;">
+                            <af:outputText value="Total:" id="ot30"/>
+                            <af:outputText value="#{bindings.D2_TVO_total.inputValue}"
+                                           id="ot29"/>
+                          </af:panelGroupLayout>
                         </f:facet>
                       </af:column>
                     </af:table>
@@ -2164,6 +2168,16 @@
                           <af:convertNumber groupingUsed="false"
                                             pattern="#{bindings.XX_OM_POC_D2_TVO2_1.hints.ManualPrice.format}"/>
                         </af:inputText>
+                        <f:facet name="footer">
+                          <af:panelGroupLayout id="panelGroupLayout1"
+                                               halign="center"
+                                               layout="horizontal"
+                                               inlineStyle="height:34px; background-color:InfoBackground;">
+                            <af:outputText value="Total:" id="outputText1"/>
+                            <af:outputText value="#{bindings.D2_TVO1_Total.inputValue}"
+                                           id="ot31"/>
+                          </af:panelGroupLayout>
+                        </f:facet>
                       </af:column>
                     </af:table>
                   </af:panelCollection>
