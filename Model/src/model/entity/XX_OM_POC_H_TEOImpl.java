@@ -567,6 +567,7 @@ public class XX_OM_POC_H_TEOImpl extends EntityImpl {
      * @param value value to set the OrderQty
      */
     public void setOrderQty(Number value) {
+       
         setAttributeInternal(ORDERQTY, value);
     }
 

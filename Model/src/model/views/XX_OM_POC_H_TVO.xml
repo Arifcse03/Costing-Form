@@ -25,7 +25,7 @@
     Name="p_userId"
     Kind="where"
     Type="java.lang.String">
-    <TransientExpression><![CDATA[1288//adf.context.sessionScope.userIdS]]></TransientExpression>
+    <TransientExpression><![CDATA[adf.context.sessionScope.userIdS]]></TransientExpression>
   </Variable>
   <ViewAccessor
     Name="Buyerlov1"

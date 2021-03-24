@@ -1034,7 +1034,7 @@
                     <af:column id="c18" headerText="Final Cost per pcs"
                                align="center" sortable="true" filterable="true"
                                width="60" sortProperty="FinalCostPerPcs"
-                               visible="true">
+                               visible="false">
                       <af:inputText value="#{row.bindings.FinalCostPerPcs.inputValue}"
                                     label="#{bindings.XX_OM_POC_D1_TVO1.hints.FinalCostPerPcs.label}"
                                     required="#{bindings.XX_OM_POC_D1_TVO1.hints.FinalCostPerPcs.mandatory}"
