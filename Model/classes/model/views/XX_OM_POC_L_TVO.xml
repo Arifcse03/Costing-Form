@@ -224,7 +224,8 @@
     PrecisionRule="true"
     EntityAttrName="CmManagement"
     EntityUsage="XX_OM_POC_L_TEO"
-    AliasName="CM_MANAGEMENT"/>
+    AliasName="CM_MANAGEMENT"
+    IsQueriable="false"/>
   <ViewAttribute
     Name="Remarks"
     PrecisionRule="true"

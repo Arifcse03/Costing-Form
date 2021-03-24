@@ -214,8 +214,7 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="XX_OM_POC_L_T"
-    IsNotNull="true">
+    TableName="XX_OM_POC_L_T">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
@@ -482,9 +481,6 @@
       <Attr Name="_checkCondition" Value='"CM_MERCHAND" IS NOT NULL'/>
       <Attr Name="_isCheck" Value="true"/>
     </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="model.entity.XX_OM_POC_L_TEO.CmMerchand"/>
-    </AttrArray>
   </Key>
   <Key
     Name="XxOmPocLFk">
