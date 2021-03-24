@@ -509,6 +509,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public ViewLinkImpl getpoc_L_t_to_ohters_vo_via_fob_id1() {
         return (ViewLinkImpl)findViewLink("poc_L_t_to_ohters_vo_via_fob_id1");
     }
+
+
 }
 
 

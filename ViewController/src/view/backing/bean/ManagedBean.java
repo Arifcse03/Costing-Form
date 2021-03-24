@@ -508,6 +508,140 @@ public void RefreshWashCost() {
     // AdfFacesContext.getCurrentInstance().addPartialTarget(cmMerchDzn);
 
     }
+    /***medthod added by arif to get total value of  the trims***/
+    
+     public double findtrims(){
+        System.out.println("im in arifs trims method");
+     double fabric = 0.00,  trims = 0.00, finalCostPerPcsVal =
+         0.00, service = 0.0;
+      DCBindingContainer bindings =
+         (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+         DCIteratorBinding dcIteratorBindings =
+         bindings.findIteratorBinding("trimsVO1Iterator");
+     // Get all the rows of a iterator
+         
+         System.out.println("==============setFinanceCalc=======3========");
+         
+         Row[] rows = dcIteratorBindings.getAllRowsInRange();
+         for (Row row : rows) {
+
+                 /***************************************/
+                 // refreshFabricFinance(row);
+                 /***************************************/
+
+                 //  oracle.jbo.domain.Number prefix = (Number)row.getAttribute("ItemPrefix"); //ItemPrefix
+
+                 String pre =
+                     row.getAttribute("ItemPrefix").toString(); //ItemPrefix
+
+                 int prefix = Integer.parseInt(pre);
+
+                 System.out.println("==============Number prefix===============" +
+                                    prefix);
+
+                 try {
+                     finalCostPerPcsVal = Double.parseDouble(row.getAttribute("CostPerPcs").toString());
+                            // Double.parseDouble(row.getAttribute("FinalCostPerPcs").toString());
+                     System.out.println("==============Number prefix===============" +
+                                        finalCostPerPcsVal);
+                 } catch (Exception e) {
+                     ;
+                 }
+
+                 // prefixVal = Integer.parseInt(prefix);
+                 if (prefix >= 11 && prefix <= 12) {
+                     fabric = fabric + finalCostPerPcsVal;
+                     finalCostPerPcsVal = 0.00;
+                 } else if ((prefix > 12 && prefix <= 36) || prefix == 00) {
+                     trims = trims + finalCostPerPcsVal;
+                     finalCostPerPcsVal = 0.00;
+                 } else if (prefix == 55) {
+                     service = service + finalCostPerPcsVal;
+                 }
+
+             } //end of for each loop
+
+
+
+
+     return trims ;
+
+
+     }//end of method by arif for trims
+    
+    
+    
+    /***method to get total value of services by arif****/
+
+     public double findservices(){
+     double fabric = 0.00, trims = 0.00, finalCostPerPcsVal =
+         0.00, services = 0.0;
+      DCBindingContainer bindings =
+         (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+         DCIteratorBinding dcIteratorBindings =
+         bindings.findIteratorBinding("others_VO1Iterator");
+     // Get all the rows of a iterator
+         
+         System.out.println("==============setFinanceCalc=======3========");
+         
+         Row[] rows = dcIteratorBindings.getAllRowsInRange();
+         for (Row row : rows) {
+
+                 /***************************************/
+                 // refreshFabricFinance(row);
+                 /***************************************/
+
+                 //  oracle.jbo.domain.Number prefix = (Number)row.getAttribute("ItemPrefix"); //ItemPrefix
+
+                 String pre =
+                     row.getAttribute("ItemPrefix").toString(); //ItemPrefix
+
+                 int prefix = Integer.parseInt(pre);
+
+                 System.out.println("==============Number prefix===============" +
+                                    prefix);
+
+                 try {
+                     finalCostPerPcsVal = Double.parseDouble(row.getAttribute("CostPerPcs").toString());
+                            // Double.parseDouble(row.getAttribute("FinalCostPerPcs").toString());
+                     System.out.println("==============Number prefix===============" +
+                                        finalCostPerPcsVal);
+                 } catch (Exception e) {
+                     ;
+                 }
+
+                 // prefixVal = Integer.parseInt(prefix);
+                 if (prefix >= 11 && prefix <= 12) {
+                     fabric = fabric + finalCostPerPcsVal;
+                     finalCostPerPcsVal = 0.00;
+                 } else if ((prefix > 12 && prefix <= 36) || prefix == 00) {
+                     trims = trims + finalCostPerPcsVal;
+                     finalCostPerPcsVal = 0.00;
+                 } else if (prefix == 55) {
+                     services = services + finalCostPerPcsVal;
+                 }
+
+             } 
+
+
+
+
+     return services ;
+
+
+     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     public void setFinanceCalc(int marchand) {
     int check=marchand;
@@ -532,44 +666,47 @@ public void RefreshWashCost() {
     Row[] rows = dcIteratorBindings.getAllRowsInRange();
     for (Row row : rows) {
 
-    /***************************************/
-    // refreshFabricFinance(row);
-    /***************************************/
+            /***************************************/
+            // refreshFabricFinance(row);
+            /***************************************/
 
-  //  oracle.jbo.domain.Number prefix = (Number)row.getAttribute("ItemPrefix"); //ItemPrefix
-        
-      String pre =row.getAttribute("ItemPrefix").toString(); //ItemPrefix
-        
-      int prefix=Integer.parseInt(pre);
-                
-    System.out.println("==============Number prefix==============="+prefix);
-        
-    try {
-    finalCostPerPcsVal =
-    Double.parseDouble(row.getAttribute("FinalCostPerPcs").toString());
-    System.out.println("==============Number prefix==============="+finalCostPerPcsVal);
-    } catch (Exception e) {
-    ;
-    }
+            //  oracle.jbo.domain.Number prefix = (Number)row.getAttribute("ItemPrefix"); //ItemPrefix
 
-    // prefixVal = Integer.parseInt(prefix);
-    if (prefix >= 11 && prefix <= 12) {
-    fabric = fabric + finalCostPerPcsVal;
-    finalCostPerPcsVal = 0.00;
-    } else if ((prefix > 12 && prefix <= 36) || prefix==00) {
-    trim = trim + finalCostPerPcsVal;
-    finalCostPerPcsVal = 0.00;
-    }
-    else if (prefix==55){
-    service = service + finalCostPerPcsVal;
-    }
-        
-    } //end of for each loop
+            String pre =
+                row.getAttribute("ItemPrefix").toString(); //ItemPrefix
+
+            int prefix = Integer.parseInt(pre);
+
+            System.out.println("==============Number prefix===============" +
+                               prefix);
+
+            try {
+                finalCostPerPcsVal = Double.parseDouble(row.getAttribute("CostPerPcs").toString());
+                       // Double.parseDouble(row.getAttribute("FinalCostPerPcs").toString());
+                System.out.println("==============Number prefix===============" +
+                                   finalCostPerPcsVal);
+            } catch (Exception e) {
+                ;
+            }
+
+            // prefixVal = Integer.parseInt(prefix);
+            if (prefix >= 11 && prefix <= 12) {
+                fabric = fabric + finalCostPerPcsVal;
+                finalCostPerPcsVal = 0.00;
+            } /*else if ((prefix > 12 && prefix <= 36) || prefix == 00) {
+                trim = trim + finalCostPerPcsVal;
+                finalCostPerPcsVal = 0.00;
+            } else if (prefix == 55) {
+                service = service + finalCostPerPcsVal;
+            }*/ 
+
+        } //end of for each loop
 
     // double fabricFinanceVal = MyMath.numeric3(getFabricFinance());
     // double washFinanceVal = MyMath.numeric3(getWashFinance());
     // double trimFinanceVal = MyMath.numeric3(getTrimFinance());
-
+       trim=findtrims();
+        service=findservices();
     washTotalVal = getSelectedDryTotal() + getSelectedWetTotal();
     
     System.out.println("...................getSelectedDryTotal() + getSelectedWetTotal()---------"+washTotalVal);
@@ -1081,7 +1218,7 @@ public void RefreshWashCost() {
     //
     // }
     }//end of while loop
-
+    System.out.println("final value for line table are *************************************************"+"fabric"+fabric+"trims:"+trim +"other:"+otherVal+"wash:"+ washTotalVal);
 
 }
     
@@ -1283,7 +1420,7 @@ public void RefreshWashCost() {
 
     double addDeductCostVal = MyMath.numeric(getAddDeductCost());
     double finalCostPerPcsVal = costPerPcsVal + addDeductCostVal;
-    
+   
 //     System.out.println("================ finalCostPerPcsVal ==========="+finalCostPerPcsVal);
 
 
@@ -1300,7 +1437,12 @@ public void RefreshWashCost() {
 
     // refreshTotal(finalCostPerPcsVal);
     // if (finalCostPerPcsVal > 0)
-    finalCostPerPcs.setValue(MyMath.toNumber(MyMath.roundUp(finalCostPerPcsVal + fabFinanceCostVal)));
+  
+   
+      finalCostPerPcs.setValue(MyMath.toNumber(MyMath.roundUp(finalCostPerPcsVal + fabFinanceCostVal)));
+    
+    
+   
     AdfFacesContext.getCurrentInstance().addPartialTarget(finalCostPerPcs);
 
     // CHANGE bY BILAL 03MAR17 double costPerLineVal = MyMath.numeric(getCostPerline());
@@ -2416,11 +2558,13 @@ public void RefreshWashCost() {
         // Add event code here...
         
         ViewObject trimsView=appM.gettrimsVO1();
+       
         
         double total = 0.00;
         double actUnitpc = 0.00;
         double val = 0.00;
         double buffer = 0.00;
+       
 
 
         try {
@@ -2456,10 +2600,13 @@ Double.parseDouble((getConsPerPcs_trim().getValue().toString()));
         // AdfFacesContext.getCurrentInstance().addPartialTarget(bpoQt_value);
         //System.out.println(" Total BPO Qty------------>"+getBPOTotalQty());
 
-
+       
         total = (val * actUnitpc) + buffer;
+       // TrimCost=( trimsFinance_with_percentage/100)+total;
         trimsView.getCurrentRow().setAttribute("CostPerPcs", total);
         trimsView.getCurrentRow().setAttribute("FinalCostPerPcs", total);
+       
+        
         AdfFacesContext.getCurrentInstance().addPartialTarget(cost_per_pcs_trims);
 
 
@@ -2479,10 +2626,13 @@ Double.parseDouble((getConsPerPcs_trim().getValue().toString()));
         
         // Add event code here...
                ViewObject othersView=appM.getothers_VO1();
+              
                double total=0.00;
                double actUnitpc=0.00;
                double val = 0.00;
                double bufer=0.00;
+             
+               
                
                try{
                  actUnitpc=  Double.parseDouble((getOtherActualPrc().getValue().toString()));
@@ -2509,10 +2659,11 @@ Double.parseDouble((getConsPerPcs_trim().getValue().toString()));
                // AdfFacesContext.getCurrentInstance().addPartialTarget(bpoQt_value);
                //System.out.println(" Total BPO Qty------------>"+getBPOTotalQty());
                
-               
+              // total= MyMath.toNumber(MyMath.roundUp(val*actUnitpc+bufer));
                total=val*actUnitpc+bufer;
             othersView.getCurrentRow().setAttribute("CostPerPcs", total);
                othersView.getCurrentRow().setAttribute("FinalCostPerPcs", total);
+      
              AdfFacesContext.getCurrentInstance().addPartialTarget(othersCosPerPc);
                
         

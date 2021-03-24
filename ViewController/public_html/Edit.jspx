@@ -761,7 +761,8 @@
                                   inlineStyle="color:Yellow; background-color:InfoBackground;"
                                   contentStyle="background-color:LightGreen;"
                                   binding="#{ManagedBean.trimsFinance}"
-                                  showRequired="true" required="true">
+                                  showRequired="true" required="true"
+                                  visible="false">
                       <f:validator binding="#{bindings.TrimFinance.validator}"/>
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.TrimFinance.format}"/>
@@ -804,7 +805,7 @@
                             rowSelection="single" id="t4"
                             partialTriggers=":::pc1:t1 ::cb7 ::cb8 :::pc4:cb13 :::pc4:cb14"
                             editingMode="clickToEdit"
-                            binding="#{ManagedBean.itemTable}">
+                            binding="#{ManagedBean.itemTable}" visible="true">
                     <af:column id="c28" headerText="Sr. No" align="center"
                                sortable="true" filterable="true" width="40">
                       <af:outputText value="#{vs.index+1}" id="ot1"/>
@@ -1030,10 +1031,10 @@
                         </af:panelGroupLayout>
                       </f:facet>
                     </af:column>
-                    <af:column id="c18" headerText="Cost per pcs"
+                    <af:column id="c18" headerText="Final Cost per pcs"
                                align="center" sortable="true" filterable="true"
                                width="60" sortProperty="FinalCostPerPcs"
-                               visible="false">
+                               visible="true">
                       <af:inputText value="#{row.bindings.FinalCostPerPcs.inputValue}"
                                     label="#{bindings.XX_OM_POC_D1_TVO1.hints.FinalCostPerPcs.label}"
                                     required="#{bindings.XX_OM_POC_D1_TVO1.hints.FinalCostPerPcs.mandatory}"
@@ -1239,15 +1240,16 @@
                                       inlineStyle="width:1254px;height:31px">
                     <f:facet name="footer"/>
                     <af:inputText value="#{bindings.TrimFinance.inputValue}"
-                                  label="Trim Finance (%)"
-                                  required="#{bindings.TrimFinance.hints.mandatory}"
+                                  label="TrimFinance (%)"
                                   columns="#{bindings.TrimFinance.hints.displayWidth}"
                                   maximumLength="#{bindings.TrimFinance.hints.precision}"
                                   shortDesc="#{bindings.TrimFinance.hints.tooltip}"
-                                  id="it53"
-                                  contentStyle="background-color:LightGreen;"
+                                  id="inputText2"
                                   inlineStyle="color:Yellow; background-color:InfoBackground;"
-                                  binding="#{ManagedBean.trimsFinance}">
+                                  contentStyle="background-color:LightGreen;"
+                                  binding="#{ManagedBean.trimsFinance}"
+                                  showRequired="true" required="true"
+                                  autoSubmit="true" visible="true">
                       <f:validator binding="#{bindings.TrimFinance.validator}"/>
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.TrimFinance.format}"/>
@@ -1255,7 +1257,8 @@
                   </af:panelFormLayout>
                 </af:panelGroupLayout>
                 <af:panelCollection id="pc6"
-                                    inlineStyle="width:1588px; height:300px;">
+                                    inlineStyle="width:1588px; height:300px;"
+                                    visible="true">
                   <f:facet name="menus"/>
                   <f:facet name="toolbar">
                     <af:toolbar id="t13">
@@ -1282,7 +1285,7 @@
                             selectionListener="#{bindings.trimsVO1.collectionModel.makeCurrent}"
                             rowSelection="single" id="t12"
                             editingMode="clickToEdit"
-                            partialTriggers="::cb9 ::cb12">
+                            partialTriggers="::cb9 ::cb12" visible="true">
                     <af:column id="c89" headerText="Sr." align="center">
                       <af:outputText value=" #{vs.index+1}" id="ot22"/>
                       <af:spacer width="5" height="10" id="s13"/>
@@ -2216,7 +2219,8 @@
                             selectionListener="#{bindings.others_VO1.collectionModel.makeCurrent}"
                             rowSelection="single" id="t14"
                             partialTriggers="::cb18 ::cb21"
-                            binding="#{ManagedBean.other_table}">
+                            binding="#{ManagedBean.other_table}"
+                            editingMode="clickToEdit">
                     <af:column id="c105" headerText="Sr." align="center">
                       <af:spacer width="10" height="10" id="s15"/>
                       <af:outputText id="ot24" value="#{vs.index+1}"/>
