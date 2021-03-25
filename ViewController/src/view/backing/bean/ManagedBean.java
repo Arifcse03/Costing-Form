@@ -2742,4 +2742,26 @@ Double.parseDouble((getOteherConPcs().getValue().toString()));
     public RichTable getOther_table() {
         return other_table;
     }
+
+    public void goToBom(ActionEvent actionEvent) {
+        // Add event code here...
+        
+        String newPage =
+                "http://192.168.200.110:7003/megabom2-ViewController-context-root/faces/Query";
+               
+               urlink_bom(newPage);
+        
+        
+    }
+    public void urlink_bom(String link){
+         String newPage =link;
+          
+         // String newPage = "http://localhost:7101/PurchaseMemo-ViewController-context-root/faces/SearchPG?headerId="+getBomId().getValue();
+         FacesContext ctx = FacesContext.getCurrentInstance();
+         ExtendedRenderKitService erks = Service.getService(ctx.getRenderKit(), ExtendedRenderKitService.class);
+         String url = "window.open('" + newPage + "','_blank','toolbar=no,location=no,menubar=no,alwaysRaised=yes,height=500,width=1100');";
+         erks.addScript(FacesContext.getCurrentInstance(), url);
+     }
+   
+    
 }

@@ -163,9 +163,11 @@
                          width="120" align="center">
                 <af:outputText value="#{row.StyleDescription}" id="ot1"/>
               </af:column>
-              <af:column sortProperty="Brand" filterable="true" sortable="true"
-                         headerText="Brand" id="c9" align="center">
-                <af:outputText value="#{row.Brand}" id="ot11"/>
+              <af:column sortProperty="OrderQty" filterable="true"
+                         sortable="true" headerText="Order Qty" id="c12"
+                         align="center">
+                <af:commandLink id="ot10" text="#{row.OrderQty}" visible="true"
+                                actionListener="#{ManagedBean.GoBpoFormWithPocId}"/>
               </af:column>
               <af:column id="c4" headerText="Approval" align="center"
                          sortable="true" filterable="true"
@@ -180,25 +182,25 @@
                   <f:validator binding="#{row.bindings.GmStatus.validator}"/>
                 </af:inputText>
               </af:column>
+              <af:column sortProperty="Brand" filterable="true" sortable="true"
+                         headerText="Brand" id="c9" align="center">
+                <af:outputText value="#{row.Brand}" id="ot11"/>
+              </af:column>
+              <af:column id="c16" width="80" align="center">
+                <af:commandLink text="GO to BOM" id="cl2"
+                                actionListener="#{ManagedBean.goToBom}"/>
+              </af:column>
+              <af:column id="c3" headerText="Created By" align="center"
+                         sortable="false" filterable="false"
+                         sortProperty="CreatedByName" width="120">
+                <af:outputText value="#{row.CreatedByName}" id="ot9"/>
+              </af:column>
               <af:column id="c15" headerText="Status" align="center"
                          sortable="true" filterable="true" width="80">
                 <af:outputText value="#{row.Status}" id="ot7">
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.XX_OM_POC_H_TVO1.hints.Status.format}"/>
                 </af:outputText>
-              </af:column>
-              <af:column sortProperty="OrderQty" filterable="true"
-                         sortable="true"
-                         headerText="Order Qty"
-                         id="c12" align="center">
-                <af:commandLink id="ot10" text="#{row.OrderQty}"
-                                visible="true"
-                                actionListener="#{ManagedBean.GoBpoFormWithPocId}"/>
-              </af:column>
-              <af:column id="c3" headerText="Created By" align="center"
-                         sortable="false" filterable="false"
-                         sortProperty="CreatedByName" width="120">
-                <af:outputText value="#{row.CreatedByName}" id="ot9"/>
               </af:column>
             </af:table>
           </af:panelCollection>

@@ -254,11 +254,11 @@
                     <af:toolbar id="t3">
                       <af:commandButton actionListener="#{bindings.CreateInsert.execute}"
                                         text="Create"
-                                        disabled="#{!bindings.CreateInsert.enabled}"
+                                        disabled="#{(bindings.GmApproval.inputValue=='Y')||(bindings.GmApproval.inputValue=='I')? 'true':'false'}"
                                         id="cb4" partialSubmit="true"/>
                       <af:commandButton actionListener="#{bindings.Delete.execute}"
                                         text="Delete"
-                                        disabled="#{!bindings.Delete.enabled}"
+                                        disabled="#{(bindings.GmApproval.inputValue=='Y')||(bindings.GmApproval.inputValue=='I')? 'true':'false'}"
                                         id="cb5"/>
                     </af:toolbar>
                   </af:toolbar>
@@ -776,16 +776,18 @@
                     <af:toolbar id="t5">
                       <af:commandButton actionListener="#{bindings.CreateInsert1.execute}"
                                         text="Create"
-                                        disabled="#{!bindings.CreateInsert1.enabled}"
+                                        disabled="#{(bindings.GmApproval.inputValue=='Y')||(bindings.GmApproval.inputValue=='I')? 'true':'false'}"
                                         id="cb7" partialSubmit="true"/>
                       <af:commandButton actionListener="#{bindings.Delete1.execute}"
                                         text="Delete"
-                                        disabled="#{!bindings.Delete1.enabled}"
+                                        disabled="#{(bindings.GmApproval.inputValue=='Y')||(bindings.GmApproval.inputValue=='I')? 'true':'false'}"
                                         id="cb8"/>
                       <af:commandButton text="Copy" id="cb2"
-                                        actionListener="#{ManagedBean.CopyItem_Detail_Bind}"/>
+                                        actionListener="#{ManagedBean.CopyItem_Detail_Bind}"
+                                        disabled="#{(bindings.GmApproval.inputValue=='Y')||(bindings.GmApproval.inputValue=='I')? 'true':'false'}"/>
                       <af:commandButton text="Populate from Previous" id="cb15"
-                                        inlineStyle="font-weight:bold;">
+                                        inlineStyle="font-weight:bold;"
+                                        disabled="#{(bindings.GmApproval.inputValue=='Y')||(bindings.GmApproval.inputValue=='I')? 'true':'false'}">
                         <af:showPopupBehavior popupId="::p3"/>
                       </af:commandButton>
                     </af:toolbar>
@@ -1264,11 +1266,11 @@
                     <af:toolbar id="t13">
                       <af:commandButton actionListener="#{bindings.CreateInsert4.execute}"
                                         text="Create"
-                                        disabled="#{!bindings.CreateInsert4.enabled}"
+                                        disabled="#{(bindings.GmApproval.inputValue=='Y')||(bindings.GmApproval.inputValue=='I')? 'true':'false'}"
                                         id="cb9"/>
                       <af:commandButton actionListener="#{bindings.Delete4.execute}"
                                         text="Delete"
-                                        disabled="#{!bindings.Delete4.enabled}"
+                                        disabled="#{(bindings.GmApproval.inputValue=='Y')||(bindings.GmApproval.inputValue=='I')? 'true':'false'}"
                                         id="cb12"/>
                     </af:toolbar>
                   </f:facet>
@@ -1899,11 +1901,11 @@
                       <af:toolbar id="t9">
                         <af:commandButton actionListener="#{bindings.CreateInsert2.execute}"
                                           text="Create"
-                                          disabled="#{!bindings.CreateInsert2.enabled}"
+                                          disabled="#{(bindings.GmApproval.inputValue=='Y')||(bindings.GmApproval.inputValue=='I')? 'true':'false'}"
                                           id="cb10" partialSubmit="true"/>
                         <af:commandButton actionListener="#{bindings.Delete2.execute}"
                                           text="Delete"
-                                          disabled="#{!bindings.Delete2.enabled}"
+                                          disabled="#{(bindings.GmApproval.inputValue=='Y')||(bindings.GmApproval.inputValue=='I')? 'true':'false'}"
                                           id="cb11" partialSubmit="true"/>
                       </af:toolbar>
                     </f:facet>
@@ -2047,11 +2049,11 @@
                       <af:toolbar id="t10">
                         <af:commandButton actionListener="#{bindings.CreateInsert3.execute}"
                                           text="Create"
-                                          disabled="#{!bindings.CreateInsert3.enabled}"
+                                          disabled="#{(bindings.GmApproval.inputValue=='Y')||(bindings.GmApproval.inputValue=='I')? 'true':'false'}"
                                           id="cb13" partialSubmit="true"/>
                         <af:commandButton actionListener="#{bindings.Delete3.execute}"
                                           text="Delete"
-                                          disabled="#{!bindings.Delete3.enabled}"
+                                          disabled="#{(bindings.GmApproval.inputValue=='Y')||(bindings.GmApproval.inputValue=='I')? 'true':'false'}"
                                           id="cb14" partialSubmit="true"/>
                       </af:toolbar>
                     </f:facet>
@@ -2198,11 +2200,11 @@
                     <af:toolbar id="t15">
                       <af:commandButton actionListener="#{bindings.CreateInsert5.execute}"
                                         text="Create"
-                                        disabled="#{!bindings.CreateInsert5.enabled}"
+                                        disabled="#{(bindings.GmApproval.inputValue=='Y')||(bindings.GmApproval.inputValue=='I')? 'true':'false'}"
                                         id="cb18"/>
                       <af:commandButton actionListener="#{bindings.Delete5.execute}"
                                         text="Delete"
-                                        disabled="#{!bindings.Delete5.enabled}"
+                                        disabled="#{(bindings.GmApproval.inputValue=='Y')||(bindings.GmApproval.inputValue=='I')? 'true':'false'}"
                                         id="cb21"/>
                     </af:toolbar>
                   </f:facet>
@@ -2505,11 +2507,11 @@
                                     inlineStyle="width:1541px; height:90px;">
                   <af:inputText value="#{bindings.CmMerchand.inputValue}"
                                 label="Cm Merch./PC"
-                                required="#{bindings.CmMerchand.hints.mandatory}"
                                 columns="#{bindings.CmMerchand.hints.displayWidth}"
                                 maximumLength="#{bindings.CmMerchand.hints.precision}"
                                 shortDesc="#{bindings.CmMerchand.hints.tooltip}"
-                                id="it48" binding="#{ManagedBean.cmMerchad}">
+                                id="it48" binding="#{ManagedBean.cmMerchad}"
+                                showRequired="true" required="true">
                     <f:validator binding="#{bindings.CmMerchand.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.CmMerchand.format}"/>
