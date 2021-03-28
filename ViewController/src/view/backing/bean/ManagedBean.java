@@ -2381,11 +2381,11 @@ Double.parseDouble(MnjLineV.getCurrentRow().getAttribute("Profit").toString());
     public String Search() {
         // Add event code here...
 
-        String unitId = null;
+      //  String unitId = null;
 
         ViewObject hvo = appM.getSearchVO1();
 
-        try {
+       /* try {
             unitId = hvo.getCurrentRow().getAttribute("OrgId").toString();
             //           unitId=getOrganizationId().getValue().toString();
         } catch (Exception e) {
@@ -2393,7 +2393,7 @@ Double.parseDouble(MnjLineV.getCurrentRow().getAttribute("Profit").toString());
         }
 
         System.out.println("=========== LC UNIT ===========" + unitId);
-        //end of if condition
+        //end of if condition*/
         String buyer_name = null;
         try {
             buyer_name =
@@ -2410,7 +2410,7 @@ Double.parseDouble(MnjLineV.getCurrentRow().getAttribute("Profit").toString());
         } catch (Exception e) {
             Season = null;
         }
-        System.out.println("=========== unitId ===========" + unitId);
+       // System.out.println("=========== unitId ===========" + unitId);
         System.out.println("=========== buyer_name ===========" + buyer_name);
         System.out.println("=========== Season ===========" + Season);
 
@@ -2419,7 +2419,7 @@ Double.parseDouble(MnjLineV.getCurrentRow().getAttribute("Profit").toString());
         vo.setWhereClause(null);
         vo.clearCache();
         vo.setWhereClause("BUYER_ID = '" + buyer_name + "' AND SEASON = '" +
-                          Season + "' AND LC_UNIT= '" + unitId + "'");
+                          Season + "'");
         vo.executeQuery();
         //        System.out.println("=========== executeQuery ==========="+vo.getQuery());
         AdfFacesContext.getCurrentInstance().addPartialTarget(queryTable);

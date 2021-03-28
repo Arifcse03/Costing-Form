@@ -339,6 +339,16 @@ public class XX_OM_POC_H_TVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        OrderQtyAll {
+            public Object get(XX_OM_POC_H_TVORowImpl obj) {
+                return obj.getOrderQtyAll();
+            }
+
+            public void put(XX_OM_POC_H_TVORowImpl obj, Object value) {
+                obj.setOrderQtyAll((Number)value);
+            }
+        }
+        ,
         XX_OM_POC_L_TVO {
             public Object get(XX_OM_POC_H_TVORowImpl obj) {
                 return obj.getXX_OM_POC_L_TVO();
@@ -529,6 +539,7 @@ public class XX_OM_POC_H_TVORowImpl extends ViewRowImpl {
     public static final int CREATEDBYNAME = AttributesEnum.CreatedByName.index();
     public static final int GMSTATUS = AttributesEnum.GmStatus.index();
     public static final int ORGNAME = AttributesEnum.OrgName.index();
+    public static final int ORDERQTYALL = AttributesEnum.OrderQtyAll.index();
     public static final int XX_OM_POC_L_TVO = AttributesEnum.XX_OM_POC_L_TVO.index();
     public static final int BUYERLOV1 = AttributesEnum.Buyerlov1.index();
     public static final int SEASONLOV1 = AttributesEnum.Seasonlov1.index();
@@ -1068,6 +1079,22 @@ public class XX_OM_POC_H_TVORowImpl extends ViewRowImpl {
      */
     public void setOrgName(String value) {
         setAttributeInternal(ORGNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute OrderQtyAll.
+     * @return the OrderQtyAll
+     */
+    public Number getOrderQtyAll() {
+        return (Number) getAttributeInternal(ORDERQTYALL);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute OrderQtyAll.
+     * @param value value to set the  OrderQtyAll
+     */
+    public void setOrderQtyAll(Number value) {
+        setAttributeInternal(ORDERQTYALL, value);
     }
 
     /**

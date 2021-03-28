@@ -23,7 +23,7 @@
                                 label="L.C Unit "
                                 required="#{bindings.Org.hints.mandatory}"
                                 shortDesc="#{bindings.Org.hints.tooltip}"
-                                id="soc1" autoSubmit="true">
+                                id="soc1" autoSubmit="true" visible="false">
               <f:selectItems value="#{bindings.Org.items}" id="si1"/>
             </af:selectOneChoice>
             <af:inputListOfValues id="buyerId"
@@ -163,10 +163,10 @@
                          width="120" align="center">
                 <af:outputText value="#{row.StyleDescription}" id="ot1"/>
               </af:column>
-              <af:column sortProperty="OrderQty" filterable="true"
-                         sortable="true" headerText="Order Qty" id="c12"
-                         align="center">
-                <af:commandLink id="ot10" text="#{row.OrderQty}" visible="true"
+              <af:column headerText="Order Qty"
+                         id="c17" align="center" sortable="true"
+                         filterable="true" sortProperty="OrderQty">
+                <af:commandLink id="ot14" text="#{row.OrderQtyAll}"
                                 actionListener="#{ManagedBean.GoBpoFormWithPocId}"/>
               </af:column>
               <af:column id="c4" headerText="Approval" align="center"
@@ -201,6 +201,12 @@
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.XX_OM_POC_H_TVO1.hints.Status.format}"/>
                 </af:outputText>
+              </af:column>
+              <af:column sortProperty="OrderQty" filterable="true"
+                         sortable="true" headerText="COSTING QTY" id="c12"
+                         align="center">
+                <af:commandLink id="ot10" text="#{row.OrderQty}" visible="true"
+                                actionListener="#{ManagedBean.GoBpoFormWithPocId}"/>
               </af:column>
             </af:table>
           </af:panelCollection>

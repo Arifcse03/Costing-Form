@@ -36,6 +36,7 @@
           <Item Value="GmStatus"/>
           <Item Value="OrgName"/>
           <Item Value="Status"/>
+          <Item Value="OrderQtyAll"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
