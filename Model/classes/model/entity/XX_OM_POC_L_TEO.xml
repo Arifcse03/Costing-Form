@@ -11,7 +11,8 @@
   AliasName="XX_OM_POC_L_TEO"
   BindingStyle="OracleName"
   UseGlueCode="false"
-  RowClass="model.entity.XX_OM_POC_L_TEOImpl">
+  RowClass="model.entity.XX_OM_POC_L_TEOImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <DesignTime>
     <AttrArray Name="_publishEvents"/>
     <Attr Name="_codeGenFlag2" Value="Init|Delete|Access|DML"/>
@@ -218,6 +219,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
+    <validation:CompareValidationBean
+      Name="CmMerchand_Rule_0"
+      ResId="model.entity.XX_OM_POC_L_TEO.CmMerchand_Rule_0"
+      OnAttribute="CmMerchand"
+      OperandType="LITERAL"
+      Inverse="false"
+      CompareType="GREATERTHAN"
+      CompareValue="0"/>
   </Attribute>
   <Attribute
     Name="Smv"
@@ -481,6 +490,7 @@
       <Attr Name="_checkCondition" Value='"CM_MERCHAND" IS NOT NULL'/>
       <Attr Name="_isCheck" Value="true"/>
     </DesignTime>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="XxOmPocLFk">
@@ -493,4 +503,8 @@
       <Item Value="model.entity.XX_OM_POC_L_TEO.PocId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

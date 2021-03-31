@@ -65,11 +65,11 @@
                                         disabled="#{(bindings.GmApproval.inputValue=='Y')||(bindings.GmApproval.inputValue=='I')? 'true':'false'}"/>
                       <af:spacer width="10" height="10" id="s7"/>
                       <af:commandButton actionListener="#{bindings.Rollback.execute}"
-                                        text="Back"
-                                        immediate="true" id="cb3"
+                                        text="Back" id="cb3"
                                         inlineStyle="height:30px;"
                                         action="*GotoSearch"
-                                        shortDesc="Go Back to Search Page">
+                                        shortDesc="Go Back to Search Page"
+                                        immediate="true">
                         <af:resetActionListener/>
                       </af:commandButton>
                       <af:spacer width="10" height="10" id="s8"/>
@@ -541,7 +541,7 @@
             </af:showDetailItem>
           </af:panelTabbed>
           <af:panelTabbed id="pt2" styleClass="AFStretchWidth"
-                          inlineStyle="height:450px;">
+                          inlineStyle="height:600px;">
             <af:showDetailItem text="Management" id="sdi5"
                                visible="#{sessionScope.KeyFlag=='MD'? 'true':'false'}">
               <af:panelGroupLayout id="pgl10" inlineStyle="width:941px;">
@@ -549,8 +549,9 @@
                 <af:panelFormLayout id="pfl8" maxColumns="3" rows="4"
                                     labelWidth="150px" labelAlignment="start"
                                     styleClass="AFStretchWidth"
-                                    inlineStyle="width:1254px; height:121px;"
-                                    partialTriggers="pc1:t1">
+                                    inlineStyle="width:1254px; height:121px; border-color:Black; border-width:2.0px; outline-style:dashed;"
+                                    partialTriggers="pc1:t1"
+                                    visible="#{sessionScope.KeyFlag=='MD'? 'true':'false'}">
                   <af:inputText value="#{bindings.FactoryAvgEf.inputValue}"
                                 label="Factory Avg Eff."
                                 required="#{bindings.FactoryAvgEf.hints.mandatory}"
@@ -678,7 +679,7 @@
                                 columns="#{bindings.CmManagement.hints.displayWidth}"
                                 maximumLength="#{bindings.CmManagement.hints.precision}"
                                 shortDesc="#{bindings.CmManagement.hints.tooltip}"
-                                id="it83" readOnly="true">
+                                id="it83" readOnly="true" visible="false">
                     <f:validator binding="#{bindings.CmManagement.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.CmManagement.format}"/>
@@ -711,9 +712,59 @@
                                     action="#{ManagedBean.SaveManagementCal}"
                                     visible="false"/>
                 </af:panelFormLayout>
+                <af:panelFormLayout id="pfl11" maxColumns="3" rows="2">
+                  <f:facet name="footer"/>
+                  <af:panelLabelAndMessage label="Sam:"
+                                           id="plam11">
+                    <af:outputText value="#{bindings.Sam.inputValue}" id="ot36">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.Sam.format}"/>
+                    </af:outputText>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="Actual Sam:"
+                                           id="plam14">
+                    <af:outputText value="#{bindings.ActualSam.inputValue}"
+                                   id="ot39">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.ActualSam.format}"/>
+                    </af:outputText>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="Style Efficiency:"
+                                           id="plam12">
+                    <af:outputText value="#{bindings.StyleEfficiency.inputValue}"
+                                   id="ot37">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.StyleEfficiency.format}"/>
+                    </af:outputText>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="Actual Style Efficiency:"
+                                           id="plam15">
+                    <af:outputText value="#{bindings.ActualStyleEfficiency.inputValue}"
+                                   id="ot40">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.ActualStyleEfficiency.format}"/>
+                    </af:outputText>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="Shipment Parcentage(%) :"
+                                           id="plam13">
+                    <af:outputText value="#{bindings.ShipmentValue.inputValue}"
+                                   id="ot38">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.ShipmentValue.format}"/>
+                    </af:outputText>
+                  </af:panelLabelAndMessage>
+                  <af:panelLabelAndMessage label="Actual Shipment Parcentage(%):"
+                                           id="plam16">
+                    <af:outputText value="#{bindings.ShipmentPct.inputValue}"
+                                   id="ot41">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.ShipmentPct.format}"/>
+                    </af:outputText>
+                  </af:panelLabelAndMessage>
+                </af:panelFormLayout>
               </af:panelGroupLayout>
             </af:showDetailItem>
-            <af:showDetailItem text="Item Detail" id="sdi2">
+            <af:showDetailItem text="Fabric Detail" id="sdi2">
               <af:panelHeader text="-" id="ph4"
                               inlineStyle="height:550px;">
                 <f:facet name="context"/>
@@ -2191,7 +2242,7 @@
             </af:showDetailItem>
             <af:showDetailItem text="Others" id="sdi4">
               <af:panelGroupLayout id="pgl6" inlineStyle="width:900px;"
-                                   partialTriggers="pc1:t1">
+                                   partialTriggers="pc1:t1" layout="vertical">
                 <af:panelCollection id="pc7"
                                     inlineStyle="width:1588px; height:300px;"
                                     styleClass="AFStretchWidth">
@@ -2501,94 +2552,173 @@
                   </af:table>
                 </af:panelCollection>
                 <af:checkUncommittedDataBehavior/>
-                <af:panelFormLayout id="pfl6" rows="2" maxColumns="4"
+                <af:panelFormLayout id="pfl6" rows="4" maxColumns="9"
                                     labelWidth="150px;" labelAlignment="start"
-                                    styleClass="AFStretchWidth"
-                                    inlineStyle="width:1541px; height:90px;">
-                  <af:inputText value="#{bindings.CmMerchand.inputValue}"
-                                label="Cm Merch./PC"
-                                columns="#{bindings.CmMerchand.hints.displayWidth}"
-                                maximumLength="#{bindings.CmMerchand.hints.precision}"
-                                shortDesc="#{bindings.CmMerchand.hints.tooltip}"
-                                id="it48" binding="#{ManagedBean.cmMerchad}"
-                                showRequired="true" required="true">
-                    <f:validator binding="#{bindings.CmMerchand.validator}"/>
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.CmMerchand.format}"/>
-                  </af:inputText>
-                  <af:inputText value="#{bindings.ProdCostLinePerH.inputValue}"
-                                label="Productivity Per Hr  "
-                                required="#{bindings.ProdCostLinePerH.hints.mandatory}"
-                                columns="#{bindings.ProdCostLinePerH.hints.displayWidth}"
-                                maximumLength="#{bindings.ProdCostLinePerH.hints.precision}"
-                                shortDesc="#{bindings.ProdCostLinePerH.hints.tooltip}"
-                                id="it49"
-                                binding="#{ManagedBean.producPerLine}">
-                    <f:validator binding="#{bindings.ProdCostLinePerH.validator}"/>
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.ProdCostLinePerH.format}"/>
-                  </af:inputText>
-                  <af:inputText value="#{bindings.StyleEfficiency.inputValue}"
-                                label="Style Efficiency"
-                                columns="#{bindings.StyleEfficiency.hints.displayWidth}"
-                                maximumLength="#{bindings.StyleEfficiency.hints.precision}"
-                                shortDesc="#{bindings.StyleEfficiency.hints.tooltip}"
-                                id="it59" binding="#{ManagedBean.styleEff}"
-                                showRequired="true" required="true">
-                    <f:validator binding="#{bindings.StyleEfficiency.validator}"/>
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.StyleEfficiency.format}"/>
-                  </af:inputText>
-                  <af:inputText value="#{bindings.Sam.inputValue}"
-                                label="SAM"
-                                columns="#{bindings.Sam.hints.displayWidth}"
-                                maximumLength="#{bindings.Sam.hints.precision}"
-                                shortDesc="#{bindings.Sam.hints.tooltip}"
-                                id="it60" binding="#{ManagedBean.samValue}"
-                                required="true" showRequired="true">
-                    <f:validator binding="#{bindings.Sam.validator}"/>
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.Sam.format}"/>
-                  </af:inputText>
-                  <af:inputText value="#{bindings.CommisonPrcnt.inputValue}"
-                                label="Commison (%)"
-                                required="#{bindings.CommisonPrcnt.hints.mandatory}"
-                                columns="#{bindings.CommisonPrcnt.hints.displayWidth}"
-                                maximumLength="#{bindings.CommisonPrcnt.hints.precision}"
-                                shortDesc="#{bindings.CommisonPrcnt.hints.tooltip}"
-                                id="it63">
-                    <f:validator binding="#{bindings.CommisonPrcnt.validator}"/>
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.CommisonPrcnt.format}"/>
-                  </af:inputText>
-                  <af:inputText value="#{bindings.OtherCharge.inputValue}"
-                                label="Other Charge"
-                                required="#{bindings.OtherCharge.hints.mandatory}"
-                                columns="#{bindings.OtherCharge.hints.displayWidth}"
-                                maximumLength="#{bindings.OtherCharge.hints.precision}"
-                                shortDesc="#{bindings.OtherCharge.hints.tooltip}"
-                                id="it64">
-                    <f:validator binding="#{bindings.OtherCharge.validator}"/>
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.OtherCharge.format}"/>
-                  </af:inputText>
-                  <af:selectOneRadio label="Shipment Mode " id="sor3"
-                                     binding="#{ManagedBean.selectedShipItem}"
-                                     valueChangeListener="#{ManagedBean.ShipmentModeChange}">
-                    <af:selectItem label="Excess" value="Excess" id="si20"/>
-                    <af:selectItem label="Short" value="Short" id="si19"/>
-                  </af:selectOneRadio>
-                  <af:inputText value="#{bindings.ShipmentValue.inputValue}"
-                                label="Shipment Parcentage(%) "
-                                required="#{bindings.ShipmentValue.hints.mandatory}"
-                                columns="#{bindings.ShipmentValue.hints.displayWidth}"
-                                maximumLength="#{bindings.ShipmentValue.hints.precision}"
-                                shortDesc="#{bindings.ShipmentValue.hints.tooltip}"
-                                id="it50">
-                    <f:validator binding="#{bindings.ShipmentValue.validator}"/>
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.ShipmentValue.format}"/>
-                  </af:inputText>
+                                    styleClass="AFStretchWidth">
+                  <af:panelGroupLayout id="pgl17" layout="vertical"
+                                       inlineStyle="width:auto;">
+                    <af:inputText value="#{bindings.CmMerchand.inputValue}"
+                                  label="Cm Merch./PC"
+                                  columns="#{bindings.CmMerchand.hints.displayWidth}"
+                                  maximumLength="#{bindings.CmMerchand.hints.precision}"
+                                  shortDesc="#{bindings.CmMerchand.hints.tooltip}"
+                                  id="it48" binding="#{ManagedBean.cmMerchad}"
+                                  showRequired="true" required="true"
+                                  contentStyle="width:50.0px;" visible="true"
+                                  inlineStyle=" padding:3.0px;">
+                      <f:validator binding="#{bindings.CmMerchand.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.CmMerchand.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.ProdCostLinePerH.inputValue}"
+                                  label="Productivity Per Hr  "
+                                  required="#{bindings.ProdCostLinePerH.hints.mandatory}"
+                                  columns="#{bindings.ProdCostLinePerH.hints.displayWidth}"
+                                  maximumLength="#{bindings.ProdCostLinePerH.hints.precision}"
+                                  shortDesc="#{bindings.ProdCostLinePerH.hints.tooltip}"
+                                  id="it49"
+                                  binding="#{ManagedBean.producPerLine}"
+                                  contentStyle="width:50.0px;" visible="true"
+                                  inlineStyle=" padding:3.0px;">
+                      <f:validator binding="#{bindings.ProdCostLinePerH.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.ProdCostLinePerH.format}"/>
+                    </af:inputText>
+                  </af:panelGroupLayout>
+                  <af:spacer width="1" height="1" id="spacer1"/>
+                  <af:spacer width="10" height="10" id="s20"/>
+                  <af:spacer width="1" height="1" id="spacer2"/>
+                  <af:panelGroupLayout id="pgl16" layout="horizontal"
+                                       valign="middle"
+                                       inlineStyle="width:500.0px;">
+                    <af:inputText value="#{bindings.StyleEfficiency.inputValue}"
+                                  label="Style Efficiency"
+                                  columns="#{bindings.StyleEfficiency.hints.displayWidth}"
+                                  maximumLength="#{bindings.StyleEfficiency.hints.precision}"
+                                  shortDesc="#{bindings.StyleEfficiency.hints.tooltip}"
+                                  id="it59" binding="#{ManagedBean.styleEff}"
+                                  showRequired="true" required="true"
+                                  contentStyle="width:50.0px;"
+                                  inlineStyle=" padding:3px; width:auto; height:auto;"
+                                  visible="true">
+                      <f:validator binding="#{bindings.StyleEfficiency.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.StyleEfficiency.format}"/>
+                    </af:inputText>
+                    <af:spacer width="10" height="1" id="spacer3"/>
+                    <af:panelLabelAndMessage label="Actual Style Efficiency:"
+                                             id="plam7"
+                                             inlineStyle="width:auto; padding:3px; height:auto;"
+                                             visible="true">
+                      <af:outputText value="#{bindings.ActualStyleEfficiency.inputValue}"
+                                     id="ot32" inlineStyle="color:Black;">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.ActualStyleEfficiency.format}"/>
+                      </af:outputText>
+                    </af:panelLabelAndMessage>
+                  </af:panelGroupLayout>
+                  <af:panelGroupLayout id="pgl18" layout="horizontal"
+                                       inlineStyle="width:500.0px;">
+                    <af:inputText value="#{bindings.Sam.inputValue}" label="SAM"
+                                  columns="#{bindings.Sam.hints.displayWidth}"
+                                  maximumLength="#{bindings.Sam.hints.precision}"
+                                  shortDesc="#{bindings.Sam.hints.tooltip}"
+                                  id="it60" binding="#{ManagedBean.samValue}"
+                                  required="true" showRequired="true"
+                                  contentStyle="width:50.0px;"
+                                  inlineStyle="padding:3px; margin:auto; width:auto;"
+                                  visible="true">
+                      <f:validator binding="#{bindings.Sam.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.Sam.format}"/>
+                    </af:inputText>
+                    <af:spacer width="10" height="1" id="spacer7"/>
+                    <af:panelLabelAndMessage label="Actual Sam:" id="plam8"
+                                             inlineStyle="width:auto; padding:3px; margin:auto;"
+                                             visible="true">
+                      <af:outputText value="#{bindings.ActualSam.inputValue}"
+                                     id="ot33" inlineStyle="color:Black;">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.ActualSam.format}"/>
+                      </af:outputText>
+                    </af:panelLabelAndMessage>
+                  </af:panelGroupLayout>
+                  <af:panelGroupLayout id="pgl19" layout="horizontal"
+                                       inlineStyle="width:500.0px;">
+                    <af:selectOneRadio label="Shipment Mode " id="sor3"
+                                       binding="#{ManagedBean.selectedShipItem}"
+                                       valueChangeListener="#{ManagedBean.ShipmentModeChange}"
+                                       inlineStyle="padding:3px; width:auto; margin:auto;"
+                                       visible="true"
+                                       contentStyle="width:50.0px;">
+                      <af:selectItem label="Excess" value="Excess" id="si20"/>
+                      <af:selectItem label="Short" value="Short" id="si19"/>
+                    </af:selectOneRadio>
+                    <af:spacer width="10" height="1" id="spacer8"/>
+                    <af:panelLabelAndMessage label="Actual Shipment Mode:"
+                                             id="plam9"
+                                             inlineStyle="width:auto; padding:3px; margin:auto;"
+                                             visible="true">
+                      <af:outputText value="#{bindings.Postion.inputValue}"
+                                     id="ot34" inlineStyle="color:Black;"/>
+                    </af:panelLabelAndMessage>
+                  </af:panelGroupLayout>
+                  <af:panelGroupLayout id="pgl20" layout="horizontal"
+                                       inlineStyle="width:500.0px;">
+                    <af:inputText value="#{bindings.ShipmentValue.inputValue}"
+                                  label="Shipment Parcentage(%) "
+                                  required="#{bindings.ShipmentValue.hints.mandatory}"
+                                  columns="#{bindings.ShipmentValue.hints.displayWidth}"
+                                  maximumLength="#{bindings.ShipmentValue.hints.precision}"
+                                  shortDesc="#{bindings.ShipmentValue.hints.tooltip}"
+                                  id="it50"
+                                  inlineStyle=" width:auto; margin:auto;"
+                                  visible="true" contentStyle="width:50.0px;">
+                      <f:validator binding="#{bindings.ShipmentValue.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.ShipmentValue.format}"/>
+                    </af:inputText>
+                    <af:spacer width="10" height="1" id="spacer9"/>
+                    <af:panelLabelAndMessage label="Actual Shipment Parcentage(%) :"
+                                             id="plam10"
+                                             inlineStyle=" margin:auto; width:auto;"
+                                             visible="true">
+                      <af:outputText value="#{bindings.ShipmentPct.inputValue}"
+                                     id="ot35" inlineStyle="color:Black;">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.ShipmentPct.format}"/>
+                      </af:outputText>
+                    </af:panelLabelAndMessage>
+                  </af:panelGroupLayout>
+                  <af:panelGroupLayout id="pgl15" inlineStyle="width:auto;">
+                    <af:inputText value="#{bindings.CommisonPrcnt.inputValue}"
+                                  label="Commison (%)"
+                                  required="#{bindings.CommisonPrcnt.hints.mandatory}"
+                                  columns="#{bindings.CommisonPrcnt.hints.displayWidth}"
+                                  maximumLength="#{bindings.CommisonPrcnt.hints.precision}"
+                                  shortDesc="#{bindings.CommisonPrcnt.hints.tooltip}"
+                                  id="it63" contentStyle="width:50.0px;"
+                                  visible="true">
+                      <f:validator binding="#{bindings.CommisonPrcnt.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.CommisonPrcnt.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.OtherCharge.inputValue}"
+                                  label="Other Charge"
+                                  required="#{bindings.OtherCharge.hints.mandatory}"
+                                  columns="#{bindings.OtherCharge.hints.displayWidth}"
+                                  maximumLength="#{bindings.OtherCharge.hints.precision}"
+                                  shortDesc="#{bindings.OtherCharge.hints.tooltip}"
+                                  id="it64" contentStyle="width:50.0px;"
+                                  visible="true">
+                      <f:validator binding="#{bindings.OtherCharge.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.OtherCharge.format}"/>
+                    </af:inputText>
+                  </af:panelGroupLayout>
+                  <af:spacer width="10" height="10" id="spacer4"/>
+                  <af:spacer width="10" height="10" id="spacer5"/>
+                  <af:spacer width="1" height="1" id="spacer6"/>
                 </af:panelFormLayout>
               </af:panelGroupLayout>
             </af:showDetailItem>

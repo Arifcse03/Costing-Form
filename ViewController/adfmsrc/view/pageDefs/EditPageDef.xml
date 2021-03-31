@@ -44,6 +44,12 @@
     <searchRegion Binds="others_VO1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   id="others_VO1Query"/>
+    <iterator Binds="ASAM_AStyleEffiVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="ASAM_AStyleEffiVO1Iterator"/>
+    <iterator Binds="short_or_eccess_VO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="short_or_eccess_VO1Iterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="XX_OM_POC_H_TVO1Iterator" id="Style">
@@ -514,6 +520,27 @@
     <attributeValues IterBinding="XX_OM_POC_L_TVO1Iterator" id="D2_TVO1_Total">
       <AttrNames>
         <Item Value="D2_TVO1_Total"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ASAM_AStyleEffiVO1Iterator"
+                     id="ActualStyleEfficiency">
+      <AttrNames>
+        <Item Value="ActualStyleEfficiency"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ASAM_AStyleEffiVO1Iterator" id="ActualSam">
+      <AttrNames>
+        <Item Value="ActualSam"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="short_or_eccess_VO1Iterator" id="Postion">
+      <AttrNames>
+        <Item Value="Postion"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="short_or_eccess_VO1Iterator" id="ShipmentPct">
+      <AttrNames>
+        <Item Value="ShipmentPct"/>
       </AttrNames>
     </attributeValues>
   </bindings>

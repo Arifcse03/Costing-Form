@@ -540,6 +540,26 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        ASAM_AStyleEffiVO {
+            public Object get(XX_OM_POC_L_TVORowImpl obj) {
+                return obj.getASAM_AStyleEffiVO();
+            }
+
+            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
+        short_or_eccess_VO {
+            public Object get(XX_OM_POC_L_TVORowImpl obj) {
+                return obj.getshort_or_eccess_VO();
+            }
+
+            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
         colorLov1 {
             public Object get(XX_OM_POC_L_TVORowImpl obj) {
                 return obj.getcolorLov1();
@@ -630,6 +650,8 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
     public static final int XX_OM_POC_D2_TVO2 = AttributesEnum.XX_OM_POC_D2_TVO2.index();
     public static final int TRIMSVO = AttributesEnum.trimsVO.index();
     public static final int OTHERS_VO = AttributesEnum.others_VO.index();
+    public static final int ASAM_ASTYLEEFFIVO = AttributesEnum.ASAM_AStyleEffiVO.index();
+    public static final int SHORT_OR_ECCESS_VO = AttributesEnum.short_or_eccess_VO.index();
     public static final int COLORLOV1 = AttributesEnum.colorLov1.index();
 
     /**
@@ -1430,6 +1452,20 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
      */
     public RowIterator getothers_VO() {
         return (RowIterator)getAttributeInternal(OTHERS_VO);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link ASAM_AStyleEffiVO.
+     */
+    public RowIterator getASAM_AStyleEffiVO() {
+        return (RowIterator)getAttributeInternal(ASAM_ASTYLEEFFIVO);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link short_or_eccess_VO.
+     */
+    public RowIterator getshort_or_eccess_VO() {
+        return (RowIterator)getAttributeInternal(SHORT_OR_ECCESS_VO);
     }
 
     /**

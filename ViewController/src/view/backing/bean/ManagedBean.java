@@ -158,20 +158,24 @@ public class ManagedBean {
         return BindingContext.getCurrent().getCurrentBindingsEntry();
     }
 
+  
 
     public String refershButton() {
         // Add event code here...
         //   ViewObject vo=appM.getXX_OM_POC_H_TVO1();
         //   System.out.println("=========Commkit ===========");
         //   appM.getDBTransaction().commit();
-
+       
+        ViewObject linenumber = appM.getXX_OM_POC_L_TVO1();
+    
+    
         ViewObject testlineVo = appM.getXX_OM_POC_H_TVO1();
         remark();
         trimStyleNoAndName();
         OperationBinding ob = executeOperation("Commit");
         ob.execute();
         productionCalculation();
-        ViewObject linenumber = appM.getXX_OM_POC_L_TVO1();
+      
         try {
             linenumber.getCurrentRow().getAttribute("FobId").toString();
             System.out.println("..........befor");

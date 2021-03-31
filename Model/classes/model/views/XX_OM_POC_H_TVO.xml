@@ -105,8 +105,8 @@
     Name="LOV_ItemPurchaseType"
     ListVOName="ItemPurchaseTypeLov1"
     ListRangeSize="-1"
-    NullValueFlag="start"
-    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    NullValueFlag="none"
+    NullValueId="LOV_ItemPurchaseType_LOVUIHints_NullValueId"
     MRUCount="0">
     <AttrArray Name="AttrNames">
       <Item Value="ItemPurchaseType"/>
@@ -524,10 +524,10 @@ order by TO_NUMBER( XX_OM_POC_H_TEO.POC_ID) desc ,TO_NUMBER(XX_OM_POC_H_TEO.Vers
     LOVName="LOV_ItemPurchaseType">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
         <DISPLAYWIDTH
           Value="30"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

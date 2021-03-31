@@ -902,6 +902,8 @@ public class XX_OM_POC_H_TEOImpl extends EntityImpl {
         oracle.jbo.server.SequenceImpl s =new oracle.jbo.server.SequenceImpl("XX_OM_POC_H_T_POC_ID_SEQ",getDBTransaction());
         oracle.jbo.domain.Number sVal = s.getSequenceNumber();
         setPocId(sVal); 
+        setItemPurchaseType("Imported");
+        
     }
 
     /**

@@ -511,6 +511,37 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     }
 
 
+    /**
+     * Container's getter for ASAM_AStyleEffiVO1.
+     * @return ASAM_AStyleEffiVO1
+     */
+    public ViewObjectImpl getASAM_AStyleEffiVO1() {
+        return (ViewObjectImpl)findViewObject("ASAM_AStyleEffiVO1");
+    }
+
+    /**
+     * Container's getter for pocLtoAsam_AstyleE_via_SYSTEMid_pocid1.
+     * @return pocLtoAsam_AstyleE_via_SYSTEMid_pocid1
+     */
+    public ViewLinkImpl getpocLtoAsam_AstyleE_via_SYSTEMid_pocid1() {
+        return (ViewLinkImpl)findViewLink("pocLtoAsam_AstyleE_via_SYSTEMid_pocid1");
+    }
+
+    /**
+     * Container's getter for short_or_eccess_VO1.
+     * @return short_or_eccess_VO1
+     */
+    public ViewObjectImpl getshort_or_eccess_VO1() {
+        return (ViewObjectImpl)findViewObject("short_or_eccess_VO1");
+    }
+
+    /**
+     * Container's getter for pocLtoShort_eccess_vL1.
+     * @return pocLtoShort_eccess_vL1
+     */
+    public ViewLinkImpl getpocLtoShort_eccess_vL1() {
+        return (ViewLinkImpl)findViewLink("pocLtoShort_eccess_vL1");
+    }
 }
 
 
