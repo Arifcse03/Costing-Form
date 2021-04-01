@@ -2750,7 +2750,7 @@ Double.parseDouble((getOteherConPcs().getValue().toString()));
 
     public void goToBom(ActionEvent actionEvent) {
         // Add event code here...
-        
+        CreateBomProce();
         String newPage =
                 "http://192.168.200.110:7003/megabom2-ViewController-context-root/faces/Query";
                
@@ -2853,6 +2853,95 @@ Double.parseDouble((getOteherConPcs().getValue().toString()));
        return null;
    }
 
+
+    
+    public String CreateBomProce() {
+    // Add event code here...
+    ViewObject searchVO = appM.getXX_OM_POC_H_TVO1();
+
+    
+    int poc = 0;
+    // int pocfrom_pocForm = 0;
+    // String Buyer = null;
+    //int final_poc = 0;
+    //int OrgId = 0;
+
+    String message = null;
+    
+    /**code for disabling the create button*/
+
+    
+
+    
+    try {
+        poc =
+    Integer.parseInt(searchVO.getCurrentRow().getAttribute("PocId").toString());
+    } catch (Exception e) {
+        poc = 0;
+    }
+    
+    
+
+
+    String stmt = "BEGIN APPS.XX_OM_BOM_INSERT_PROC(:1,:2); end;";
+
+    java.sql.CallableStatement cs =
+        appM.getDBTransaction().createCallableStatement(stmt, 1);
+    try {
+
+
+        cs.setInt(1,poc);
+        cs.registerOutParameter(2, oracle.jdbc.OracleTypes.VARCHAR);
+       // cs.registerOutParameter(3, oracle.jdbc.OracleTypes.VARCHAR);
+        //cs.registerOutParameter(4, oracle.jdbc.OracleTypes.VARCHAR);
+        //cs.registerOutParameter(5, oracle.jdbc.OracleTypes.VARCHAR);
+
+
+        cs.execute();
+        message = cs.getString(2);
+       // message1 = cs.getString(3);
+        //message2 = cs.getString(4);
+        //message3 = cs.getString(5);
+        cs.close();
+
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+
+    }
+
+    
+
+    //AdfFacesContext.getCurrentInstance().addPartialTarget(bpoTable);
+    if (message != null) {
+        showMessage(message, "info");
+    }
+    
+    
+
+
+    return null;
+    }
+
+    
+    
+    public void showMessage(String message, String severity) {
+
+    FacesMessage fm = new FacesMessage(message);
+
+    if (severity.equals("info")) {
+    fm.setSeverity(FacesMessage.SEVERITY_INFO);
+    System.out.println("inside message");
+    } else if (severity.equals("warn")) {
+    fm.setSeverity(FacesMessage.SEVERITY_WARN);
+    } else if (severity.equals("error")) {
+    fm.setSeverity(FacesMessage.SEVERITY_ERROR);
+    }
+
+    FacesContext context = FacesContext.getCurrentInstance();
+    context.addMessage(null, fm);
+
+    }
     
     
     

@@ -98,7 +98,7 @@
                       selectionListener="#{bindings.XX_OM_POC_H_TVO1.collectionModel.makeCurrent}"
                       rowSelection="single" id="t1"
                       partialTriggers="::cb1 cl1"
-                      inlineStyle="font-size:medium;"
+                      inlineStyle="font-size:medium; color:Black; font-weight:normal;"
                       binding="#{ManagedBean.queryTable}"
                       styleClass="AFStretchWidth">
               <af:column id="c13" align="center"

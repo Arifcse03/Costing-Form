@@ -128,8 +128,7 @@
                               shortDesc="#{bindings.Style.hints.tooltip}"
                               id="it1" required="true" showRequired="true"
                               readOnly="#{(bindings.VersionNo.inputValue!='1'? 'true':'false')||(bindings.GmApproval.inputValue=='Y'? 'true':'false')}"
-                              autoSubmit="true"
-                              contentStyle="text-align:center;">
+                              autoSubmit="true">
                   <f:validator binding="#{bindings.Style.validator}"/>
                 </af:inputText>
                 <af:selectOneChoice value="#{bindings.Fit.inputValue}"
@@ -2244,7 +2243,7 @@
               <af:panelGroupLayout id="pgl6" inlineStyle="width:900px;"
                                    partialTriggers="pc1:t1" layout="vertical">
                 <af:panelCollection id="pc7"
-                                    inlineStyle="width:1588px; height:300px;"
+                                    inlineStyle="width:1588px; height:150px;"
                                     styleClass="AFStretchWidth">
                   <f:facet name="menus"/>
                   <f:facet name="toolbar">
