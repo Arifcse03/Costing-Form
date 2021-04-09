@@ -2552,7 +2552,7 @@ Double.parseDouble(MnjLineV.getCurrentRow().getAttribute("Profit").toString());
         int PocId =
             Integer.parseInt(vo.getCurrentRow().getAttribute("PocId").toString());
         String newPage =
-            "http://192.168.200.110:7003/BPO-ViewController-context-root/faces/searchPG?PocId=" +
+            "http://192.168.200.115:7003/BPO-ViewController-context-root/faces/searchPG?PocId=" +
             PocId;
 
         urlink(newPage);
@@ -2752,7 +2752,7 @@ Double.parseDouble((getOteherConPcs().getValue().toString()));
         // Add event code here...
         CreateBomProce();
         String newPage =
-                "http://192.168.200.110:7003/megabom2-ViewController-context-root/faces/Query";
+                "http://192.168.200.115:7003/megabom2-ViewController-context-root/faces/Query";
                
                urlink_bom(newPage);
         
