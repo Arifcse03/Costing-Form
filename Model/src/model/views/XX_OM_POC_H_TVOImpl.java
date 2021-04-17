@@ -15,21 +15,6 @@ public class XX_OM_POC_H_TVOImpl extends ViewObjectImpl {
     public XX_OM_POC_H_TVOImpl() {
     }
 
-    /**
-     * Returns the variable value for p_precostingNo.
-     * @return variable value for p_precostingNo
-     */
-    public Number getp_precostingNo() {
-        return (Number)ensureVariableManager().getVariableValue("p_precostingNo");
-    }
-
-    /**
-     * Sets <code>value</code> for variable p_precostingNo.
-     * @param value value to bind as p_precostingNo
-     */
-    public void setp_precostingNo(Number value) {
-        ensureVariableManager().setVariableValue("p_precostingNo", value);
-    }
 
     /**
      * Returns the bind variable value for p_userId.
@@ -46,4 +31,6 @@ public class XX_OM_POC_H_TVOImpl extends ViewObjectImpl {
     public void setp_userId(String value) {
         setNamedWhereClauseParam("p_userId", value);
     }
+
+
 }

@@ -1337,7 +1337,7 @@
                             selectionListener="#{bindings.trimsVO1.collectionModel.makeCurrent}"
                             rowSelection="single" id="t12"
                             editingMode="clickToEdit"
-                            partialTriggers="::cb9 ::cb12" visible="true">
+                            partialTriggers="::cb9 ::cb12 :::pc1:t1" visible="true">
                     <af:column id="c89" headerText="Sr." align="center">
                       <af:outputText value=" #{vs.index+1}" id="ot22"/>
                       <af:spacer width="5" height="10" id="s13"/>
@@ -1975,7 +1975,7 @@
                               selectionListener="#{bindings.XX_OM_POC_D2_TVO1.collectionModel.makeCurrent}"
                               rowSelection="single" id="t7"
                               editingMode="clickToEdit"
-                              partialTriggers="::cb10 ::cb11"
+                              partialTriggers="::cb10 ::cb11 :::pc1:t1"
                               binding="#{ManagedBean.dryDetailsTable}">
                       <af:column id="c14" visible="false">
                         <af:inputText value="#{row.bindings.ProcessId.inputValue}"
@@ -2120,7 +2120,7 @@
                               selectedRowKeys="#{bindings.XX_OM_POC_D2_TVO2_1.collectionModel.selectedRow}"
                               selectionListener="#{bindings.XX_OM_POC_D2_TVO2_1.collectionModel.makeCurrent}"
                               rowSelection="single" id="t8"
-                              partialTriggers="::cb13 ::cb14"
+                              partialTriggers="::cb13 ::cb14 :::pc1:t1"
                               editingMode="clickToEdit"
                               binding="#{ManagedBean.wetDetailsTable}">
                       <af:column id="c39" visible="false">
@@ -2270,7 +2270,7 @@
                             selectedRowKeys="#{bindings.others_VO1.collectionModel.selectedRow}"
                             selectionListener="#{bindings.others_VO1.collectionModel.makeCurrent}"
                             rowSelection="single" id="t14"
-                            partialTriggers="::cb18 ::cb21"
+                            partialTriggers="::cb18 ::cb21 :::pc1:t1"
                             binding="#{ManagedBean.other_table}"
                             editingMode="clickToEdit">
                     <af:column id="c105" headerText="Sr." align="center">

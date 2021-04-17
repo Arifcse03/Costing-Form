@@ -20,26 +20,25 @@
     </SchemaBasedProperties>
   </Properties>
   <SQLQuery>
-    <![CDATA[SELECT 
-S.system_id ,
-s.POC_ID,
- S.BUYER_ID,
-S.SEASON,
-S.STYLE,
-S.COLOR,
-S.WASH_name,
-ROUND (S.SAM, 3)ACTUAL_SAM,
-ROUND (
-NVL (
-( S.PMIN
-/ CASE WHEN E.ATTEN_MIN = 0 THEN NULL ELSE E.ATTEN_MIN END)
-* 100,
-0),
-2)
-ACTUAL_STYLE_EFFICIENCY
-FROM XX_AVG_SAM_V S, XX_AVG_EFFICIENCY_V E
-WHERE S.POC_ID=E.POC_ID
-and S.system_id = E.system_id]]>
+    <![CDATA[/* Formatted on 4/16/2021 7:54:01 PM (QP5 v5.256.13226.35510) */
+SELECT S.system_id,
+       s.POC_ID,
+       --S.BUYER_ID,
+       --S.SEASON,
+       --S.STYLE,
+       --S.COLOR,
+       --S.WASH_name,
+       ROUND (S.SAM, 3) ACTUAL_SAM,
+       ROUND (
+          NVL (
+               (  S.PMIN
+                / CASE WHEN E.ATTEN_MIN = 0 THEN NULL ELSE E.ATTEN_MIN END)
+             * 100,
+             0),
+          2)
+          ACTUAL_STYLE_EFFICIENCY
+  FROM XX_AVG_SAM_V1 S, XX_AVG_EFFICIENCY_V1 E
+ WHERE S.POC_ID = E.POC_ID AND S.system_id = E.system_id]]>
   </SQLQuery>
   <ViewAttribute
     Name="SystemId"
@@ -66,75 +65,6 @@ and S.system_id = E.system_id]]>
     SQLType="NUMERIC">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
-    </DesignTime>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="BuyerId"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Type="oracle.jbo.domain.Number"
-    ColumnType="NUMBER"
-    AliasName="BUYER_ID"
-    Expression="BUYER_ID"
-    SQLType="NUMERIC">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="39"/>
-    </DesignTime>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="Season"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="30"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="SEASON"
-    Expression="SEASON"
-    SQLType="VARCHAR">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="30"/>
-    </DesignTime>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="Style"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="100"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="STYLE"
-    Expression="STYLE"
-    SQLType="VARCHAR">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="100"/>
-    </DesignTime>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="Color"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="30"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="COLOR"
-    Expression="COLOR"
-    SQLType="VARCHAR">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="30"/>
-    </DesignTime>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="WashName"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="100"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="WASH_NAME"
-    Expression="WASH_NAME"
-    SQLType="VARCHAR">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="100"/>
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute

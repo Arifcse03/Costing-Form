@@ -7,7 +7,7 @@
     <variableIterator id="variables"/>
     <iterator Binds="XX_OM_POC_H_TVO1" RangeSize="25"
               DataControl="AppModuleDataControl" id="XX_OM_POC_H_TVO1Iterator"/>
-    <searchRegion Binds="XX_OM_POC_H_TVO1Iterator" Criteria=""
+    <searchRegion Binds="XX_OM_POC_H_TVO1Iterator"
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   id="XX_OM_POC_H_TVO1Query"/>
     <invokeAction id="setSesValues" Binds="setSessionValues" Refresh="always"/>
