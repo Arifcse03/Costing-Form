@@ -134,28 +134,31 @@
               </af:column>
               <af:column id="c14" headerText="Buyer" align="center"
                          sortable="true" filterable="true" sortProperty="Buyer"
-                         width="130">
+                         width="130" filterFeatures="caseInsensitive">
                 <af:spacer width="10" height="10" id="s1"/>
                 <af:outputText value="#{row.Buyer}" id="ot13"/>
               </af:column>
               <af:column sortProperty="Season" filterable="true" sortable="true"
                          headerText="Season"
-                         id="c7" align="center">
+                         id="c7" align="center"
+                         filterFeatures="caseInsensitive">
                 <af:outputText value="#{row.Season}" id="ot2"/>
               </af:column>
               <af:column sortProperty="Style" filterable="true" sortable="true"
-                         headerText="Style" id="c2" align="center">
+                         headerText="Style" id="c2" align="center"
+                         filterFeatures="caseInsensitive">
                 <af:outputText value="#{row.Style}" id="ot12"/>
               </af:column>
               <af:column sortProperty="EndUser" filterable="true"
                          sortable="true" headerText="End User" id="c11"
-                         align="center">
+                         align="center" filterFeatures="caseInsensitive">
                 <af:outputText value="#{row.EndUser}" id="ot4"/>
               </af:column>
               <af:column sortProperty="ItemDescription" filterable="true"
                          sortable="true"
                          headerText="Item Description"
-                         id="c10" width="120" align="center">
+                         id="c10" width="120" align="center"
+                         filterFeatures="caseInsensitive">
                 <af:outputText value="#{row.ItemDescription}" id="ot6"/>
               </af:column>
               <af:column headerText="Order Qty"
@@ -178,7 +181,8 @@
                 </af:inputText>
               </af:column>
               <af:column sortProperty="Brand" filterable="true" sortable="true"
-                         headerText="Brand" id="c9" align="center">
+                         headerText="Brand" id="c9" align="center"
+                         filterFeatures="caseInsensitive">
                 <af:outputText value="#{row.Brand}" id="ot11"/>
               </af:column>
               <af:column id="c16" width="80" align="center">

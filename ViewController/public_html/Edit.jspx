@@ -118,7 +118,7 @@
                                     label="Brand:"
                                     shortDesc="#{bindings.Brand.hints.tooltip}"
                                     id="soc2" partialTriggers="buyerId"
-                                    readOnly="#{(bindings.VersionNo.inputValue =='1'? 'true':'false')||(bindings.GmApproval.inputValue=='Y'? 'true':'false')}">
+                                    readOnly="#{(bindings.VersionNo.inputValue =='1'? 'true':'false')&amp;&amp;(bindings.GmApproval.inputValue=='Y'? 'true':'false')}">
                   <f:selectItems value="#{bindings.Brand.items}" id="si2"/>
                 </af:selectOneChoice>
                 <af:inputText value="#{bindings.Style.inputValue}"
@@ -127,7 +127,7 @@
                               maximumLength="#{bindings.Style.hints.precision}"
                               shortDesc="#{bindings.Style.hints.tooltip}"
                               id="it1" required="true" showRequired="true"
-                              readOnly="#{(bindings.VersionNo.inputValue =='1'? 'true':'false')||(bindings.GmApproval.inputValue=='Y'? 'true':'false')}"
+                              readOnly="#{(bindings.VersionNo.inputValue =='1'? 'true':'false')&amp;&amp;(bindings.GmApproval.inputValue=='Y'? 'true':'false')}"
                               autoSubmit="true">
                   <f:validator binding="#{bindings.Style.validator}"/>
                 </af:inputText>
@@ -135,21 +135,21 @@
                                     label="Fit:"
                                     shortDesc="#{bindings.Fit.hints.tooltip}"
                                     id="soc4" required="true"
-                                    readOnly="#{(bindings.VersionNo.inputValue =='1'? 'true':'false')||(bindings.GmApproval.inputValue=='Y'? 'true':'false')}">
+                                    readOnly="#{(bindings.VersionNo.inputValue =='1'? 'true':'false')&amp;&amp;(bindings.GmApproval.inputValue=='Y'? 'true':'false')}">
                   <f:selectItems value="#{bindings.Fit.items}" id="si4"/>
                 </af:selectOneChoice>
                 <af:selectOneChoice value="#{bindings.EndUser.inputValue}"
                                     label="End User:"
                                     shortDesc="#{bindings.EndUser.hints.tooltip}"
                                     id="soc5" required="true"
-                                    readOnly="#{(bindings.VersionNo.inputValue =='1'? 'true':'false')||(bindings.GmApproval.inputValue=='Y'? 'true':'false')}">
+                                    readOnly="#{(bindings.VersionNo.inputValue =='1'? 'true':'false')&amp;&amp;(bindings.GmApproval.inputValue=='Y'? 'true':'false')}">
                   <f:selectItems value="#{bindings.EndUser.items}" id="si5"/>
                 </af:selectOneChoice>
                 <af:selectOneChoice value="#{bindings.ItemDescription.inputValue}"
                                     label="Item Description:"
                                     shortDesc="#{bindings.ItemDescription.hints.tooltip}"
                                     id="soc6" required="true"
-                                    readOnly="#{(bindings.VersionNo.inputValue =='1'? 'true':'false')||(bindings.GmApproval.inputValue=='Y'? 'true':'false')}')}">
+                                    readOnly="#{(bindings.VersionNo.inputValue =='1'? 'true':'false')&amp;&amp;(bindings.GmApproval.inputValue=='Y'? 'true':'false')}">
                   <f:selectItems value="#{bindings.ItemDescription.items}"
                                  id="si6"/>
                 </af:selectOneChoice>
@@ -161,7 +161,7 @@
                               id="it2" required="true"
                               binding="#{ManagedBean.orderQty}"
                               autoSubmit="true"
-                              readOnly="#{(bindings.VersionNo.inputValue =='1'? 'true':'false')||(bindings.GmApproval.inputValue=='Y'? 'true':'false')}">
+                              readOnly="#{(bindings.VersionNo.inputValue =='1'? 'true':'false')&amp;&amp;(bindings.GmApproval.inputValue=='Y'? 'true':'false')}">
                   <f:validator binding="#{bindings.OrderQty.validator}"/>
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.OrderQty.format}"/>
@@ -185,7 +185,7 @@
                               maximumLength="#{bindings.StyleDescription.hints.precision}"
                               shortDesc="#{bindings.StyleDescription.hints.tooltip}"
                               id="it3"
-                              readOnly="#{(bindings.VersionNo.inputValue =='1'? 'true':'false')||(bindings.GmApproval.inputValue=='Y'? 'true':'false')}}">
+                              readOnly="#{(bindings.VersionNo.inputValue =='1'? 'true':'false')&amp;&amp;(bindings.GmApproval.inputValue=='Y'? 'true':'false')}">
                   <f:validator binding="#{bindings.StyleDescription.validator}"/>
                 </af:inputText>
                 <af:selectOneChoice value="#{bindings.Status1.inputValue}"
@@ -193,7 +193,7 @@
                                     required="#{bindings.Status1.hints.mandatory}"
                                     shortDesc="#{bindings.Status1.hints.tooltip}"
                                     id="soc13"
-                                    readOnly="#{(bindings.VersionNo.inputValue =='1'? 'true':'false')||(bindings.GmApproval.inputValue=='Y'? 'true':'false')}">
+                                    readOnly="#{(bindings.VersionNo.inputValue =='1'? 'true':'false')&amp;&amp;(bindings.GmApproval.inputValue=='Y'? 'true':'false')}">
                   <f:selectItems value="#{bindings.Status1.items}" id="si18"/>
                 </af:selectOneChoice>
                 <af:inputText value="#{bindings.GmStatus.inputValue}"
