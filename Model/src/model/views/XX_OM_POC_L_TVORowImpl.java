@@ -480,6 +480,16 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        ProdPerLinePerH {
+            public Object get(XX_OM_POC_L_TVORowImpl obj) {
+                return obj.getProdPerLinePerH();
+            }
+
+            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
+                obj.setProdPerLinePerH((Number)value);
+            }
+        }
+        ,
         XX_OM_POC_H_TVO {
             public Object get(XX_OM_POC_L_TVORowImpl obj) {
                 return obj.getXX_OM_POC_H_TVO();
@@ -644,6 +654,7 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
     public static final int FAB_TOTAL = AttributesEnum.fab_total.index();
     public static final int D2_TVO1_TOTAL = AttributesEnum.D2_TVO1_Total.index();
     public static final int D2_TVO_TOTAL = AttributesEnum.D2_TVO_total.index();
+    public static final int PRODPERLINEPERH = AttributesEnum.ProdPerLinePerH.index();
     public static final int XX_OM_POC_H_TVO = AttributesEnum.XX_OM_POC_H_TVO.index();
     public static final int XX_OM_POC_D1_TVO = AttributesEnum.XX_OM_POC_D1_TVO.index();
     public static final int XX_OM_POC_D2_TVO = AttributesEnum.XX_OM_POC_D2_TVO.index();
@@ -1403,6 +1414,22 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
      */
     public void setD2_TVO_total(String value) {
         setAttributeInternal(D2_TVO_TOTAL, value);
+    }
+
+    /**
+     * Gets the attribute value for PROD_PER_LINE_PER_H using the alias name ProdPerLinePerH.
+     * @return the PROD_PER_LINE_PER_H
+     */
+    public Number getProdPerLinePerH() {
+        return (Number) getAttributeInternal(PRODPERLINEPERH);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for PROD_PER_LINE_PER_H using the alias name ProdPerLinePerH.
+     * @param value value to set the PROD_PER_LINE_PER_H
+     */
+    public void setProdPerLinePerH(Number value) {
+        setAttributeInternal(PRODPERLINEPERH, value);
     }
 
     /**

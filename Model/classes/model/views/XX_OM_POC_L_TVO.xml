@@ -43,7 +43,8 @@
        XX_OM_POC_L_TEO.STYLE_EFFICIENCY, 
        XX_OM_POC_L_TEO.OTHER_CHARGE, 
        XX_OM_POC_L_TEO.SHIPMENT, 
-       XX_OM_POC_L_TEO.SHIPMENT_VALUE"
+       XX_OM_POC_L_TEO.SHIPMENT_VALUE, 
+       XX_OM_POC_L_TEO.PROD_PER_LINE_PER_H"
   FromList="XX_OM_POC_L_T XX_OM_POC_L_TEO"
   BindingStyle="OracleName"
   CustomQuery="false"
@@ -408,6 +409,12 @@
     SQLType="VARCHAR">
     <TransientExpression><![CDATA[XX_OM_POC_D2_TVO.sum("ManualPrice")]]></TransientExpression>
   </ViewAttribute>
+  <ViewAttribute
+    Name="ProdPerLinePerH"
+    PrecisionRule="true"
+    EntityAttrName="ProdPerLinePerH"
+    EntityUsage="XX_OM_POC_L_TEO"
+    AliasName="PROD_PER_LINE_PER_H"/>
   <ViewLinkAccessor
     Name="XX_OM_POC_H_TVO"
     ViewLink="model.views.XxOmPocLFkLink"

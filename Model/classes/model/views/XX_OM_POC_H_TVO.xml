@@ -21,7 +21,7 @@
     Name="p_userId"
     Kind="where"
     Type="java.lang.String">
-    <TransientExpression><![CDATA[adf.context.sessionScope.userIdS]]></TransientExpression>
+    <TransientExpression><![CDATA[8097//adf.context.sessionScope.userIdS]]></TransientExpression>
   </Variable>
   <ViewAccessor
     Name="Buyerlov1"
@@ -303,7 +303,8 @@ FROM xx_om_poc_l_t l, xx_om_bpo_info_t b
 WHERE l.fob_id = b.fob_id AND l.poc_id = XX_OM_POC_H_TEO.POC_ID)ORDER_QTY_ALL
 FROM XX_OM_POC_H_T XX_OM_POC_H_TEO where XX_OM_POC_H_TEO.DEPT=1 AND XX_OM_POC_H_TEO.Buyer_Id in
 (select V.BUYER_ID
-from MNJ_USER_WISE_BUYERS_DET_V v
+from --MNJ_USER_WISE_BUYERS_DET_V
+XX_OM_BUYERWISE_USER_RES_T v
 where V.USER_ID = :p_userId)
 order by TO_NUMBER( XX_OM_POC_H_TEO.POC_ID) desc ,TO_NUMBER(XX_OM_POC_H_TEO.Version_No) desc]]>
   </SQLQuery>

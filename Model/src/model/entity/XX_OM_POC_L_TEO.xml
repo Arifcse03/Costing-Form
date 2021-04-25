@@ -451,6 +451,17 @@
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="ProdPerLinePerH"
+    ColumnName="PROD_PER_LINE_PER_H"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XX_OM_POC_L_T">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="XX_OM_POC_H_TEO"
     Association="model.entity.XxOmPocLFkAssoc"

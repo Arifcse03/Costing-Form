@@ -402,6 +402,16 @@ public class XX_OM_POC_L_TEOImpl extends EntityImpl {
             }
         }
         ,
+        ProdPerLinePerH {
+            public Object get(XX_OM_POC_L_TEOImpl obj) {
+                return obj.getProdPerLinePerH();
+            }
+
+            public void put(XX_OM_POC_L_TEOImpl obj, Object value) {
+                obj.setProdPerLinePerH((Number)value);
+            }
+        }
+        ,
         XX_OM_POC_H_TEO {
             public Object get(XX_OM_POC_L_TEOImpl obj) {
                 return obj.getXX_OM_POC_H_TEO();
@@ -498,6 +508,7 @@ public class XX_OM_POC_L_TEOImpl extends EntityImpl {
     public static final int OTHERCHARGE = AttributesEnum.OtherCharge.index();
     public static final int SHIPMENT = AttributesEnum.Shipment.index();
     public static final int SHIPMENTVALUE = AttributesEnum.ShipmentValue.index();
+    public static final int PRODPERLINEPERH = AttributesEnum.ProdPerLinePerH.index();
     public static final int XX_OM_POC_H_TEO = AttributesEnum.XX_OM_POC_H_TEO.index();
     public static final int XX_OM_POC_D1_TEO = AttributesEnum.XX_OM_POC_D1_TEO.index();
     public static final int XX_OM_POC_D2_TEO = AttributesEnum.XX_OM_POC_D2_TEO.index();
@@ -1126,6 +1137,22 @@ public class XX_OM_POC_L_TEOImpl extends EntityImpl {
      */
     public void setShipmentValue(Number value) {
         setAttributeInternal(SHIPMENTVALUE, value);
+    }
+
+    /**
+     * Gets the attribute value for ProdPerLinePerH, using the alias name ProdPerLinePerH.
+     * @return the ProdPerLinePerH
+     */
+    public Number getProdPerLinePerH() {
+        return (Number)getAttributeInternal(PRODPERLINEPERH);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ProdPerLinePerH.
+     * @param value value to set the ProdPerLinePerH
+     */
+    public void setProdPerLinePerH(Number value) {
+        setAttributeInternal(PRODPERLINEPERH, value);
     }
 
     /**

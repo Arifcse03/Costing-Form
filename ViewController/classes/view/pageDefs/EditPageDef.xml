@@ -543,5 +543,11 @@
         <Item Value="ShipmentPct"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="XX_OM_POC_L_TVO1Iterator"
+                     id="ProdPerLinePerH">
+      <AttrNames>
+        <Item Value="ProdPerLinePerH"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
