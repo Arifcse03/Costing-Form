@@ -550,15 +550,14 @@
                                     labelWidth="150px" labelAlignment="start"
                                     styleClass="AFStretchWidth"
                                     inlineStyle="width:1254px; height:121px; border-color:Black; border-width:2.0px; outline-style:dashed;"
-                                    partialTriggers="pc1:t1"
-                                    visible="#{sessionScope.KeyFlag=='MD'? 'true':'false'}">
+                                    partialTriggers="pc1:t1">
                   <af:inputText value="#{bindings.FactoryAvgEf.inputValue}"
                                 label="Factory Avg Eff."
                                 required="#{bindings.FactoryAvgEf.hints.mandatory}"
                                 columns="#{bindings.FactoryAvgEf.hints.displayWidth}"
                                 maximumLength="#{bindings.FactoryAvgEf.hints.precision}"
                                 shortDesc="#{bindings.FactoryAvgEf.hints.tooltip}"
-                                id="it33" readOnly="true">
+                                id="it33" readOnly="true" visible="true">
                     <f:validator binding="#{bindings.FactoryAvgEf.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.FactoryAvgEf.format}"/>
@@ -569,7 +568,7 @@
                                 columns="#{bindings.Smv.hints.displayWidth}"
                                 maximumLength="#{bindings.Smv.hints.precision}"
                                 shortDesc="#{bindings.Smv.hints.tooltip}"
-                                id="it34" readOnly="true">
+                                id="it34" readOnly="true" visible="true">
                     <f:validator binding="#{bindings.Smv.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.Smv.format}"/>
@@ -621,7 +620,8 @@
                                 maximumLength="#{bindings.CostNew.hints.precision}"
                                 shortDesc="#{bindings.CostNew.hints.tooltip}"
                                 id="it78" readOnly="true"
-                                binding="#{ManagedBean.costSan}">
+                                binding="#{ManagedBean.costSan}"
+                                visible="true">
                     <f:validator binding="#{bindings.CostNew.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.CostNew.format}"/>
@@ -633,7 +633,8 @@
                                 maximumLength="#{bindings.Finance.hints.precision}"
                                 shortDesc="#{bindings.Finance.hints.tooltip}"
                                 id="it79" readOnly="true"
-                                binding="#{ManagedBean.finance}">
+                                binding="#{ManagedBean.finance}"
+                                visible="true">
                     <f:validator binding="#{bindings.Finance.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.Finance.format}"/>
@@ -645,7 +646,8 @@
                                 maximumLength="#{bindings.TotalCost.hints.precision}"
                                 shortDesc="#{bindings.TotalCost.hints.tooltip}"
                                 id="it81" readOnly="true"
-                                binding="#{ManagedBean.totalCostCal}">
+                                binding="#{ManagedBean.totalCostCal}"
+                                partialTriggers="pc1:t1">
                     <f:validator binding="#{bindings.TotalCost.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.TotalCost.format}"/>
@@ -657,7 +659,8 @@
                                 maximumLength="#{bindings.Profit.hints.precision}"
                                 shortDesc="#{bindings.Profit.hints.tooltip}"
                                 id="it80" autoSubmit="true"
-                                binding="#{ManagedBean.profit}" readOnly="true">
+                                binding="#{ManagedBean.profit}" readOnly="true"
+                                partialTriggers="pc1:t1">
                     <f:validator binding="#{bindings.Profit.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.Profit.format}"/>
@@ -702,13 +705,19 @@
                                 maximumLength="#{bindings.FactoryAvgEf.hints.precision}"
                                 shortDesc="#{bindings.FactoryAvgEf.hints.tooltip}"
                                 id="inputText1" readOnly="true"
-                                inlineStyle="font-weight:bold;">
+                                inlineStyle="font-weight:bolder; background-color:InactiveCaption;">
                     <f:validator binding="#{bindings.FactoryAvgEf.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.FactoryAvgEf.format}"/>
                   </af:inputText>
-                  <af:activeOutputText value="Formula, Total Cost= Cost + Finance" id="aot1"/>
-                  <af:activeOutputText value="Formula, Profit= CM - Total Cost" id="aot2"/>
+                  <af:inputText label="Formula:" id="it124"
+                                value="Total Cost= Cost + Finance"
+                                readOnly="true"
+                                inlineStyle="font-weight:bolder; background-color:ActiveBorder;"/>
+                  <af:inputText label="Formula:" id="it125"
+                                value="Profit= CM - Total Cost"
+                                readOnly="true"
+                                inlineStyle="font-weight:bolder; background-color:ActiveCaption;"/>
                   <af:commandButton text="CM Calculation" id="cb6"
                                     inlineStyle="height:30px;"
                                     action="#{ManagedBean.SaveManagementCal}"
@@ -717,7 +726,7 @@
                 <af:panelFormLayout id="pfl11" maxColumns="3" rows="2">
                   <f:facet name="footer"/>
                   <af:panelLabelAndMessage label="Sam:"
-                                           id="plam11">
+                                           id="plam11" partialTriggers="pc1:t1">
                     <af:outputText value="#{bindings.Sam.inputValue}" id="ot36">
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.Sam.format}"/>
@@ -732,7 +741,7 @@
                     </af:outputText>
                   </af:panelLabelAndMessage>
                   <af:panelLabelAndMessage label="Style Efficiency:"
-                                           id="plam12">
+                                           id="plam12" partialTriggers="pc1:t1">
                     <af:outputText value="#{bindings.StyleEfficiency.inputValue}"
                                    id="ot37">
                       <af:convertNumber groupingUsed="false"
@@ -740,7 +749,7 @@
                     </af:outputText>
                   </af:panelLabelAndMessage>
                   <af:panelLabelAndMessage label="Actual Style Efficiency:"
-                                           id="plam15">
+                                           id="plam15" partialTriggers="pc1:t1">
                     <af:outputText value="#{bindings.ActualStyleEfficiency.inputValue}"
                                    id="ot40">
                       <af:convertNumber groupingUsed="false"
@@ -748,7 +757,7 @@
                     </af:outputText>
                   </af:panelLabelAndMessage>
                   <af:panelLabelAndMessage label="Shipment Parcentage(%) :"
-                                           id="plam13">
+                                           id="plam13" partialTriggers="pc1:t1">
                     <af:outputText value="#{bindings.ShipmentValue.inputValue}"
                                    id="ot38">
                       <af:convertNumber groupingUsed="false"
@@ -756,7 +765,7 @@
                     </af:outputText>
                   </af:panelLabelAndMessage>
                   <af:panelLabelAndMessage label="Actual Shipment Parcentage(%):"
-                                           id="plam16">
+                                           id="plam16" partialTriggers="pc1:t1">
                     <af:outputText value="#{bindings.ShipmentPct.inputValue}"
                                    id="ot41">
                       <af:convertNumber groupingUsed="false"

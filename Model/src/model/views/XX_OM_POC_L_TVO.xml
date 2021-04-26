@@ -6,7 +6,42 @@
   Name="XX_OM_POC_L_TVO"
   Version="11.1.1.62.29"
   InheritPersonalization="true"
-  SelectList="XX_OM_POC_L_TEO.FOB_ID, 
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  RowClass="model.views.XX_OM_POC_L_TVORowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <ViewAccessor
+    Name="colorLov1"
+    ViewObjectName="model.lov.colorLov"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Color"
+    ListVOName="colorLov1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_Color_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Color"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="FlexValue"/>
+      <Item Value="ValueDescription"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <SQLQuery>
+    <![CDATA[SELECT XX_OM_POC_L_TEO.FOB_ID, 
        XX_OM_POC_L_TEO.POC_ID, 
        XX_OM_POC_L_TEO.SYSTEM_ID, 
        XX_OM_POC_L_TEO.WASH_NAME, 
@@ -44,41 +79,10 @@
        XX_OM_POC_L_TEO.OTHER_CHARGE, 
        XX_OM_POC_L_TEO.SHIPMENT, 
        XX_OM_POC_L_TEO.SHIPMENT_VALUE, 
-       XX_OM_POC_L_TEO.PROD_PER_LINE_PER_H"
-  FromList="XX_OM_POC_L_T XX_OM_POC_L_TEO"
-  BindingStyle="OracleName"
-  CustomQuery="false"
-  PageIterMode="Full"
-  UseGlueCode="false"
-  RowClass="model.views.XX_OM_POC_L_TVORowImpl">
-  <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Access"/>
-    <Attr Name="_isCodegen" Value="true"/>
-  </DesignTime>
-  <ViewAccessor
-    Name="colorLov1"
-    ViewObjectName="model.lov.colorLov"
-    RowLevelBinds="true"/>
-  <ListBinding
-    Name="LOV_Color"
-    ListVOName="colorLov1"
-    ListRangeSize="10"
-    NullValueFlag="none"
-    NullValueId="LOV_Color_LOVUIHints_NullValueId"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="Color"/>
-    </AttrArray>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="ValueDescription"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="FlexValue"/>
-      <Item Value="ValueDescription"/>
-    </AttrArray>
-    <DisplayCriteria
-      Hint="showAndExecute"/>
-  </ListBinding>
+       XX_OM_POC_L_TEO.PROD_PER_LINE_PER_H
+       
+FROM XX_OM_POC_L_T XX_OM_POC_L_TEO]]>
+  </SQLQuery>
   <EntityUsage
     Name="XX_OM_POC_L_TEO"
     Entity="model.entity.XX_OM_POC_L_TEO"/>
@@ -312,6 +316,24 @@
     EntityUsage="XX_OM_POC_L_TEO"
     AliasName="OTHER_CHARGE"/>
   <ViewAttribute
+    Name="Shipment"
+    PrecisionRule="true"
+    EntityAttrName="Shipment"
+    EntityUsage="XX_OM_POC_L_TEO"
+    AliasName="SHIPMENT"/>
+  <ViewAttribute
+    Name="ShipmentValue"
+    PrecisionRule="true"
+    EntityAttrName="ShipmentValue"
+    EntityUsage="XX_OM_POC_L_TEO"
+    AliasName="SHIPMENT_VALUE"/>
+  <ViewAttribute
+    Name="ProdPerLinePerH"
+    PrecisionRule="true"
+    EntityAttrName="ProdPerLinePerH"
+    EntityUsage="XX_OM_POC_L_TEO"
+    AliasName="PROD_PER_LINE_PER_H"/>
+  <ViewAttribute
     Name="ItemTotal"
     IsSelected="false"
     IsPersistent="false"
@@ -341,18 +363,6 @@
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
     SQLType="NUMERIC"/>
-  <ViewAttribute
-    Name="Shipment"
-    PrecisionRule="true"
-    EntityAttrName="Shipment"
-    EntityUsage="XX_OM_POC_L_TEO"
-    AliasName="SHIPMENT"/>
-  <ViewAttribute
-    Name="ShipmentValue"
-    PrecisionRule="true"
-    EntityAttrName="ShipmentValue"
-    EntityUsage="XX_OM_POC_L_TEO"
-    AliasName="SHIPMENT_VALUE"/>
   <ViewAttribute
     Name="trims_total"
     IsUpdateable="false"
@@ -409,12 +419,6 @@
     SQLType="VARCHAR">
     <TransientExpression><![CDATA[XX_OM_POC_D2_TVO.sum("ManualPrice")]]></TransientExpression>
   </ViewAttribute>
-  <ViewAttribute
-    Name="ProdPerLinePerH"
-    PrecisionRule="true"
-    EntityAttrName="ProdPerLinePerH"
-    EntityUsage="XX_OM_POC_L_TEO"
-    AliasName="PROD_PER_LINE_PER_H"/>
   <ViewLinkAccessor
     Name="XX_OM_POC_H_TVO"
     ViewLink="model.views.XxOmPocLFkLink"

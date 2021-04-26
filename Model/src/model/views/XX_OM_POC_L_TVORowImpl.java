@@ -380,6 +380,36 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        Shipment {
+            public Object get(XX_OM_POC_L_TVORowImpl obj) {
+                return obj.getShipment();
+            }
+
+            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
+                obj.setShipment((String)value);
+            }
+        }
+        ,
+        ShipmentValue {
+            public Object get(XX_OM_POC_L_TVORowImpl obj) {
+                return obj.getShipmentValue();
+            }
+
+            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
+                obj.setShipmentValue((Number)value);
+            }
+        }
+        ,
+        ProdPerLinePerH {
+            public Object get(XX_OM_POC_L_TVORowImpl obj) {
+                return obj.getProdPerLinePerH();
+            }
+
+            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
+                obj.setProdPerLinePerH((Number)value);
+            }
+        }
+        ,
         ItemTotal {
             public Object get(XX_OM_POC_L_TVORowImpl obj) {
                 return obj.getItemTotal();
@@ -407,26 +437,6 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
 
             public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
                 obj.setDryTotal((Number)value);
-            }
-        }
-        ,
-        Shipment {
-            public Object get(XX_OM_POC_L_TVORowImpl obj) {
-                return obj.getShipment();
-            }
-
-            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
-                obj.setShipment((String)value);
-            }
-        }
-        ,
-        ShipmentValue {
-            public Object get(XX_OM_POC_L_TVORowImpl obj) {
-                return obj.getShipmentValue();
-            }
-
-            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
-                obj.setShipmentValue((Number)value);
             }
         }
         ,
@@ -477,16 +487,6 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
 
             public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
                 obj.setD2_TVO_total((String)value);
-            }
-        }
-        ,
-        ProdPerLinePerH {
-            public Object get(XX_OM_POC_L_TVORowImpl obj) {
-                return obj.getProdPerLinePerH();
-            }
-
-            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
-                obj.setProdPerLinePerH((Number)value);
             }
         }
         ,
@@ -644,17 +644,17 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
     public static final int TOTALCOST = AttributesEnum.TotalCost.index();
     public static final int STYLEEFFICIENCY = AttributesEnum.StyleEfficiency.index();
     public static final int OTHERCHARGE = AttributesEnum.OtherCharge.index();
+    public static final int SHIPMENT = AttributesEnum.Shipment.index();
+    public static final int SHIPMENTVALUE = AttributesEnum.ShipmentValue.index();
+    public static final int PRODPERLINEPERH = AttributesEnum.ProdPerLinePerH.index();
     public static final int ITEMTOTAL = AttributesEnum.ItemTotal.index();
     public static final int WETTOTAL = AttributesEnum.WetTotal.index();
     public static final int DRYTOTAL = AttributesEnum.DryTotal.index();
-    public static final int SHIPMENT = AttributesEnum.Shipment.index();
-    public static final int SHIPMENTVALUE = AttributesEnum.ShipmentValue.index();
     public static final int TRIMS_TOTAL = AttributesEnum.trims_total.index();
     public static final int OTHERS_TOTAL = AttributesEnum.others_total.index();
     public static final int FAB_TOTAL = AttributesEnum.fab_total.index();
     public static final int D2_TVO1_TOTAL = AttributesEnum.D2_TVO1_Total.index();
     public static final int D2_TVO_TOTAL = AttributesEnum.D2_TVO_total.index();
-    public static final int PRODPERLINEPERH = AttributesEnum.ProdPerLinePerH.index();
     public static final int XX_OM_POC_H_TVO = AttributesEnum.XX_OM_POC_H_TVO.index();
     public static final int XX_OM_POC_D1_TVO = AttributesEnum.XX_OM_POC_D1_TVO.index();
     public static final int XX_OM_POC_D2_TVO = AttributesEnum.XX_OM_POC_D2_TVO.index();
@@ -1431,6 +1431,7 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
     public void setProdPerLinePerH(Number value) {
         setAttributeInternal(PRODPERLINEPERH, value);
     }
+
 
     /**
      * Gets the associated <code>Row</code> using master-detail link XX_OM_POC_H_TVO.
