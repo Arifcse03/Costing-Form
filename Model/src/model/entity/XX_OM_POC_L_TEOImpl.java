@@ -1249,10 +1249,10 @@ public class XX_OM_POC_L_TEOImpl extends EntityImpl {
     /**
      * Add locking logic here.
      */
-    public void lock() {
-        super.lock();
-    }
-
+//    public void lock() {
+     //   super.lock();
+   // }
+    
     /**
      * Custom DML update/insert/delete logic here.
      * @param operation the operation type

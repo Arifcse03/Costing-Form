@@ -570,6 +570,16 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        MDSIRsVO {
+            public Object get(XX_OM_POC_L_TVORowImpl obj) {
+                return obj.getMDSIRsVO();
+            }
+
+            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
         colorLov1 {
             public Object get(XX_OM_POC_L_TVORowImpl obj) {
                 return obj.getcolorLov1();
@@ -663,6 +673,7 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
     public static final int OTHERS_VO = AttributesEnum.others_VO.index();
     public static final int ASAM_ASTYLEEFFIVO = AttributesEnum.ASAM_AStyleEffiVO.index();
     public static final int SHORT_OR_ECCESS_VO = AttributesEnum.short_or_eccess_VO.index();
+    public static final int MDSIRSVO = AttributesEnum.MDSIRsVO.index();
     public static final int COLORLOV1 = AttributesEnum.colorLov1.index();
 
     /**
@@ -1494,6 +1505,13 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
      */
     public RowIterator getshort_or_eccess_VO() {
         return (RowIterator)getAttributeInternal(SHORT_OR_ECCESS_VO);
+    }
+
+    /**
+     * Gets the associated <code>RowIterator</code> using master-detail link MDSIRsVO.
+     */
+    public RowIterator getMDSIRsVO() {
+        return (RowIterator)getAttributeInternal(MDSIRSVO);
     }
 
     /**

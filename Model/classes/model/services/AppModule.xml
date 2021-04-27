@@ -52,6 +52,9 @@
   <ViewUsage
     Name="short_or_eccess_VO1"
     ViewObjectName="model.views.short_or_eccess_VO"/>
+  <ViewUsage
+    Name="MDSIRsVO1"
+    ViewObjectName="model.views.MDSIRsVO"/>
   <ViewLinkUsage
     Name="XxOmPocLFkLink1"
     ViewLinkObjectName="model.views.XxOmPocLFkLink"
@@ -100,6 +103,87 @@
     SrcViewUsageName="model.services.AppModule.XX_OM_POC_L_TVO1"
     DstViewUsageName="model.services.AppModule.short_or_eccess_VO1"
     Reversed="false"/>
+  <ViewLinkUsage
+    Name="pocLtoMDSIRsVO_via_pocId1"
+    ViewLinkObjectName="model.views.pocLtoMDSIRsVO_via_pocId"
+    SrcViewUsageName="model.services.AppModule.XX_OM_POC_L_TVO1"
+    DstViewUsageName="model.services.AppModule.MDSIRsVO1"
+    Reversed="false"/>
+  <ClientInterface>
+    <Method
+      Name="validateLines">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="copyRecords">
+      <Return
+        Type="java.lang.String"/>
+      <Parameter
+        Name="type"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="PocId"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="FobId"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="CopyItemsDetail">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="CopyPrecost">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="type"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="createItems">
+      <Return
+        Type="java.lang.String"/>
+      <Parameter
+        Name="PocId"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="setSessionValues">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="userId"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="orgId"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="respId"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="respApplId"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="getRespKey">
+      <Return
+        Type="java.lang.String"/>
+      <Parameter
+        Name="respId"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="Approve">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="PocId"
+        Type="java.lang.String"/>
+    </Method>
+  </ClientInterface>
   <ClientInterface>
     <Method
       Name="validateLines">

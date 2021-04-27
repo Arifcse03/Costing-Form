@@ -460,4 +460,9 @@ FROM XX_OM_POC_L_T XX_OM_POC_L_TEO]]>
     ViewLink="model.views.pocLtoShort_eccess_vL"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="MDSIRsVO"
+    ViewLink="model.views.pocLtoMDSIRsVO_via_pocId"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

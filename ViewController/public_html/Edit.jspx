@@ -546,7 +546,7 @@
                                visible="#{sessionScope.KeyFlag=='MD'? 'true':'false'}">
               <af:panelGroupLayout id="pgl10" inlineStyle="width:941px;">
                 <af:checkUncommittedDataBehavior/>
-                <af:panelFormLayout id="pfl8" maxColumns="4" rows="4"
+                <af:panelFormLayout id="pfl8" maxColumns="3" rows="7"
                                     labelWidth="150px" labelAlignment="start"
                                     styleClass="AFStretchWidth"
                                     inlineStyle="width:1254px; height:121px; border-color:Black; border-width:2.0px; outline-style:dashed;"
@@ -557,24 +557,34 @@
                                 columns="#{bindings.FactoryAvgEf.hints.displayWidth}"
                                 maximumLength="#{bindings.FactoryAvgEf.hints.precision}"
                                 shortDesc="#{bindings.FactoryAvgEf.hints.tooltip}"
-                                id="it33" readOnly="true" visible="true">
+                                id="it33" readOnly="true" visible="false">
                     <f:validator binding="#{bindings.FactoryAvgEf.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.FactoryAvgEf.format}"/>
                   </af:inputText>
+                  <af:panelLabelAndMessage label="Factory Avg Eff:"
+                                           id="plam17" partialTriggers="pc1:t1">
+                    <af:outputText value="#{bindings.FactoryAvgEfTobe.inputValue}"
+                                   id="ot42" partialTriggers="pc1:t1"/>
+                  </af:panelLabelAndMessage>
                   <af:inputText value="#{bindings.Smv.inputValue}"
                                 label="CPM/SAM"
                                 required="#{bindings.Smv.hints.mandatory}"
                                 columns="#{bindings.Smv.hints.displayWidth}"
                                 maximumLength="#{bindings.Smv.hints.precision}"
                                 shortDesc="#{bindings.Smv.hints.tooltip}"
-                                id="it34" readOnly="true" visible="true">
+                                id="it34" readOnly="true" visible="false">
                     <f:validator binding="#{bindings.Smv.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.Smv.format}"/>
                   </af:inputText>
+                  <af:panelLabelAndMessage label="CPM/SAM:"
+                                           id="plam18" partialTriggers="pc1:t1">
+                    <af:outputText value="#{bindings.CpmSamTobe.inputValue}"
+                                   id="ot43" partialTriggers="pc1:t1"/>
+                  </af:panelLabelAndMessage>
                   <af:panelLabelAndMessage label="Style Efficiency"
-                                           id="plam2">
+                                           id="plam2" partialTriggers="pc1:t1">
                     <af:outputText value="#{bindings.StyleEfficiency.inputValue}"
                                    id="ot18">
                       <af:convertNumber groupingUsed="false"
@@ -582,7 +592,7 @@
                     </af:outputText>
                   </af:panelLabelAndMessage>
                   <af:panelLabelAndMessage label="SAM"
-                                           id="plam3">
+                                           id="plam3" partialTriggers="pc1:t1">
                     <af:outputText value="#{bindings.Sam.inputValue}" id="ot19">
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.Sam.format}"/>
@@ -621,11 +631,16 @@
                                 shortDesc="#{bindings.CostNew.hints.tooltip}"
                                 id="it78" readOnly="true"
                                 binding="#{ManagedBean.costSan}"
-                                visible="true">
+                                visible="false">
                     <f:validator binding="#{bindings.CostNew.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.CostNew.format}"/>
                   </af:inputText>
+                  <af:panelLabelAndMessage label="Cost (SAN)"
+                                           id="plam19" partialTriggers="pc1:t1">
+                    <af:outputText value="#{bindings.CpmSamTobe.inputValue}"
+                                   id="ot44" partialTriggers="pc1:t1"/>
+                  </af:panelLabelAndMessage>
                   <af:inputText value="#{bindings.Finance.inputValue}"
                                 label="Finance"
                                 required="#{bindings.Finance.hints.mandatory}"
@@ -634,11 +649,16 @@
                                 shortDesc="#{bindings.Finance.hints.tooltip}"
                                 id="it79" readOnly="true"
                                 binding="#{ManagedBean.finance}"
-                                visible="true">
+                                visible="false">
                     <f:validator binding="#{bindings.Finance.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.Finance.format}"/>
                   </af:inputText>
+                  <af:panelLabelAndMessage label="Finance:"
+                                           id="plam20" partialTriggers="pc1:t1">
+                    <af:outputText value="#{bindings.FinanceTobe.inputValue}"
+                                   id="ot45" partialTriggers="pc1:t1"/>
+                  </af:panelLabelAndMessage>
                   <af:inputText value="#{bindings.TotalCost.inputValue}"
                                 label="Total Cost"
                                 required="#{bindings.TotalCost.hints.mandatory}"
@@ -705,7 +725,7 @@
                                 maximumLength="#{bindings.FactoryAvgEf.hints.precision}"
                                 shortDesc="#{bindings.FactoryAvgEf.hints.tooltip}"
                                 id="inputText1" readOnly="true"
-                                inlineStyle="font-weight:bolder; background-color:InactiveCaption;">
+                                inlineStyle="font-weight:bolder; background-color:ActiveBorder;">
                     <f:validator binding="#{bindings.FactoryAvgEf.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.FactoryAvgEf.format}"/>
@@ -717,7 +737,7 @@
                   <af:inputText label="Formula:" id="it125"
                                 value="Profit= CM - Total Cost"
                                 readOnly="true"
-                                inlineStyle="font-weight:bolder; background-color:ActiveCaption;"/>
+                                inlineStyle="font-weight:bolder; background-color:ActiveBorder;"/>
                   <af:commandButton text="CM Calculation" id="cb6"
                                     inlineStyle="height:30px;"
                                     action="#{ManagedBean.SaveManagementCal}"

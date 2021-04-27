@@ -207,12 +207,15 @@ public class ManagedBean {
         //  operationBinding.execute();
         // End Code For Style Tracking
         TotalCostCal();
-        OperationBinding ob1 = executeOperation("Commit");
-        ob1.execute();
+        //OperationBinding ob1 = executeOperation("Commit");
+      //  ob1.execute();
+    appM.getDBTransaction().commit();
 
         ViewObject vo = appM.getXX_OM_POC_D1_TVO1();
         ViewObject vo1 = appM.gettrimsVO1();
         ViewObject vo3 = appM.getothers_VO1();
+        ViewObject vo4 =appM.getXX_OM_POC_L_TVO1();
+        vo.clearCache();
         vo.clearCache();
         vo1.clearCache();
         vo3.clearCache();
@@ -297,8 +300,9 @@ findViewObject.getCurrentRow().getAttribute("LcUnit").toString();
 
     private void setfabricDescription() {
         System.out.println("febric enter");
-        OperationBinding ob = executeOperation("Commit");
-        ob.execute();
+//        OperationBinding ob = executeOperation("Commit");
+//        ob.execute();
+        appM.getDBTransaction().commit();
         ViewObject FabricVo = appM.getXX_OM_POC_D1_TVO1();
         FabricVo.executeQuery();
         ViewObject linevo = appM.getXX_OM_POC_L_TVO1();

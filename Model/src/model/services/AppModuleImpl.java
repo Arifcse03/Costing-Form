@@ -542,6 +542,22 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public ViewLinkImpl getpocLtoShort_eccess_vL1() {
         return (ViewLinkImpl)findViewLink("pocLtoShort_eccess_vL1");
     }
+
+    /**
+     * Container's getter for MDSIRsVO1.
+     * @return MDSIRsVO1
+     */
+    public ViewObjectImpl getMDSIRsVO1() {
+        return (ViewObjectImpl)findViewObject("MDSIRsVO1");
+    }
+
+    /**
+     * Container's getter for pocLtoMDSIRsVO_via_pocId1.
+     * @return pocLtoMDSIRsVO_via_pocId1
+     */
+    public ViewLinkImpl getpocLtoMDSIRsVO_via_pocId1() {
+        return (ViewLinkImpl)findViewLink("pocLtoMDSIRsVO_via_pocId1");
+    }
 }
 
 
