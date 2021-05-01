@@ -23,7 +23,9 @@
     <![CDATA[select POC_ID,FACTORY_AVG_EF,FACTORY_AVG_EF_TOBE,
 CPM_SAM,CPM_SAM_TOBE,
 COST_SAM_DB,COST_SAM_TOBE,
-FINANCE_DB,FINANCE_TOBE
+FINANCE_DB,FINANCE_TOBE,
+TOTAL_COST_TOBE,
+PROFIT_TOBE
 from CHECK_COSTING1]]>
   </SQLQuery>
   <ViewAttribute
@@ -143,6 +145,36 @@ from CHECK_COSTING1]]>
     ColumnType="VARCHAR2"
     AliasName="FINANCE_TOBE"
     Expression="FINANCE_TOBE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TotalCostTobe"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="TOTAL_COST_TOBE"
+    Expression="TOTAL_COST_TOBE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ProfitTobe"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="PROFIT_TOBE"
+    Expression="PROFIT_TOBE"
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="4000"/>

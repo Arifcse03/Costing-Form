@@ -566,5 +566,20 @@
         <Item Value="FinanceTobe"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="MDSIRsVO1Iterator" id="CostSamTobe">
+      <AttrNames>
+        <Item Value="CostSamTobe"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MDSIRsVO1Iterator" id="TotalCostTobe">
+      <AttrNames>
+        <Item Value="TotalCostTobe"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MDSIRsVO1Iterator" id="ProfitTobe">
+      <AttrNames>
+        <Item Value="ProfitTobe"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

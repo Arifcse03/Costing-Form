@@ -636,11 +636,6 @@
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.CostNew.format}"/>
                   </af:inputText>
-                  <af:panelLabelAndMessage label="Cost (SAN)"
-                                           id="plam19" partialTriggers="pc1:t1">
-                    <af:outputText value="#{bindings.CpmSamTobe.inputValue}"
-                                   id="ot44" partialTriggers="pc1:t1"/>
-                  </af:panelLabelAndMessage>
                   <af:inputText value="#{bindings.Finance.inputValue}"
                                 label="Finance"
                                 required="#{bindings.Finance.hints.mandatory}"
@@ -654,6 +649,11 @@
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.Finance.format}"/>
                   </af:inputText>
+                  <af:panelLabelAndMessage label="Cost (SAM):"
+                                           id="plam19" partialTriggers="pc1:t1">
+                    <af:outputText value="#{bindings.CostSamTobe.inputValue}"
+                                   id="ot44"/>
+                  </af:panelLabelAndMessage>
                   <af:panelLabelAndMessage label="Finance:"
                                            id="plam20" partialTriggers="pc1:t1">
                     <af:outputText value="#{bindings.FinanceTobe.inputValue}"
@@ -667,11 +667,16 @@
                                 shortDesc="#{bindings.TotalCost.hints.tooltip}"
                                 id="it81" readOnly="true"
                                 binding="#{ManagedBean.totalCostCal}"
-                                partialTriggers="pc1:t1">
+                                partialTriggers="pc1:t1" visible="false">
                     <f:validator binding="#{bindings.TotalCost.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.TotalCost.format}"/>
                   </af:inputText>
+                  <af:panelLabelAndMessage label="Total Cost:"
+                                           id="plam21">
+                    <af:outputText value="#{bindings.TotalCostTobe.inputValue}"
+                                   id="ot46"/>
+                  </af:panelLabelAndMessage>
                   <af:inputText value="#{bindings.Profit.inputValue}"
                                 label="Profit"
                                 required="#{bindings.Profit.hints.mandatory}"
@@ -680,11 +685,16 @@
                                 shortDesc="#{bindings.Profit.hints.tooltip}"
                                 id="it80" autoSubmit="true"
                                 binding="#{ManagedBean.profit}" readOnly="true"
-                                partialTriggers="pc1:t1">
+                                partialTriggers="pc1:t1" visible="false">
                     <f:validator binding="#{bindings.Profit.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.Profit.format}"/>
                   </af:inputText>
+                  <af:panelLabelAndMessage label="Profit:"
+                                           id="plam22">
+                    <af:outputText value="#{bindings.ProfitTobe.inputValue}"
+                                   id="ot47"/>
+                  </af:panelLabelAndMessage>
                   <af:inputText value="#{bindings.Cm.inputValue}" label="CM"
                                 required="#{bindings.Cm.hints.mandatory}"
                                 columns="#{bindings.Cm.hints.displayWidth}"
