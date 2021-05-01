@@ -82,7 +82,6 @@ SELECT S.system_id,
   </ViewAttribute>
   <ViewAttribute
     Name="ActualStyleEfficiency"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Type="oracle.jbo.domain.Number"

@@ -27,6 +27,7 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.views.XX_OM_POC_L_TVO.PocId"/>
+      <Item Value="model.views.XX_OM_POC_L_TVO.FobId"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ViewLinkDefEnd
@@ -39,6 +40,7 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.views.MDSIRsVO.PocId"/>
+      <Item Value="model.views.MDSIRsVO.FobId"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ResourceBundle>

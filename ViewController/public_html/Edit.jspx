@@ -543,6 +543,7 @@
           <af:panelTabbed id="pt2" styleClass="AFStretchWidth"
                           inlineStyle="height:600px;">
             <af:showDetailItem text="Management" id="sdi5"
+                               partialTriggers="pc1:t1"
                                visible="#{sessionScope.KeyFlag=='MD'? 'true':'false'}">
               <af:panelGroupLayout id="pgl10" inlineStyle="width:941px;">
                 <af:checkUncommittedDataBehavior/>
@@ -565,7 +566,7 @@
                   <af:panelLabelAndMessage label="Factory Avg Eff:"
                                            id="plam17" partialTriggers="pc1:t1">
                     <af:outputText value="#{bindings.FactoryAvgEfTobe.inputValue}"
-                                   id="ot42" partialTriggers="pc1:t1"/>
+                                   id="ot42"/>
                   </af:panelLabelAndMessage>
                   <af:inputText value="#{bindings.Smv.inputValue}"
                                 label="CPM/SAM"
@@ -581,7 +582,7 @@
                   <af:panelLabelAndMessage label="CPM/SAM:"
                                            id="plam18" partialTriggers="pc1:t1">
                     <af:outputText value="#{bindings.CpmSamTobe.inputValue}"
-                                   id="ot43" partialTriggers="pc1:t1"/>
+                                   id="ot43"/>
                   </af:panelLabelAndMessage>
                   <af:panelLabelAndMessage label="Style Efficiency"
                                            id="plam2" partialTriggers="pc1:t1">
@@ -657,7 +658,7 @@
                   <af:panelLabelAndMessage label="Finance:"
                                            id="plam20" partialTriggers="pc1:t1">
                     <af:outputText value="#{bindings.FinanceTobe.inputValue}"
-                                   id="ot45" partialTriggers="pc1:t1"/>
+                                   id="ot45"/>
                   </af:panelLabelAndMessage>
                   <af:inputText value="#{bindings.TotalCost.inputValue}"
                                 label="Total Cost"
@@ -673,7 +674,7 @@
                                       pattern="#{bindings.TotalCost.format}"/>
                   </af:inputText>
                   <af:panelLabelAndMessage label="Total Cost:"
-                                           id="plam21">
+                                           id="plam21" partialTriggers="pc1:t1">
                     <af:outputText value="#{bindings.TotalCostTobe.inputValue}"
                                    id="ot46"/>
                   </af:panelLabelAndMessage>
@@ -691,7 +692,7 @@
                                       pattern="#{bindings.Profit.format}"/>
                   </af:inputText>
                   <af:panelLabelAndMessage label="Profit:"
-                                           id="plam22">
+                                           id="plam22" partialTriggers="pc1:t1">
                     <af:outputText value="#{bindings.ProfitTobe.inputValue}"
                                    id="ot47"/>
                   </af:panelLabelAndMessage>

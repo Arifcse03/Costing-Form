@@ -25,7 +25,8 @@ CPM_SAM,CPM_SAM_TOBE,
 COST_SAM_DB,COST_SAM_TOBE,
 FINANCE_DB,FINANCE_TOBE,
 TOTAL_COST_TOBE,
-PROFIT_TOBE
+PROFIT_TOBE,
+FOB_ID
 from CHECK_COSTING1]]>
   </SQLQuery>
   <ViewAttribute
@@ -68,6 +69,12 @@ from CHECK_COSTING1]]>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="4000"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="CpmSam"
@@ -95,6 +102,12 @@ from CHECK_COSTING1]]>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="4000"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="CostSamDb"
@@ -122,6 +135,12 @@ from CHECK_COSTING1]]>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="4000"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="FinanceDb"
@@ -135,6 +154,12 @@ from CHECK_COSTING1]]>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="FinanceTobe"
@@ -149,10 +174,15 @@ from CHECK_COSTING1]]>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="4000"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="TotalCostTobe"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="4000"
@@ -164,10 +194,15 @@ from CHECK_COSTING1]]>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="4000"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="false"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="ProfitTobe"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="4000"
@@ -178,6 +213,26 @@ from CHECK_COSTING1]]>
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FobId"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="FOB_ID"
+    Expression="FOB_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
     </DesignTime>
   </ViewAttribute>
   <ResourceBundle>
