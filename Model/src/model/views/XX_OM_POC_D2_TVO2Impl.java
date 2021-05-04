@@ -15,10 +15,10 @@ public class XX_OM_POC_D2_TVO2Impl extends ViewObjectImpl {
     public XX_OM_POC_D2_TVO2Impl() {
     }
     
-    @Override
-    public void insertRow(Row row) {
-            row.setAttribute("ProcessId", 2);
-            super.insertRow(row);
-        }
+//    @Override
+//    public void insertRow(Row row) {
+//            row.setAttribute("ProcessId", 2);
+//            super.insertRow(row);
+//        }
 
 }

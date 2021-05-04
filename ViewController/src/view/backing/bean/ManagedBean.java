@@ -172,8 +172,9 @@ public class ManagedBean {
         ViewObject testlineVo = appM.getXX_OM_POC_H_TVO1();
         remark();
         trimStyleNoAndName();
-        OperationBinding ob = executeOperation("Commit");
-        ob.execute();
+        //OperationBinding ob = executeOperation("Commit");
+       // ob.execute();
+        appM.getDBTransaction().commit();
         productionCalculation();
       
         try {
@@ -215,11 +216,15 @@ public class ManagedBean {
         ViewObject vo1 = appM.gettrimsVO1();
         ViewObject vo3 = appM.getothers_VO1();
         ViewObject vo4 =appM.getXX_OM_POC_L_TVO1();
-        vo.clearCache();
+        ViewObject v5 = appM.getXX_OM_POC_D2_TVO1();
+        ViewObject v6 = appM.getXX_OM_POC_D2_TVO2_1();
+  
         vo.clearCache();
         vo1.clearCache();
         vo3.clearCache();
-
+        vo4.clearCache();
+        v5.clearCache();
+        v6.clearCache();
 
         return null;
     }
@@ -2041,10 +2046,11 @@ Double.parseDouble(MnjLineV.getCurrentRow().getAttribute("Profit").toString());
                 System.out.println("-------------------------inside if cond------------------------------");
                 //System.out.println("MultiSelect --->" + row.getAttribute("MultiSelect"));
                 String FobId = row.getAttribute("FobId").toString();
-                System.out.println("Poc id-------------->" + FobId);
+                System.out.println("Fob id-------------->" + FobId);
 
                 populateItemDetails(FobId); /// method to populate data
                 populateDryDetails(FobId);
+                System.out.println("fob id is ------------"+FobId);
             }
         }
     }
@@ -2070,6 +2076,7 @@ Double.parseDouble(MnjLineV.getCurrentRow().getAttribute("Profit").toString());
             " MMPID.WASTAGE_IN_PER,\n" +
             " MMPID.COST_PER_PCS,\n" +
             " MMPID.FINAL_COST_PER_PCS,\n" +
+        " MMPID.ITEM_PREFIX,\n" +
             " MMPID.REMARKS,\n" +
             " MMPID.UOM_CONV,\n" +
             " MMPID.PAYMENT_TERM_ID,\n" +
@@ -2104,7 +2111,7 @@ Double.parseDouble(MnjLineV.getCurrentRow().getAttribute("Profit").toString());
             //System.out.println("3");
             //System.out.println("populateLinesTest ------->");
             //System.out.println("-------------------------------------populateLinesTestRec------------------------------------------");
-
+                 
             ViewObject vo =
                 appM.getXX_OM_POC_D1_TVO1(); // in which you wants to populate daa
             System.out.println("getXX_OM_POC_D1_TVO1() Query: " + '\n' +
@@ -2190,6 +2197,8 @@ Double.parseDouble(MnjLineV.getCurrentRow().getAttribute("Profit").toString());
                 //   System.out.println("===== FINAL_CONS ====="+resultSet.getString("FINAL_CONS"));
                 linerow.setAttribute("FabFinanceCost",
                                      resultSet.getString("FAB_FINANCE_COST"));
+                linerow.setAttribute("ItemPrefix",
+                                     resultSet.getString("ITEM_PREFIX")); 
                 //  System.out.println("===== FAB_FINANCE_COST ====="+resultSet.getString("FAB_FINANCE_COST"));
                 vo.insertRow(linerow);
             }
@@ -2246,9 +2255,11 @@ Double.parseDouble(MnjLineV.getCurrentRow().getAttribute("Profit").toString());
                 //  System.out.println("======= TOTAL ======="+resultSet.getString("TOTAL"));
                 linerow.setAttribute("ManualPrice",
                                      resultSet.getString("MANUAL_PRICE"));
+                linerow.setAttribute("ProcessId",
+                                     resultSet.getString("PROCESS_ID"));
                 //  System.out.println("======= MANUAL_PRICE ======="+resultSet.getString("MANUAL_PRICE"));
 
-
+                 System.out.println("Process ID is **************#########"+resultSet.getString("PROCESS_ID"));
                 vo.insertRow(linerow);
             }
 

@@ -223,7 +223,6 @@ from CHECK_COSTING1]]>
   </ViewAttribute>
   <ViewAttribute
     Name="FobId"
-    IsUpdateable="false"
     IsPersistent="false"
     IsNotNull="true"
     PrecisionRule="true"

@@ -254,8 +254,8 @@
                     <af:toolbar id="t3">
                       <af:commandButton actionListener="#{bindings.CreateInsert.execute}"
                                         text="Create"
-                                        disabled="#{(bindings.GmApproval.inputValue=='Y')||(bindings.GmApproval.inputValue=='I')? 'true':'false'}"
-                                        id="cb4" partialSubmit="true"/>
+                                        id="cb4" partialSubmit="true"
+                                        disabled="#{(bindings.GmApproval.inputValue=='Y')||(bindings.GmApproval.inputValue=='I')? 'true':'false'}"/>
                       <af:commandButton actionListener="#{bindings.Delete.execute}"
                                         text="Delete"
                                         disabled="#{(bindings.GmApproval.inputValue=='Y')||(bindings.GmApproval.inputValue=='I')? 'true':'false'}"

@@ -167,7 +167,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                 }
 
 
-                if (remark == "check") {
+               /* if (remark == "check") {
                     String message = "Check remark";
                     FacesMessage fm = new FacesMessage(message);
                     fm.setSeverity(FacesMessage.SEVERITY_INFO);
@@ -175,7 +175,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                     context.addMessage(null, fm);
 
 
-                }
+                }*/
             }
 
         } //end
