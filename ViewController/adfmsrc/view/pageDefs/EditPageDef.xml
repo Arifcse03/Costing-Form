@@ -581,5 +581,7 @@
         <Item Value="ProfitTobe"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="XX_OM_POC_L_TVO1Iterator" StaticList="false"
+          Uses="LOV_Shipment" id="Shipment" DTSupportsMRU="false"/>
   </bindings>
 </pageDefinition>

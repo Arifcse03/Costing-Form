@@ -589,6 +589,16 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
                 obj.setAttributeInternal(index(), value);
             }
         }
+        ,
+        shorExcessVo1 {
+            public Object get(XX_OM_POC_L_TVORowImpl obj) {
+                return obj.getshorExcessVo1();
+            }
+
+            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
         ;
         private static AttributesEnum[] vals = null;
         private static int firstIndex = 0;
@@ -675,6 +685,7 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
     public static final int SHORT_OR_ECCESS_VO = AttributesEnum.short_or_eccess_VO.index();
     public static final int MDSIRSVO = AttributesEnum.MDSIRsVO.index();
     public static final int COLORLOV1 = AttributesEnum.colorLov1.index();
+    public static final int SHOREXCESSVO1 = AttributesEnum.shorExcessVo1.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -1519,6 +1530,13 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
      */
     public RowSet getcolorLov1() {
         return (RowSet)getAttributeInternal(COLORLOV1);
+    }
+
+    /**
+     * Gets the view accessor <code>RowSet</code> shorExcessVo1.
+     */
+    public RowSet getshorExcessVo1() {
+        return (RowSet)getAttributeInternal(SHOREXCESSVO1);
     }
 
     /**

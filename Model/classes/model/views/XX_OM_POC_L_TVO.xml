@@ -20,6 +20,10 @@
     Name="colorLov1"
     ViewObjectName="model.lov.colorLov"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="shorExcessVo1"
+    ViewObjectName="model.views.shorExcessVo"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_Color"
     ListVOName="colorLov1"
@@ -39,6 +43,24 @@
     </AttrArray>
     <DisplayCriteria
       Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Shipment"
+    ListVOName="shorExcessVo1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_Shipment_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Shipment"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DataValue"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DataDisplay"/>
+    </AttrArray>
+    <DisplayCriteria/>
   </ListBinding>
   <SQLQuery>
     <![CDATA[SELECT XX_OM_POC_L_TEO.FOB_ID, 
@@ -320,7 +342,15 @@ FROM XX_OM_POC_L_T XX_OM_POC_L_TEO]]>
     PrecisionRule="true"
     EntityAttrName="Shipment"
     EntityUsage="XX_OM_POC_L_TEO"
-    AliasName="SHIPMENT"/>
+    AliasName="SHIPMENT"
+    LOVName="LOV_Shipment">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="radio"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ShipmentValue"
     PrecisionRule="true"

@@ -2704,10 +2704,18 @@
                                        binding="#{ManagedBean.selectedShipItem}"
                                        valueChangeListener="#{ManagedBean.ShipmentModeChange}"
                                        inlineStyle="padding:3px; width:auto; margin:auto;"
-                                       visible="true"
+                                       visible="false"
                                        contentStyle="width:50.0px;">
                       <af:selectItem label="Excess" value="Excess" id="si20"/>
                       <af:selectItem label="Short" value="Short" id="si19"/>
+                    </af:selectOneRadio>
+                    <af:selectOneRadio value="#{bindings.Shipment.inputValue}"
+                                       label="Shipment Mode"
+                                       required="#{bindings.Shipment.hints.mandatory}"
+                                       shortDesc="#{bindings.Shipment.hints.tooltip}"
+                                       id="sor4">
+                      <f:selectItems value="#{bindings.Shipment.items}"
+                                     id="si21"/>
                     </af:selectOneRadio>
                     <af:spacer width="10" height="1" id="spacer8"/>
                     <af:panelLabelAndMessage label="Actual Shipment Mode:"
