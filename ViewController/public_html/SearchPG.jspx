@@ -129,7 +129,8 @@
               </af:column>
               <af:column id="c1" align="center" sortable="true"
                          filterable="true" headerText="Org Name" width="135"
-                         sortProperty="OrgName">
+                         sortProperty="OrgName"
+                         filterFeatures="caseInsensitive">
                 <af:outputText value="#{row.OrgName}" id="ot5"/>
               </af:column>
               <af:column id="c14" headerText="Buyer" align="center"
@@ -169,7 +170,8 @@
               </af:column>
               <af:column id="c4" headerText="Approval" align="center"
                          sortable="true" filterable="true"
-                         sortProperty="GmStatus">
+                         sortProperty="GmStatus"
+                         filterFeatures="caseInsensitive">
                 <af:inputText value="#{row.bindings.GmStatus.inputValue}"
                               label="#{bindings.XX_OM_POC_H_TVO1.hints.GmStatus.label}"
                               required="#{bindings.XX_OM_POC_H_TVO1.hints.GmStatus.mandatory}"
@@ -209,7 +211,8 @@
               </af:column>
               <af:column sortProperty="StyleDescription" filterable="true"
                          sortable="true" headerText="Style Description" id="c5"
-                         width="120" align="center">
+                         width="120" align="center"
+                         filterFeatures="caseInsensitive">
                 <af:outputText value="#{row.StyleDescription}" id="ot1"/>
               </af:column>
             </af:table>

@@ -308,7 +308,8 @@
                   <af:column sortProperty="FabricDesc" filterable="true"
                              sortable="true"
                              headerText="Fabric Desc"
-                             id="c21" align="center" width="120">
+                             id="c21" align="center" width="120"
+                             filterFeatures="caseInsensitive">
                     <af:inputText value="#{row.bindings.FabricDesc.inputValue}"
                                   label="#{bindings.XX_OM_POC_L_TVO1.hints.FabricDesc.label}"
                                   required="#{bindings.XX_OM_POC_L_TVO1.hints.FabricDesc.mandatory}"
@@ -322,7 +323,8 @@
                   </af:column>
                   <af:column id="c2" headerText="Wash Name" align="center"
                              sortable="true" filterable="true" width="105"
-                             showRequired="true">
+                             showRequired="true" sortProperty="WashName"
+                             filterFeatures="caseInsensitive">
                     <af:inputText value="#{row.bindings.WashName.inputValue}"
                                   label="#{bindings.XX_OM_POC_L_TVO1.hints.WashName.label}"
                                   columns="#{bindings.XX_OM_POC_L_TVO1.hints.WashName.displayWidth}"
@@ -336,8 +338,9 @@
                   </af:column>
                   <af:column id="c37" headerText="Finish Garments color"
                              align="center" sortable="true" filterable="true"
-                             width="120" sortProperty="color"
-                             showRequired="true">
+                             width="120" sortProperty="Color"
+                             showRequired="true"
+                             filterFeatures="caseInsensitive">
                     <af:inputListOfValues id="colorId"
                                           popupTitle="Search and Select: #{bindings.XX_OM_POC_L_TVO1.hints.Color.label}"
                                           value="#{row.bindings.Color.inputValue}"
@@ -352,7 +355,8 @@
                   <af:column sortProperty="FabricCost" filterable="true"
                              sortable="true"
                              headerText="Fabric Cost With Finance"
-                             id="c25" align="center" width="60">
+                             id="c25" align="center" width="60"
+                             filterFeatures="caseInsensitive">
                     <af:inputText value="#{row.bindings.FabricCost.inputValue}"
                                   label="#{bindings.XX_OM_POC_L_TVO1.hints.FabricCost.label}"
                                   required="#{bindings.XX_OM_POC_L_TVO1.hints.FabricCost.mandatory}"
@@ -398,7 +402,8 @@
                     </af:inputText>
                   </af:column>
                   <af:column id="c1" headerText="Others" align="center"
-                             sortable="true" filterable="true" width="60">
+                             sortable="true" filterable="true" width="60"
+                             sortProperty="Others">
                     <af:inputText value="#{row.bindings.Others.inputValue}"
                                   label="#{bindings.XX_OM_POC_L_TVO1.hints.Others.label}"
                                   required="#{bindings.XX_OM_POC_L_TVO1.hints.Others.mandatory}"
@@ -412,7 +417,8 @@
                     </af:inputText>
                   </af:column>
                   <af:column id="c3" headerText="CM" align="center"
-                             sortable="true" filterable="true" width="60">
+                             sortable="true" filterable="true" width="60"
+                             sortProperty="Cm">
                     <af:inputText value="#{row.bindings.Cm.inputValue}"
                                   label="#{bindings.XX_OM_POC_L_TVO1.hints.Cm.label}"
                                   required="#{bindings.XX_OM_POC_L_TVO1.hints.Cm.mandatory}"
@@ -426,7 +432,8 @@
                     </af:inputText>
                   </af:column>
                   <af:column id="c53" headerText="FOB" align="center"
-                             sortable="true" filterable="true" width="60">
+                             sortable="true" filterable="true" width="60"
+                             sortProperty="FobWithComm">
                     <af:outputText value="#{row.FobWithComm}" id="ot16">
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.XX_OM_POC_L_TVO1.hints.FobWithComm.format}"/>
@@ -2786,6 +2793,10 @@
               </af:panelGroupLayout>
             </af:showDetailItem>
           </af:panelTabbed>
+          <af:commandButton text="Save" id="commandButton1"
+                            inlineStyle="width:100px; border-color:Black; border-style:dotted; border-width:2px; height:40px; text-align:center; vertical-align:middle;"
+                            action="#{ManagedBean.refershButton}"
+                            disabled="#{(bindings.GmApproval.inputValue=='Y')||(bindings.GmApproval.inputValue=='I')? 'true':'false'}"/>
         </af:panelHeader>
         <af:popup id="p1" binding="#{ManagedBean.servicePopup}">
           <af:dialog id="d2" title="Select Service Item" contentHeight="130"
