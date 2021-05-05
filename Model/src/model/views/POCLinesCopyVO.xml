@@ -35,8 +35,8 @@ mmpl.CM,
 mmpl.FOB_WITH_COMM
 from XX_OM_POC_L_T mmpl,XX_OM_POC_H_T mmph
 where
-NVL(GM_APPROVAL,'N') <> 'Y'
-and mmph.POC_ID = mmpl.POC_ID]]>
+--NVL(GM_APPROVAL,'N') <> 'Y'
+ mmph.POC_ID = mmpl.POC_ID]]>
   </SQLQuery>
   <ViewAttribute
     Name="PocId"
