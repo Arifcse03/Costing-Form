@@ -1999,10 +1999,11 @@
                     <f:facet name="menus"/>
                     <f:facet name="toolbar">
                       <af:toolbar id="t9">
-                        <af:commandButton actionListener="#{bindings.CreateInsert2.execute}"
+                        <af:commandButton
                                           text="Create"
                                           disabled="#{(bindings.GmApproval.inputValue=='Y')||(bindings.GmApproval.inputValue=='I')? 'true':'false'}"
-                                          id="cb10" partialSubmit="true"/>
+                                          id="cb10" partialSubmit="true"
+                                          actionListener="#{ManagedBean.CreateDryLine}"/>
                         <af:commandButton actionListener="#{bindings.Delete2.execute}"
                                           text="Delete"
                                           disabled="#{(bindings.GmApproval.inputValue=='Y')||(bindings.GmApproval.inputValue=='I')? 'true':'false'}"
@@ -2147,10 +2148,11 @@
                     <f:facet name="menus"/>
                     <f:facet name="toolbar">
                       <af:toolbar id="t10">
-                        <af:commandButton actionListener="#{bindings.CreateInsert3.execute}"
+                        <af:commandButton
                                           text="Create"
                                           disabled="#{(bindings.GmApproval.inputValue=='Y')||(bindings.GmApproval.inputValue=='I')? 'true':'false'}"
-                                          id="cb13" partialSubmit="true"/>
+                                          id="cb13" partialSubmit="true"
+                                          actionListener="#{ManagedBean.CreateWet}"/>
                         <af:commandButton actionListener="#{bindings.Delete3.execute}"
                                           text="Delete"
                                           disabled="#{(bindings.GmApproval.inputValue=='Y')||(bindings.GmApproval.inputValue=='I')? 'true':'false'}"

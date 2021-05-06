@@ -2987,7 +2987,29 @@ Double.parseDouble((getOteherConPcs().getValue().toString()));
     context.addMessage(null, fm);
 
     }
-    
-    
-    
+
+
+    public void CreateDryLine(ActionEvent actionEvent) {
+        // Add event code here...
+        
+        ViewObject vo = appM.getXX_OM_POC_D2_TVO1();
+        
+                Row row = vo.createRow();
+                vo.insertRow(row);
+        //vo.getCurrentRow().setAttribute("ProcessId",1);
+                row.setNewRowState(Row.STATUS_INITIALIZED);
+        vo.getCurrentRow().setAttribute("ProcessId",1);
+        
+    }
+
+    public void CreateWet(ActionEvent actionEvent) {
+        // Add event code here...
+        ViewObject vo = appM.getXX_OM_POC_D2_TVO2_1();
+        
+                Row row = vo.createRow();
+                vo.insertRow(row);
+        //vo.getCurrentRow().setAttribute("ProcessId",1);
+                row.setNewRowState(Row.STATUS_INITIALIZED);
+        vo.getCurrentRow().setAttribute("ProcessId",2);
+    }
 }

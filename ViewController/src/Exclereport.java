@@ -199,7 +199,7 @@ public class Exclereport {
         int count = 1;
 
         RowSet lineRowSet = (RowSet)row.getAttribute("XX_OM_POC_L_TVO");
-
+          System.out.println("lineRowSet is ....."+lineRowSet);
         while (lineRowSet.hasNext()) {
             xlRow = 0;
             xlCol = 0;
@@ -235,10 +235,11 @@ public class Exclereport {
                 worksheet.createRow(i);
                
             }
-           
+           System.out.println("xlRow is ----:"+xlRow);
            printDate(xlRow);
           //  printTableHeader(headerNumOfCol, xlCol, headerHeaderText);
           xlRow++;
+            System.out.println("parameter for print row header is :"+row+headerNumOfCol+xlCol);
             printRowHeader(row, headerNumOfCol, xlCol);
             printRowData(row, headerNumOfCol, xlCol);
 
@@ -247,6 +248,7 @@ public class Exclereport {
             this.xlRow = 1;
 
            // printTableHeader(lineNumOfCol, xlCol, lineHeaderText);
+            System.out.println("parameter for line numof col is :2"+lineRow+lineNumOfCol+xlCol);
             printRowHeader(lineRow, lineNumOfCol, xlCol);
             printRowData(lineRow, lineNumOfCol, xlCol);
 
@@ -260,13 +262,14 @@ public class Exclereport {
           
             
             detailRowSet = (RowSet)lineRow.getAttribute("XX_OM_POC_D1_TVO");
+            System.out.println("detail ROW SET is ....."+detailRowSet);
             xlCol = xlColDetail;
-             detailNumOfCol = 5;
+             detailNumOfCol = 6;
             detailHeaderText="Fabric Detail";
             if (detailRowSet.hasNext()) {
                 Row detailRow = detailRowSet.next();
                 detailRowSet.reset();
-
+System.out.println("line 272 data is :"+ detailNumOfCol+   xlCol+  detailHeaderText); 
                 printTableHeader(detailNumOfCol, xlCol, detailHeaderText);
                 printRowHeader(detailRow, detailNumOfCol, xlCol);
             }
@@ -472,11 +475,12 @@ public class Exclereport {
                 }
              
                 colName = sb1.toString();
-                System.out.println(colName);
+                System.out.println("printing column name:"+colName);
+                
                 if(colName.equals("Poc Id")) {
                     colName="POC NO";
                 }
-                if(colName.equals("Fabric Content")) {
+                if(colName.equals("Fob Id")) {
                     colName="Fabric Details";
                 }
                 if(colName.equals("Fob With Comm")) {

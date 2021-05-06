@@ -276,8 +276,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="XX_OM_POC_D2_TVO1Iterator" id="CreateInsert2"
-            RequiresUpdateModel="true" Action="createInsertRow"/>
     <action IterBinding="XX_OM_POC_D2_TVO1Iterator" id="Delete2"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <tree IterBinding="XX_OM_POC_D2_TVO2_1Iterator" id="XX_OM_POC_D2_TVO2_1">
@@ -294,8 +292,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="XX_OM_POC_D2_TVO2_1Iterator" id="CreateInsert3"
-            RequiresUpdateModel="true" Action="createInsertRow"/>
     <action IterBinding="XX_OM_POC_D2_TVO2_1Iterator" id="Delete3"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <attributeValues IterBinding="XX_OM_POC_H_TVO1Iterator" id="GmApproval">
