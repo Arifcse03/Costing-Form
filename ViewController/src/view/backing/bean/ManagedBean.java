@@ -215,14 +215,14 @@ public class ManagedBean {
         ViewObject vo = appM.getXX_OM_POC_D1_TVO1();
         ViewObject vo1 = appM.gettrimsVO1();
         ViewObject vo3 = appM.getothers_VO1();
-        ViewObject vo4 =appM.getXX_OM_POC_L_TVO1();
+       // ViewObject vo4 =appM.getXX_OM_POC_L_TVO1();
         ViewObject v5 = appM.getXX_OM_POC_D2_TVO1();
         ViewObject v6 = appM.getXX_OM_POC_D2_TVO2_1();
   
         vo.clearCache();
         vo1.clearCache();
         vo3.clearCache();
-        vo4.clearCache();
+       // vo4.clearCache();
         v5.clearCache();
         v6.clearCache();
 
@@ -2033,6 +2033,15 @@ Double.parseDouble(MnjLineV.getCurrentRow().getAttribute("Profit").toString());
     public void populateBundlesRec() {
 
         ViewObject populatevo = appM.getPOCLinesCopyVO1(); // pop up view
+        ViewObject linevo = appM.getXX_OM_POC_L_TVO1();
+        String ToFobId=null;
+        try {
+      ToFobId=linevo.getCurrentRow().getAttribute("FobId").toString();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            ToFobId=null;
+        }
         // populatevo.executeQuery();
         //System.out.println("--------------------------------populateBundlesRec-----------------------------------------------");
         Row[] r = populatevo.getAllRowsInRange();
@@ -2047,9 +2056,11 @@ Double.parseDouble(MnjLineV.getCurrentRow().getAttribute("Profit").toString());
                 //System.out.println("MultiSelect --->" + row.getAttribute("MultiSelect"));
                 String FobId = row.getAttribute("FobId").toString();
                 System.out.println("Fob id-------------->" + FobId);
-
+                
                 populateItemDetails(FobId); /// method to populate data
                 populateDryDetails(FobId);
+                insertingpocL(FobId,ToFobId);
+                
                 System.out.println("fob id is ------------"+FobId);
             }
         }
@@ -2280,7 +2291,26 @@ Double.parseDouble(MnjLineV.getCurrentRow().getAttribute("Profit").toString());
         iter.closeRowSetIterator();
         vo.executeEmptyRowSet();
     }
+    public void insertingpocL(String FromFobId,String ToFobId){
 
+     // System.out.println("######from fobid:"+FromFobId+"####to fobId:"+ToFobId);
+                    String stmt = "BEGIN XX_OM_POC_L_UPDATE_PROC  (:1,:2); end;";
+
+                    java.sql.CallableStatement cs =
+                    appM.getDBTransaction().createCallableStatement(stmt, 1);
+                    try {               
+                    cs.setInt(1, Integer.parseInt(FromFobId));
+                    cs.setInt(2, Integer.parseInt(ToFobId));
+                    cs.execute();
+                    cs.close();
+                                    
+                    } catch (SQLException e) {
+                         e.printStackTrace();
+
+                        }
+
+
+    }
     public void setDryDetailsTable(RichTable dryDetailsTable) {
         this.dryDetailsTable = dryDetailsTable;
     }

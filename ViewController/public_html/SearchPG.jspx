@@ -83,6 +83,12 @@
                                   inlineStyle="height:30px;">
                   <af:showPopupBehavior popupId="::p2"/>
                 </af:commandButton>
+                <af:commandButton text="export" id="cb8"
+                                  inlineStyle="height:30px;" visible="false">
+                  <af:fileDownloadActionListener method="#{Exclereport.Report}"
+                                                 filename="Costing Report.xls"
+                                                 contentType="application/excel"/>
+                </af:commandButton>
               </af:toolbar>
             </f:facet>
             <f:facet name="statusbar"/>

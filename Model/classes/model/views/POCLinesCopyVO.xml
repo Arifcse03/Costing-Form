@@ -36,7 +36,7 @@ mmpl.FOB_WITH_COMM
 from XX_OM_POC_L_T mmpl,XX_OM_POC_H_T mmph
 where
 --NVL(GM_APPROVAL,'N') <> 'Y'
- mmph.POC_ID = mmpl.POC_ID]]>
+ mmph.POC_ID = mmpl.POC_ID  order by mmph.POC_ID desc]]>
   </SQLQuery>
   <ViewAttribute
     Name="PocId"

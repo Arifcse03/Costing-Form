@@ -114,7 +114,14 @@ FROM XX_OM_POC_L_T XX_OM_POC_L_TEO]]>
     PrecisionRule="true"
     EntityAttrName="FobId"
     EntityUsage="XX_OM_POC_L_TEO"
-    AliasName="FOB_ID"/>
+    AliasName="FOB_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <AUTOSUBMIT
+          Value="true"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PocId"
     PrecisionRule="true"

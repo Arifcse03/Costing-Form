@@ -292,6 +292,14 @@
             <value n="id" v="BC4J Oracle Domains"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <url n="id" protocol="file" path="/K:/AppData/Roaming/JDeveloper/system11.1.1.6.38.62.29/o.jdeveloper/Poi-3.9.jar.library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <url n="id" path="../../../AppData/Roaming/JDeveloper/system11.1.1.6.38.62.29/o.jdeveloper/Poi-3.8-beta4.jar.library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
       <list n="libraryReferences">
          <hash>
@@ -404,6 +412,14 @@
          </hash>
          <hash>
             <value n="id" v="BC4J Oracle Domains"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <url n="id" protocol="file" path="/K:/AppData/Roaming/JDeveloper/system11.1.1.6.38.62.29/o.jdeveloper/Poi-3.9.jar.library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <url n="id" path="../../../AppData/Roaming/JDeveloper/system11.1.1.6.38.62.29/o.jdeveloper/Poi-3.8-beta4.jar.library"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
