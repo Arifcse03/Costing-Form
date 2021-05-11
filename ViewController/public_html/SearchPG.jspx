@@ -84,7 +84,7 @@
                   <af:showPopupBehavior popupId="::p2"/>
                 </af:commandButton>
                 <af:commandButton text="export" id="cb8"
-                                  inlineStyle="height:30px;" visible="false">
+                                  inlineStyle="height:30px;" visible="true">
                   <af:fileDownloadActionListener method="#{Exclereport.Report}"
                                                  filename="Costing Report.xls"
                                                  contentType="application/excel"/>

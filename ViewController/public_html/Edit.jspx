@@ -1124,7 +1124,8 @@
                                           pattern="#{bindings.XX_OM_POC_D1_TVO1.hints.CostPerPcs.format}"/>
                       </af:inputText>
                       <f:facet name="footer">
-                        <af:panelGroupLayout id="pgl13">
+                        <af:panelGroupLayout id="pgl13"
+                                             inlineStyle="height:21px;">
                           <af:outputText value="Total:" id="ot28"
                                          inlineStyle="color:Black; font-weight:bold; background-color:InfoBackground;"/>
                           <af:outputText value="#{bindings.fab_total.inputValue}"

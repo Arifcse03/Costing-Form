@@ -63,7 +63,11 @@
     <DisplayCriteria/>
   </ListBinding>
   <SQLQuery>
-    <![CDATA[SELECT XX_OM_POC_L_TEO.FOB_ID, 
+    <![CDATA[SELECT xx.FABRIC_DESC FABRIC_DEtails,
+xx.wash_name Wash ,xx.COLOR Colour,xx.FABRIC_COST Fabric_Cost_with_Finance
+,xx.TRIM_COST Trim_Costt,xx.WASH_COST Wash_costt,xx.OTHERS Others_cost,xx.CM CM_value,xx.FOB_WITH_COMM FOB_value  ,xx.REMARKS Remarks_Details,
+XX_OM_POC_L_TEO.FOB_ID, 
+
        XX_OM_POC_L_TEO.POC_ID, 
        XX_OM_POC_L_TEO.SYSTEM_ID, 
        XX_OM_POC_L_TEO.WASH_NAME, 
@@ -103,11 +107,156 @@
        XX_OM_POC_L_TEO.SHIPMENT_VALUE, 
        XX_OM_POC_L_TEO.PROD_PER_LINE_PER_H
        
-FROM XX_OM_POC_L_T XX_OM_POC_L_TEO]]>
+FROM XX_OM_POC_L_T XX_OM_POC_L_TEO,(select fob_id,FABRIC_DESC,wash_name,COLOR,FABRIC_COST
+,TRIM_COST,WASH_COST,OTHERS,CM,FOB_WITH_COMM,REMARKS from xx_om_POC_L_T l )xx where xx.fob_id=XX_OM_POC_L_TEO.FOB_ID]]>
   </SQLQuery>
   <EntityUsage
     Name="XX_OM_POC_L_TEO"
     Entity="model.entity.XX_OM_POC_L_TEO"/>
+  <ViewAttribute
+    Name="FabricDetails"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="FABRIC_DETAILS"
+    Expression="FABRIC_DETAILS"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Wash"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="WASH"
+    Expression="WASH"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Colour"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="COLOUR"
+    Expression="COLOUR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FabricCostWithFinance"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="FABRIC_COST_WITH_FINANCE"
+    Expression="FABRIC_COST_WITH_FINANCE"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TrimCostt"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="TRIM_COSTT"
+    Expression="TRIM_COSTT"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="WashCostt"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="WASH_COSTT"
+    Expression="WASH_COSTT"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OthersCost"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="OTHERS_COST"
+    Expression="OTHERS_COST"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CmValue"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="CM_VALUE"
+    Expression="CM_VALUE"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FobValue"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="FOB_VALUE"
+    Expression="FOB_VALUE"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RemarksDetails"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="REMARKS_DETAILS"
+    Expression="REMARKS_DETAILS"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
   <ViewAttribute
     Name="FobId"
     IsNotNull="true"

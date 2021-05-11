@@ -20,6 +20,106 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
      * AttributesEnum: generated enum for identifying attributes and accessors. Do not modify.
      */
     public enum AttributesEnum {
+        FabricDetails {
+            public Object get(XX_OM_POC_L_TVORowImpl obj) {
+                return obj.getFabricDetails();
+            }
+
+            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
+                obj.setFabricDetails((String)value);
+            }
+        }
+        ,
+        Wash {
+            public Object get(XX_OM_POC_L_TVORowImpl obj) {
+                return obj.getWash();
+            }
+
+            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
+                obj.setWash((String)value);
+            }
+        }
+        ,
+        Colour {
+            public Object get(XX_OM_POC_L_TVORowImpl obj) {
+                return obj.getColour();
+            }
+
+            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
+                obj.setColour((String)value);
+            }
+        }
+        ,
+        FabricCostWithFinance {
+            public Object get(XX_OM_POC_L_TVORowImpl obj) {
+                return obj.getFabricCostWithFinance();
+            }
+
+            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
+                obj.setFabricCostWithFinance((Number)value);
+            }
+        }
+        ,
+        TrimCostt {
+            public Object get(XX_OM_POC_L_TVORowImpl obj) {
+                return obj.getTrimCostt();
+            }
+
+            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
+                obj.setTrimCostt((Number)value);
+            }
+        }
+        ,
+        WashCostt {
+            public Object get(XX_OM_POC_L_TVORowImpl obj) {
+                return obj.getWashCostt();
+            }
+
+            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
+                obj.setWashCostt((Number)value);
+            }
+        }
+        ,
+        OthersCost {
+            public Object get(XX_OM_POC_L_TVORowImpl obj) {
+                return obj.getOthersCost();
+            }
+
+            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
+                obj.setOthersCost((Number)value);
+            }
+        }
+        ,
+        CmValue {
+            public Object get(XX_OM_POC_L_TVORowImpl obj) {
+                return obj.getCmValue();
+            }
+
+            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
+                obj.setCmValue((Number)value);
+            }
+        }
+        ,
+        FobValue {
+            public Object get(XX_OM_POC_L_TVORowImpl obj) {
+                return obj.getFobValue();
+            }
+
+            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
+                obj.setFobValue((Number)value);
+            }
+        }
+        ,
+        RemarksDetails {
+            public Object get(XX_OM_POC_L_TVORowImpl obj) {
+                return obj.getRemarksDetails();
+            }
+
+            public void put(XX_OM_POC_L_TVORowImpl obj, Object value) {
+                obj.setRemarksDetails((String)value);
+            }
+        }
+        ,
         FobId {
             public Object get(XX_OM_POC_L_TVORowImpl obj) {
                 return obj.getFobId();
@@ -628,6 +728,16 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
     }
 
 
+    public static final int FABRICDETAILS = AttributesEnum.FabricDetails.index();
+    public static final int WASH = AttributesEnum.Wash.index();
+    public static final int COLOUR = AttributesEnum.Colour.index();
+    public static final int FABRICCOSTWITHFINANCE = AttributesEnum.FabricCostWithFinance.index();
+    public static final int TRIMCOSTT = AttributesEnum.TrimCostt.index();
+    public static final int WASHCOSTT = AttributesEnum.WashCostt.index();
+    public static final int OTHERSCOST = AttributesEnum.OthersCost.index();
+    public static final int CMVALUE = AttributesEnum.CmValue.index();
+    public static final int FOBVALUE = AttributesEnum.FobValue.index();
+    public static final int REMARKSDETAILS = AttributesEnum.RemarksDetails.index();
     public static final int FOBID = AttributesEnum.FobId.index();
     public static final int POCID = AttributesEnum.PocId.index();
     public static final int SYSTEMID = AttributesEnum.SystemId.index();
@@ -699,6 +809,166 @@ public class XX_OM_POC_L_TVORowImpl extends ViewRowImpl {
      */
     public XX_OM_POC_L_TEOImpl getXX_OM_POC_L_TEO() {
         return (XX_OM_POC_L_TEOImpl)getEntity(0);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute FabricDetails.
+     * @return the FabricDetails
+     */
+    public String getFabricDetails() {
+        return (String) getAttributeInternal(FABRICDETAILS);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute FabricDetails.
+     * @param value value to set the  FabricDetails
+     */
+    public void setFabricDetails(String value) {
+        setAttributeInternal(FABRICDETAILS, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute Wash.
+     * @return the Wash
+     */
+    public String getWash() {
+        return (String) getAttributeInternal(WASH);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute Wash.
+     * @param value value to set the  Wash
+     */
+    public void setWash(String value) {
+        setAttributeInternal(WASH, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute Colour.
+     * @return the Colour
+     */
+    public String getColour() {
+        return (String) getAttributeInternal(COLOUR);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute Colour.
+     * @param value value to set the  Colour
+     */
+    public void setColour(String value) {
+        setAttributeInternal(COLOUR, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute FabricCostWithFinance.
+     * @return the FabricCostWithFinance
+     */
+    public Number getFabricCostWithFinance() {
+        return (Number) getAttributeInternal(FABRICCOSTWITHFINANCE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute FabricCostWithFinance.
+     * @param value value to set the  FabricCostWithFinance
+     */
+    public void setFabricCostWithFinance(Number value) {
+        setAttributeInternal(FABRICCOSTWITHFINANCE, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute TrimCostt.
+     * @return the TrimCostt
+     */
+    public Number getTrimCostt() {
+        return (Number) getAttributeInternal(TRIMCOSTT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute TrimCostt.
+     * @param value value to set the  TrimCostt
+     */
+    public void setTrimCostt(Number value) {
+        setAttributeInternal(TRIMCOSTT, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute WashCostt.
+     * @return the WashCostt
+     */
+    public Number getWashCostt() {
+        return (Number) getAttributeInternal(WASHCOSTT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute WashCostt.
+     * @param value value to set the  WashCostt
+     */
+    public void setWashCostt(Number value) {
+        setAttributeInternal(WASHCOSTT, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute OthersCost.
+     * @return the OthersCost
+     */
+    public Number getOthersCost() {
+        return (Number) getAttributeInternal(OTHERSCOST);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute OthersCost.
+     * @param value value to set the  OthersCost
+     */
+    public void setOthersCost(Number value) {
+        setAttributeInternal(OTHERSCOST, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute CmValue.
+     * @return the CmValue
+     */
+    public Number getCmValue() {
+        return (Number) getAttributeInternal(CMVALUE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute CmValue.
+     * @param value value to set the  CmValue
+     */
+    public void setCmValue(Number value) {
+        setAttributeInternal(CMVALUE, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute FobValue.
+     * @return the FobValue
+     */
+    public Number getFobValue() {
+        return (Number) getAttributeInternal(FOBVALUE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute FobValue.
+     * @param value value to set the  FobValue
+     */
+    public void setFobValue(Number value) {
+        setAttributeInternal(FOBVALUE, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute RemarksDetails.
+     * @return the RemarksDetails
+     */
+    public String getRemarksDetails() {
+        return (String) getAttributeInternal(REMARKSDETAILS);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute RemarksDetails.
+     * @param value value to set the  RemarksDetails
+     */
+    public void setRemarksDetails(String value) {
+        setAttributeInternal(REMARKSDETAILS, value);
     }
 
     /**

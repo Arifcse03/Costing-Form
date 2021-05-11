@@ -22,7 +22,8 @@
     </SchemaBasedProperties>
   </Properties>
   <SQLQuery>
-    <![CDATA[SELECT XX_OM_POC_D2_TEO.ID, 
+    <![CDATA[SELECT  xx.PROCESS_NAME Process_Namee, xx.MANUAL_PRICE MANUAL_PRICEE,
+XX_OM_POC_D2_TEO.ID, 
        XX_OM_POC_D2_TEO.DETAIL_ID, 
        XX_OM_POC_D2_TEO.FOB_ID, 
        XX_OM_POC_D2_TEO.PROCESS_ID, 
@@ -36,11 +37,41 @@
        XX_OM_POC_D2_TEO.CREATION_DATE, 
        XX_OM_POC_D2_TEO.LAST_UPDATED_BY, 
        XX_OM_POC_D2_TEO.LAST_UPDATED_DATE
-FROM XX_OM_POC_D2_T XX_OM_POC_D2_TEO where XX_OM_POC_D2_TEO.PROCESS_ID=2]]>
+FROM XX_OM_POC_D2_T XX_OM_POC_D2_TEO,(select ID,PROCESS_NAME, MANUAL_PRICE from  XX_OM_POC_D2_T )xx
+ where XX_OM_POC_D2_TEO.PROCESS_ID=2 and xx.ID=XX_OM_POC_D2_TEO.ID]]>
   </SQLQuery>
   <EntityUsage
     Name="XX_OM_POC_D2_TEO"
     Entity="model.entity.XX_OM_POC_D2_TEO"/>
+  <ViewAttribute
+    Name="ProcessNamee"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="PROCESS_NAMEE"
+    Expression="PROCESS_NAMEE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ManualPricee"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="MANUAL_PRICEE"
+    Expression="MANUAL_PRICEE"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
   <ViewAttribute
     Name="Id"
     IsNotNull="true"

@@ -29,6 +29,66 @@ public class XX_OM_POC_H_TVORowImpl extends ViewRowImpl {
             }
         }
         ,
+        BuyerName {
+            public Object get(XX_OM_POC_H_TVORowImpl obj) {
+                return obj.getBuyerName();
+            }
+
+            public void put(XX_OM_POC_H_TVORowImpl obj, Object value) {
+                obj.setBuyerName((String)value);
+            }
+        }
+        ,
+        SeasonName {
+            public Object get(XX_OM_POC_H_TVORowImpl obj) {
+                return obj.getSeasonName();
+            }
+
+            public void put(XX_OM_POC_H_TVORowImpl obj, Object value) {
+                obj.setSeasonName((String)value);
+            }
+        }
+        ,
+        StyleName {
+            public Object get(XX_OM_POC_H_TVORowImpl obj) {
+                return obj.getStyleName();
+            }
+
+            public void put(XX_OM_POC_H_TVORowImpl obj, Object value) {
+                obj.setStyleName((String)value);
+            }
+        }
+        ,
+        BrandName {
+            public Object get(XX_OM_POC_H_TVORowImpl obj) {
+                return obj.getBrandName();
+            }
+
+            public void put(XX_OM_POC_H_TVORowImpl obj, Object value) {
+                obj.setBrandName((String)value);
+            }
+        }
+        ,
+        FitName {
+            public Object get(XX_OM_POC_H_TVORowImpl obj) {
+                return obj.getFitName();
+            }
+
+            public void put(XX_OM_POC_H_TVORowImpl obj, Object value) {
+                obj.setFitName((String)value);
+            }
+        }
+        ,
+        OrderQantity {
+            public Object get(XX_OM_POC_H_TVORowImpl obj) {
+                return obj.getOrderQantity();
+            }
+
+            public void put(XX_OM_POC_H_TVORowImpl obj, Object value) {
+                obj.setOrderQantity((Number)value);
+            }
+        }
+        ,
         LcUnit {
             public Object get(XX_OM_POC_H_TVORowImpl obj) {
                 return obj.getLcUnit();
@@ -508,6 +568,12 @@ public class XX_OM_POC_H_TVORowImpl extends ViewRowImpl {
 
 
     public static final int POCID = AttributesEnum.PocId.index();
+    public static final int BUYERNAME = AttributesEnum.BuyerName.index();
+    public static final int SEASONNAME = AttributesEnum.SeasonName.index();
+    public static final int STYLENAME = AttributesEnum.StyleName.index();
+    public static final int BRANDNAME = AttributesEnum.BrandName.index();
+    public static final int FITNAME = AttributesEnum.FitName.index();
+    public static final int ORDERQANTITY = AttributesEnum.OrderQantity.index();
     public static final int LCUNIT = AttributesEnum.LcUnit.index();
     public static final int BUYERID = AttributesEnum.BuyerId.index();
     public static final int SEASON = AttributesEnum.Season.index();
@@ -582,6 +648,102 @@ public class XX_OM_POC_H_TVORowImpl extends ViewRowImpl {
      */
     public void setPocId(Number value) {
         setAttributeInternal(POCID, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute BuyerName.
+     * @return the BuyerName
+     */
+    public String getBuyerName() {
+        return (String) getAttributeInternal(BUYERNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute BuyerName.
+     * @param value value to set the  BuyerName
+     */
+    public void setBuyerName(String value) {
+        setAttributeInternal(BUYERNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute SeasonName.
+     * @return the SeasonName
+     */
+    public String getSeasonName() {
+        return (String) getAttributeInternal(SEASONNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute SeasonName.
+     * @param value value to set the  SeasonName
+     */
+    public void setSeasonName(String value) {
+        setAttributeInternal(SEASONNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute StyleName.
+     * @return the StyleName
+     */
+    public String getStyleName() {
+        return (String) getAttributeInternal(STYLENAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute StyleName.
+     * @param value value to set the  StyleName
+     */
+    public void setStyleName(String value) {
+        setAttributeInternal(STYLENAME, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute BrandName.
+     * @return the BrandName
+     */
+    public String getBrandName() {
+        return (String) getAttributeInternal(BRANDNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute BrandName.
+     * @param value value to set the  BrandName
+     */
+    public void setBrandName(String value) {
+        setAttributeInternal(BRANDNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute FitName.
+     * @return the FitName
+     */
+    public String getFitName() {
+        return (String) getAttributeInternal(FITNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute FitName.
+     * @param value value to set the  FitName
+     */
+    public void setFitName(String value) {
+        setAttributeInternal(FITNAME, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute OrderQantity.
+     * @return the OrderQantity
+     */
+    public Number getOrderQantity() {
+        return (Number) getAttributeInternal(ORDERQANTITY);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute OrderQantity.
+     * @param value value to set the  OrderQantity
+     */
+    public void setOrderQantity(Number value) {
+        setAttributeInternal(ORDERQANTITY, value);
     }
 
     /**

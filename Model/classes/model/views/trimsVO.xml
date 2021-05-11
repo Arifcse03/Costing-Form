@@ -48,7 +48,8 @@
       Hint="showAndExecute"/>
   </ListBinding>
   <SQLQuery>
-    <![CDATA[SELECT 
+    <![CDATA[SELECT  xx.value_description Prefix_Description
+ ,xx.REF_CODE Ref_Codee,xx.ACTUAL_UNIT_PRICE ACTUAL_UNIT_PRICEe,xx.CONS_PER_PCS CONS_PER_PCSs,xx.COST_PER_PCS COST_PER_PCSs,
 XX_OM_POC_D1_TEO.ACTUAL_UNIT_PRICE, 
                                   
        XX_OM_POC_D1_TEO.ADD_CHARGE_LC, 
@@ -90,8 +91,11 @@ XX_OM_POC_D1_TEO.ACTUAL_UNIT_PRICE,
         (select t.value_description
 from MNJ_ITEM_PREFIX_V t
 where t.flex_value = to_char(XX_OM_POC_D1_TEO.Item_Prefix))ITEM_PREFIX_DESC
-FROM XX_OM_POC_D1_T XX_OM_POC_D1_TEO,QA_PLANS QP, QA_RESULTS QR
-   WHERE     XX_OM_POC_D1_TEO.ITEM_PREFIX = QR.CHARACTER2
+FROM XX_OM_POC_D1_T XX_OM_POC_D1_TEO,QA_PLANS QP, QA_RESULTS QR,
+(select Detail_id,  t.value_description ,d1.REF_CODE,d1.ACTUAL_UNIT_PRICE,d1.CONS_PER_PCS,d1.COST_PER_PCS
+from MNJ_ITEM_PREFIX_V t, xx_OM_POC_D1_t d1
+where t.flex_value = to_char(d1.Item_Prefix)  )xx
+   WHERE    XX_OM_POC_D1_TEO.DETAIL_ID=xx.Detail_id and    XX_OM_POC_D1_TEO.ITEM_PREFIX = QR.CHARACTER2
          AND qr.plan_id = qp.plan_id
          AND UPPER (QP.NAME) = 'SEQUENCE NO POC'
         --AND XX_OM_POC_D1_TEO.ITEM_PREFIX  in (11,12)
@@ -101,6 +105,78 @@ ORDER BY XX_OM_POC_D1_TEO.ITEM_PREFIX]]>
   <EntityUsage
     Name="XX_OM_POC_D1_TEO"
     Entity="model.entity.XX_OM_POC_D1_TEO"/>
+  <ViewAttribute
+    Name="PrefixDescription"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="240"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="PREFIX_DESCRIPTION"
+    Expression="PREFIX_DESCRIPTION"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RefCodee"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="1000"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="REF_CODEE"
+    Expression="REF_CODEE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1000"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ActualUnitPricee"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="ACTUAL_UNIT_PRICEE"
+    Expression="ACTUAL_UNIT_PRICEE"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ConsPerPcss"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="CONS_PER_PCSS"
+    Expression="CONS_PER_PCSS"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CostPerPcss"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="COST_PER_PCSS"
+    Expression="COST_PER_PCSS"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
   <ViewAttribute
     Name="ActualUnitPrice"
     PrecisionRule="true"

@@ -18,6 +18,7 @@ import oracle.jbo.Row;
 import oracle.jbo.RowSet;
 import oracle.jbo.ViewObject;
 import oracle.jbo.domain.Number;
+
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
@@ -198,6 +199,8 @@ public class Exclereport {
         Row row = HeaderVo.getCurrentRow();
         int count = 1;
 
+																			  
+
         RowSet lineRowSet = (RowSet)row.getAttribute("XX_OM_POC_L_TVO");
           System.out.println("lineRowSet is ....."+lineRowSet);
         while (lineRowSet.hasNext()) {
@@ -264,7 +267,7 @@ public class Exclereport {
             detailRowSet = (RowSet)lineRow.getAttribute("XX_OM_POC_D1_TVO");
             System.out.println("detail ROW SET is ....."+detailRowSet);
             xlCol = xlColDetail;
-             detailNumOfCol = 6;
+             detailNumOfCol = 5;
             detailHeaderText="Fabric Detail";
             if (detailRowSet.hasNext()) {
                 Row detailRow = detailRowSet.next();
@@ -432,7 +435,7 @@ System.out.println("line 272 data is :"+ detailNumOfCol+   xlCol+  detailHeaderT
           xlCol=11;  
       //  this.xlRow = xlRowNew;
        printAttributeForOtherCOst(detailNumOfCol, xlCol);
-          
+          System.out.println("NUM OF DETAIL NUM OF C0L AND XLCOL FOR PRRLINEH ,SAM,SRFFI"+detailNumOfCol+"   "+xlCol);
             
         }
        
@@ -480,16 +483,16 @@ System.out.println("line 272 data is :"+ detailNumOfCol+   xlCol+  detailHeaderT
                 if(colName.equals("Poc Id")) {
                     colName="POC NO";
                 }
-                if(colName.equals("Fob Id")) {
+                if(colName.equals("Fabric Details")) {
                     colName="Fabric Details";
                 }
-                if(colName.equals("Fob With Comm")) {
+                if(colName.equals("Fob Value")) {
                     colName="FOB";
                 }
                 if(colName.equals("Manual Price")) {
                     colName="Price";
                 }
-                if(colName.equals("Cm")) {
+                if(colName.equals("Cm Value")) {
                     colName="CM";
                 }
                 if(colName.equals("Fabric Cost")) {
@@ -512,7 +515,7 @@ System.out.println("line 272 data is :"+ detailNumOfCol+   xlCol+  detailHeaderT
      ---------------------------------------------------------------------------------------------*/
 
     public void printRowData(Row row, int numOfCol, int xlCol) {
-
+  System.out.println("data value are##########:"+row+numOfCol+xlCol);
         excelrow = (HSSFRow)worksheet.getRow(xlRow);
         for (String colName : row.getAttributeNames()) {
             if (row.getAttributeIndexOf(colName) < numOfCol) {
@@ -573,6 +576,7 @@ System.out.println("line 272 data is :"+ detailNumOfCol+   xlCol+  detailHeaderT
     
     private void addColValues(RowSet rowSet, String colName, int xlCol) {
        // this.xlRow += 1;
+        System.out.println("value for custom row :"+rowSet+"colname: "+colName+"xlcol"+xlCol);
         int colIndex = 0;
         rowSet.reset();
         if (rowSet.hasNext()) {
@@ -580,9 +584,10 @@ System.out.println("line 272 data is :"+ detailNumOfCol+   xlCol+  detailHeaderT
             colIndex = row.getAttributeIndexOf(colName);
             excelrow = (HSSFRow)worksheet.getRow(xlRow);
             int a = xlCol + colIndex - 3;
-            excelcell = excelrow.createCell(a);
-            excelcell.setCellStyle(dataStyle);
-            excelcell.setCellValue("Total :");
+            System.out.println("vaule of total field is :___xcol of a__"+xlCol+"col index"+ colIndex);
+            //excelcell = excelrow.createCell(a);
+          // excelcell.setCellStyle(dataStyle);
+          // excelcell.setCellValue("Total :");
             worksheet.autoSizeColumn(xlColDry);
         }
         rowSet.reset();
@@ -601,9 +606,10 @@ System.out.println("line 272 data is :"+ detailNumOfCol+   xlCol+  detailHeaderT
             total += d1;
         }
         total =Double.parseDouble(new DecimalFormat("##.####").format(total));
-        excelcell = excelrow.createCell(xlCol + colIndex-2);
-        excelcell.setCellStyle(dataStyle);
-        excelcell.setCellValue("" + total);
+       //excelcell = excelrow.createCell(xlCol + colIndex-2);
+       System.out.println("vaule of total field is :_____"+total+"___xcol_"+xlCol +"col index"+ colIndex);
+        //excelcell.setCellStyle(dataStyle);
+        //excelcell.setCellValue("" + total);
         worksheet.autoSizeColumn(xlCol);
     }
 
@@ -648,42 +654,59 @@ System.out.println("line 272 data is :"+ detailNumOfCol+   xlCol+  detailHeaderT
         String[] ArrayData = new String[5];
         try{
             ArrayData[0]=linedataVO.getCurrentRow().getAttribute("ProdPerLinePerH").toString();
+            System.out.println("arraydata 1:"+ArrayData[0]);
         }
         catch(Exception e) {
             ArrayData[0]=null;
+            System.out.println("in catch arraydata 0:"+ArrayData[0]);
+           
         }
         try{
             ArrayData[1]=linedataVO.getCurrentRow().getAttribute("StyleEfficiency").toString();
+            System.out.println("arraydata 1:"+ArrayData[1]);
         }
         catch(Exception e) {
             ArrayData[1]=null;
+            System.out.println("in catch arraydata 1:"+ArrayData[1]);
         }
         try{
             ArrayData[2]=linedataVO.getCurrentRow().getAttribute("Sam").toString();
+            System.out.println("arraydata 1:"+ArrayData[2]);
         }
         catch(Exception e) {
             ArrayData[2]=null;
+            System.out.println("in catch arraydata 2:"+ArrayData[2]);
         }
-//        try{
-//            ArrayData[3]=headerdataVO.getCurrentRow().getAttribute("AgencyCommission").toString();
-//        }
-//        catch(Exception e) {
-//            ArrayData[3]=null;
-//        }
         try{
-            ArrayData[3]=linedataVO.getCurrentRow().getAttribute("Shipment").toString();
-        }
+            ArrayData[3]=linedataVO.getCurrentRow().getAttribute("CommisonPrcnt").toString();
+           System.out.println("arraydata 1:"+ArrayData[3]);
+       }
         catch(Exception e) {
             ArrayData[3]=null;
+           System.out.println("in catch arraydata 3:"+ArrayData[3]);
+       }
+        try{
+            ArrayData[4]=linedataVO.getCurrentRow().getAttribute("Shipment").toString();
+            System.out.println("arraydata 1:"+ArrayData[4]);
         }
+        catch(Exception e) {
+            ArrayData[4]=null;
+            System.out.println("in catch arraydata 4:"+ArrayData[4]);
+        }
+			
+																						
+		 
+							
+							  
+		 
 //        ArrayData[0]=linedataVO.getCurrentRow().getAttribute("ProdPerLinePerH").toString();
 //        ArrayData[1]=linedataVO.getCurrentRow().getAttribute("StyleEfficiency").toString();
 //        ArrayData[2]=linedataVO.getCurrentRow().getAttribute("Sam").toString();
 //        ArrayData[3]=linedataVO.getCurrentRow().getAttribute("AgencyCommission").toString();
 //        ArrayData[4]=linedataVO.getCurrentRow().getAttribute("Shipment").toString();
         
-            String[] Array = {"Productivity/Hr", "Style Effi", "SAM", "Agency Commi", "Shipment"};
-        for(int i=0;i<4;i++) {
+            String[] Array = {"Productivity/Hr", "Style Effi", "SAM", "Commison Prcnt", "Shipment"};
+        for(int i=0;i<5;i++) {
             excelcell = excelrow.createCell(xlCol);
             excelcell.setCellStyle(headerStyle);
             System.out.println("string array data "+Array[i]);
@@ -697,7 +720,7 @@ System.out.println("line 272 data is :"+ detailNumOfCol+   xlCol+  detailHeaderT
         
         excelrow = (HSSFRow)worksheet.getRow(xlRow+4);
             //String[] Arrayy = {"1", "2", "3", "4", "5"};
-        for(int i=0;i<4;i++) {
+        for(int i=0;i<5;i++) {
             excelcell = excelrow.createCell(dataxlCol);
             excelcell.setCellStyle(dataStyle);
             System.out.println("string array data "+ArrayData[i]);
@@ -715,7 +738,7 @@ System.out.println("line 272 data is :"+ detailNumOfCol+   xlCol+  detailHeaderT
 
     private void printDate(int xlRow) {
         excelrow = (HSSFRow)worksheet.getRow(xlRow);
-        excelcell = excelrow.createCell(6);
+        excelcell = excelrow.createCell(7);
         excelcell.setCellStyle(headerStyle);
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
             Date date = new Date();  
@@ -729,3 +752,4 @@ System.out.println("line 272 data is :"+ detailNumOfCol+   xlCol+  detailHeaderT
                   
     }
 }
+ 

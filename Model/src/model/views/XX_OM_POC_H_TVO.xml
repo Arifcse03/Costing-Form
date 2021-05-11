@@ -260,6 +260,8 @@
   </ListBinding>
   <SQLQuery>
     <![CDATA[SELECT XX_OM_POC_H_TEO.POC_ID, 
+      xx.customer_name Buyer_name,
+      xx.SEASON Season_name ,xx.STYLE Style_Name ,xx.BRAND Brand_Name,xx.FIT Fit_Name,xx.ORDER_QTY Order_Qantity,
        XX_OM_POC_H_TEO.LC_UNIT, 
        XX_OM_POC_H_TEO.BUYER_ID, 
        XX_OM_POC_H_TEO.SEASON, 
@@ -301,7 +303,8 @@ where ac.CUSTOMER_ID = XX_OM_POC_H_TEO.Buyer_Id) Buyer,
 (SELECT SUM (QTY)
 FROM xx_om_poc_l_t l, xx_om_bpo_info_t b
 WHERE l.fob_id = b.fob_id AND l.poc_id = XX_OM_POC_H_TEO.POC_ID)ORDER_QTY_ALL
-FROM XX_OM_POC_H_T XX_OM_POC_H_TEO where XX_OM_POC_H_TEO.DEPT=1 AND XX_OM_POC_H_TEO.Buyer_Id in
+FROM XX_OM_POC_H_T XX_OM_POC_H_TEO,(select H.POC_ID, AC.customer_name,H.SEASON,H.STYLE,H.BRAND,H.FIT,H.ORDER_QTY
+from ar_customers ac,XX_OM_POC_H_T H WHERE AC.CUSTOMER_ID=h.buyer_id )xx  where XX_OM_POC_H_TEO.DEPT=1 and xx.poc_id=XX_OM_POC_H_TEO.POC_ID AND XX_OM_POC_H_TEO.Buyer_Id in
 (select V.BUYER_ID
 from --MNJ_USER_WISE_BUYERS_DET_V
  XX_OM_BUYERWISE_USER_RES_T v
@@ -318,6 +321,96 @@ order by TO_NUMBER( XX_OM_POC_H_TEO.POC_ID) desc ,TO_NUMBER(XX_OM_POC_H_TEO.Vers
     EntityAttrName="PocId"
     EntityUsage="XX_OM_POC_H_TEO"
     AliasName="POC_ID"/>
+  <ViewAttribute
+    Name="BuyerName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BUYER_NAME"
+    Expression="BUYER_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="SeasonName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="SEASON_NAME"
+    Expression="SEASON_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="StyleName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="STYLE_NAME"
+    Expression="STYLE_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BrandName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="BRAND_NAME"
+    Expression="BRAND_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="FitName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="FIT_NAME"
+    Expression="FIT_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrderQantity"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="ORDER_QANTITY"
+    Expression="ORDER_QANTITY"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </ViewAttribute>
   <ViewAttribute
     Name="LcUnit"
     PrecisionRule="true"
