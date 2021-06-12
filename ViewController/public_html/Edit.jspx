@@ -809,6 +809,11 @@
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.ShipmentPct.format}"/>
                     </af:outputText>
+                    <af:spacer width="5" height="15" id="s16"/>
+                    <af:outputText value="(" id="ot49"/>
+                    <af:outputText value="#{bindings.Postion.inputValue}"
+                                   id="ot48"/>
+                    <af:outputText value=")" id="ot50"/>
                   </af:panelLabelAndMessage>
                 </af:panelFormLayout>
               </af:panelGroupLayout>
